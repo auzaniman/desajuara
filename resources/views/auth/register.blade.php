@@ -20,14 +20,19 @@
             <div class="text-center text-muted mb-4">
               <small>{{ __('Register') }}</small>
             </div>
-            <form action="{{ route('register') }}" method="post">
+            <form role="form" action="{{ route('register') }}" method="post">
               @csrf
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control" id="name" name="name" placeholder="Name" type="text">
+                  <input class="form-control @error('name') is-invalid @enderror" id="name" name="name" placeholder="Name" type="text">
+                  @error('name')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
               <div class="form-group">
@@ -35,7 +40,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                   </div>
-                  <input class="form-control" id="email" name="email" placeholder="Email" type="email">
+                  <input class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email" type="email">
+                  @error('email')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
               <div class="form-group focused">
@@ -43,7 +53,12 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                   </div>
-                  <input class="form-control" name="password" id="password" placeholder="Password" type="password">
+                  <input class="form-control @error('password') is-invalid @enderror" name="password" id="password" placeholder="Password" type="password">
+                  @error('password')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
               </div>
               <div class="form-group focused">
