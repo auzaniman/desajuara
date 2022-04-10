@@ -1,57 +1,15 @@
 @extends('users.layouts.app')
 
 @section('title')
-Desa Pintar
+Desa Juara
 @endsection
 
 @section('content')
 <div class="wrapper">
-  <div class="section section-hero section-shaped">
-    <div class="shape shape-style-1 shape-primary">
-      <span class="span-150"></span>
-      <span class="span-50"></span>
-      <span class="span-50"></span>
-      <span class="span-75"></span>
-      <span class="span-100"></span>
-      <span class="span-75"></span>
-      <span class="span-50"></span>
-      <span class="span-100"></span>
-      <span class="span-50"></span>
-      <span class="span-100"></span>
-    </div>
-    <div class="page-header">
-      <div class="container shape-container d-flex align-items-center py-lg">
-        <div class="col px-0">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-lg-6 text-center">
-              <img src="./assets/img/brand/white.png" style="width: 200px;" class="img-fluid">
-              <p class="lead text-white">A beautiful Design System for Bootstrap 4. It's Free and Open Source.</p>
-              <div class="btn-wrapper mt-5">
-                <a href="https://www.creative-tim.com/product/argon-design-system" class="btn btn-lg btn-white btn-icon mb-3 mb-sm-0">
-                  <span class="btn-inner--icon"><i class="ni ni-cloud-download-95"></i></span>
-                  <span class="btn-inner--text">Download HTML</span>
-                </a>
-                <a href="https://github.com/creativetimofficial/argon-design-system" class="btn btn-lg btn-github btn-icon mb-3 mb-sm-0" target="_blank">
-                  <span class="btn-inner--icon"><i class="fa fa-github"></i></span>
-                  <span class="btn-inner--text"><span class="text-warning">Star us</span> on Github</span>
-                </a>
-              </div>
-              <div class="mt-5">
-                <small class="font-weight-bold mb-0 mr-2 text-white">*proudly coded by</small>
-                <img src="./assets/img/brand/creativetim-white-slim.png" style="height: 28px;">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="separator separator-bottom separator-skew zindex-100">
-      <svg x="0" y="0" viewBox="0 0 2560 100" preserveAspectRatio="none" version="1.1" xmlns="http://www.w3.org/2000/svg">
-        <polygon class="fill-white" points="2560 0 2560 100 0 100"></polygon>
-      </svg>
-    </div>
-  </div>
-  <div class="section section-components pb-0" id="section-components">
+  @include('users.components.hero')
+  @include('users.components.superiority')
+  @include('users.components.feature')
+  {{-- <div class="section section-components pb-0" id="section-components">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-lg-12">
@@ -181,8 +139,8 @@ Desa Pintar
         </div>
       </div>
     </div>
-  </div>
-  <div class="section pb-0 section-components">
+  </div> --}}
+  {{-- <div class="section pb-0 section-components">
     <div class="container mb-5">
       <!-- Inputs -->
       <h3 class="h4 text-success font-weight-bold mb-4">Inputs</h3>
@@ -270,8 +228,8 @@ Desa Pintar
         </div>
       </div>
     </div>
-  </div>
-  <div class="section">
+  </div> --}}
+  {{-- <div class="section">
     <div class="container">
       <!-- Custom controls -->
       <div class="row">
@@ -489,8 +447,8 @@ Desa Pintar
         </div>
       </div>
     </div>
-  </div>
-  <div class="section section-navbars">
+  </div> --}}
+  {{-- <div class="section section-navbars">
     <div class="container">
       <!-- Navigation -->
       <h2 class="mb-5">
@@ -790,8 +748,8 @@ Desa Pintar
         </div>
       </div>
     </nav>
-  </div>
-  <div class="section section-components">
+  </div> --}}
+  {{-- <div class="section section-components">
     <div class="container">
       <h3 class="h4 text-success font-weight-bold mb-4">Tabs</h4>
         <div class="row justify-content-center">
@@ -975,40 +933,40 @@ Desa Pintar
       <span class="badge badge-pill badge-warning text-uppercase">Warning</span>
       <span class="badge badge-pill badge-info text-uppercase">Info</span>
     </div>
-  </div>
-  <h3 class="h4 text-success font-weight-bold mb-4 mt-5">Alerts</h3>
-  <div class="alert alert-success alert-dismissible fade show" role="alert">
+  </div> --}}
+  {{-- <h3 class="h4 text-success font-weight-bold mb-4 mt-5">Alerts</h3> --}}
+  {{-- <div class="alert alert-success alert-dismissible fade show" role="alert">
     <span class="alert-inner--icon"><i class="ni ni-like-2"></i></span>
     <span class="alert-inner--text"><strong>Success!</strong> This is a success alert—check it out!</span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="alert alert-info alert-dismissible fade show" role="alert">
+  </div> --}}
+  {{-- <div class="alert alert-info alert-dismissible fade show" role="alert">
     <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
     <span class="alert-inner--text"><strong>Info!</strong> This is an info alert—check it out!</span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+  </div> --}}
+  {{-- <div class="alert alert-warning alert-dismissible fade show" role="alert">
     <span class="alert-inner--icon"><i class="ni ni-bell-55"></i></span>
     <span class="alert-inner--text"><strong>Warning!</strong> This is a warning alert—check it out!</span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
-  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+  </div> --}}
+  {{-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
     <span class="alert-inner--icon"><i class="ni ni-support-16"></i></span>
     <span class="alert-inner--text"><strong>Danger!</strong> This is an error alert—check it out!</span>
     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
       <span aria-hidden="true">&times;</span>
     </button>
-  </div>
+  </div> --}}
 </div>
 
 <!-- Typography -->
-<div class="section section-typography">
+{{-- <div class="section section-typography">
   <div class="container">
     <h2 class="mt-lg mb-5">
       <span>Typography</span>
@@ -1673,5 +1631,5 @@ Desa Pintar
       </div>
     </div>
   </div>
-</section>
+</section> --}}
 @endsection
