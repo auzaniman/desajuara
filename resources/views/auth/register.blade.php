@@ -20,7 +20,7 @@
             <div class="text-center text-muted mb-4">
               <small>{{ __('Register') }}</small>
             </div>
-            <form role="form" method="POST" action="{{ route('register') }}">
+            <form action="{{ route('register') }}" method="post">
               @csrf
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">

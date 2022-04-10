@@ -98,6 +98,18 @@
             <span class="nav-link-inner--text d-lg-none">Github</span>
           </a>
         </li>
+
+        @auth
+        <li class="nav-item d-none d-lg-block">
+          <a href="" target="_blank" class="btn btn-danger btn-icon">
+            <span class="btn-inner--icon">
+              <i class="fa fa-shopping-cart"></i>
+            </span>
+            <span class="nav-link-inner--text">Keluar</span>
+          </a>
+        </li>
+        @endauth
+
       </ul>
     </div>
   </div>
