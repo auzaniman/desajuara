@@ -34,8 +34,8 @@
           <div class="info info-horizontal info-hover-primary ">
             <div class="card-body">
               <div class="description">
-                <h5 class="title font-weight-bold" style="font-size: 1.5rem"><span class="btn-inner--icon"><i class="fa fa-map mr-2 text-primary" aria-hidden="true"></i></span> Lihat Peta - Holistik</h5>
-                <p style="font-size: 1.1rem">Pengin tau tentang kondisi, status, dan informasi bidang bidang tanah di desa? Sekarang kamu bisa melihatnya dalam genggaman dengan aman dan nyaman.</p>
+                <h5 class="title font-weight-bold" style="font-size: 1.5rem"><span class="btn-inner--icon"><i class="fa fa-map mr-2 text-primary" aria-hidden="true"></i></span> Holistik</h5>
+                <p style="font-size: 1.1rem">Ingin tau tentang kondisi, status, dan informasi bidang bidang tanah di desa? Sekarang kamu bisa melihatnya dalam genggaman dengan aman dan nyaman.</p>
                 {{-- <a href="#" class="text-info">Learn more</a> --}}
               </div>
             </div>
@@ -62,7 +62,7 @@
           <div class="info info-horizontal info-hover-primary ">
             <div class="card-body">
               <div class="description">
-                <h5 class="title font-weight-bold" style="font-size: 1.5rem"><span class="btn-inner--icon"><i class="fa fa-pencil-square-o mr-2 text-primary" aria-hidden="true"></i></span> Planner - Terencana</h5>
+                <h5 class="title font-weight-bold" style="font-size: 1.5rem"><span class="btn-inner--icon"><i class="fa fa-pencil-square-o mr-2 text-primary" aria-hidden="true"></i></span> Terencana</h5>
                 <p style="font-size: 1.1rem">Bersama kami, ayo efisiensikan program dan kegiatan dengan perencanaan yang tertata agar menghasilkan kebermanfaatan yang lebih besar.</p>
                 {{-- <a href="#" class="text-info">Learn more</a> --}}
               </div>
