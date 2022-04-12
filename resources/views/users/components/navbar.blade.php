@@ -11,7 +11,7 @@
         <div class="row">
           <div class="col-6 collapse-brand">
             <a href="">
-              <img src="{{ url ('frontend/argon_theme/assets/img/brand/blue.png')}}">
+              Desajuara{{-- <img src="{{ url ('frontend/argon_theme/assets/img/brand/blue.png')}}"> --}}
             </a>
           </div>
           <div class="col-6 collapse-close">
@@ -115,7 +115,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link nav-link-icon" href="https://twitter.com" target="_blank" data-toggle="tooltip" title="Contact us on Whatsapp">
+          <a class="nav-link nav-link-icon" href="https://wa.me/81225258383" target="_blank" data-toggle="tooltip" title="Contact us on Whatsapp">
             <i class="fa fa-whatsapp"></i>
             <span class="nav-link-inner--text d-lg-none">Whatsapp</span>
           </a>
