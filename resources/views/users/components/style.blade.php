@@ -9,3 +9,29 @@
 <link href={{ url('frontend/argon_theme/assets/css/nucleo-svg.css')}} rel="stylesheet" />
 <!-- CSS Files -->
 <link href={{ url('frontend/argon_theme/assets/css/argon-design-system.css?v=1.2.2')}} rel="stylesheet" />
+
+<style>
+  @font-face{
+    font-family: 'Century Gothic';
+    src: url('frontend/assets/fonts/CenturyGothic.ttf') format('truetype'), url('frontend/assets/fonts/GOTHICB0.TTF') format('truetype');
+  }
+
+
+  body {
+    font-family: 'Century Gothic';
+  }
+
+  .img-hero {
+    position: absolute;
+    left: 0;
+    filter: brightness(0.5);
+  }
+
+  .section-hero {
+    min-height: 100vh;
+  }
+
+  .card {
+    box-shadow: 0px 6px 20px 0px rgb(0 0 0 / 10%);
+  }
+</style>

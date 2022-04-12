@@ -14,11 +14,21 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+// Landing
 Route::get('/', function () {
     return view('users.pages.index');
 });
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Dashboard
+Route::prefix('admin')
+->namespace('Admin')
+->middleware(['auth', 'admin'])
+->group(function() {
+
+  // Dashboard
+  Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+});
 
 Auth::routes();
 

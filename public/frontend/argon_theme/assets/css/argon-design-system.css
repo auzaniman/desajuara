@@ -35,7 +35,7 @@ Coded by www.creative-tim.com
   --gray-dark: #32325d;
   --light: #ced4da;
   --lighter: #e9ecef;
-  --primary: #5e72e4;
+  --primary: #000080;
   --secondary: #f4f5f7;
   --success: #2dce89;
   --info: #11cdef;
@@ -15765,12 +15765,12 @@ button.bg-darker:focus {
 }
 
 .text-primary {
-  color: #5e72e4 !important;
+  color: #000080 !important;
 }
 
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #233dd2 !important;
+  color: #0000b9 !important;
 }
 
 .text-secondary {
@@ -18957,8 +18957,8 @@ textarea[resize="horizontal"] {
 }
 
 .icon-shape-primary {
-  color: #2643e9;
-  background-color: rgba(138, 152, 235, 0.5);
+  color: #ffffff;
+  background-color: rgba(0, 20, 131, 0.5);
 }
 
 .icon-shape-secondary {

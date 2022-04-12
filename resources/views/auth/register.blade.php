@@ -61,14 +61,6 @@
                   @enderror
                 </div>
               </div>
-              <div class="form-group focused">
-                <div class="input-group input-group-alternative">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
-                  </div>
-                  <input class="form-control" id="password-confirm" name="password-confirmation" placeholder="Password" type="password">
-                </div>
-              </div>
               {{-- <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div> --}}
               <div class="text-center">
                 <button type="submit" class="btn btn-primary mt-4">{{ __('Register') }}</button>
