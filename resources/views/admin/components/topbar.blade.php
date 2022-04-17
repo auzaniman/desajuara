@@ -42,15 +42,20 @@
           </a>
           <ul class="dropdown-menu dropdown-menu-end  px-2 py-3 me-sm-n4" aria-labelledby="dropdownMenuButton">
             <li>
-              <a class="dropdown-item border-radius-md py-0" href="{{route('logout')}}">
-                <div>
-                  <div class="d-flex flex-column justify-content-center">
-                    <h6 class="text-sm text-black-50 font-weight-normal mb-1">
-                      <span class="font-weight-bold">Keluar</span>
-                    </h6>
+              <form action="{{route('logout')}}" method="post">
+              @csrf
+              <button type="submit" class="dropdown-item border-radius-md py-0">
+                <a>
+                  <div>
+                    <div class="d-flex flex-column justify-content-center">
+                      <h6 class="text-sm text-black-50 font-weight-normal mb-1">
+                        <span class="font-weight-bold">Keluar</span>
+                      </h6>
+                    </div>
                   </div>
-                </div>
-              </a>
+                </a>
+              </button>
+              </form>
             </li>
           </ul>
         </li>
