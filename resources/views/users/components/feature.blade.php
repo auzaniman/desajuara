@@ -14,7 +14,7 @@
             <i class="ni ni-settings-gear-65"></i>
           </div>
           <h6 class="info-title text-uppercase text-primary">Layanan Administrasi Desa</h6>
-          <p class="description opacity-8">Fitur yang memudahkan kamu berinteraksi secara efisien dengan masyarakat dalam hal administrasi, kelembagaan, agenda desa, maupun perihal pertanahan.</p>
+          <p class="opacity-8">Fitur yang memudahkan kamu berinteraksi secara efisien dengan masyarakat dalam hal administrasi, kelembagaan, agenda desa, maupun perihal pertanahan.</p>
           {{-- <a href="javascript:;" class="text-primary">More about us
             <i class="ni ni-bold-right text-primary"></i>
           </a> --}}
@@ -26,7 +26,7 @@
             <i class="ni ni-atom"></i>
           </div>
           <h6 class="info-title text-uppercase text-primary">Informasi Desa</h6>
-          <p class="description opacity-8">Memuat informasi seputar desa yang dapat kamu update dan distribusikan dengan mudah.</p>
+          <p class="opacity-8">Memuat informasi seputar desa yang dapat kamu update dan distribusikan dengan mudah.</p>
           {{-- <a href="javascript:;" class="text-primary">Learn about our products
             <i class="ni ni-bold-right text-primary"></i>
           </a> --}}
@@ -38,7 +38,7 @@
             <i class="ni ni-world"></i>
           </div>
           <h6 class="info-title text-uppercase text-primary">Peta Bidang Desa</h6>
-          <p class="description opacity-8">Peta desa berbentuk bidang yang akan memudahkan kamu melihat kondisi, potensi, dan merencanakan pembangunan.</p>
+          <p class="opacity-8">Peta desa berbentuk bidang yang akan memudahkan kamu melihat kondisi, potensi, dan merencanakan pembangunan.</p>
           {{-- <a href="javascript:;" class="text-primary">Check our documentation
             <i class="ni ni-bold-right text-primary"></i>
           </a> --}}

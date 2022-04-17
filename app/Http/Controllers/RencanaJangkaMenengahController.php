@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class RencanaJangkaMenengahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.pages.dashboard');
+        return view('admin.pages.rencanajangkamenengah');
     }
 
     /**
@@ -80,5 +80,10 @@ class DashboardController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function profileDesa()
+    {
+      return view('admin.pages.profile_desa');
     }
 }

@@ -1,9 +1,9 @@
 <!--   Core JS Files   -->
-<script src="./assets/js/core/popper.min.js"></script>
-<script src="./assets/js/core/bootstrap.min.js"></script>
-<script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
-<script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
-<script src="./assets/js/plugins/chartjs.min.js"></script>
+<script src="{{ url('backend/assets/js/core/popper.min.js')}}"></script>
+<script src="{{ url('backend/assets/js/core/bootstrap.min.js')}}"></script>
+<script src="{{ url('backend/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
+<script src="{{ url('backend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
+<script src="{{ url('backend/assets/js/plugins/chartjs.min.js')}}"></script>
 <script>
   var ctx1 = document.getElementById("chart-line").getContext("2d");
 
@@ -96,7 +96,17 @@
     Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
   }
 </script>
+<script>
+  let navActive = document.querySelectorAll('.nav-active')
+
+navActive.forEach((a) => {
+    a.addEventListener("click", (e) => {
+        navActive.forEach((el) => el.classList.remove("active"));
+        a.classList.add("active");
+    });
+});
+</script>
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-<script src="./assets/js/argon-dashboard.min.js?v=2.0.2"></script>
+<script src="{{url('backend/assets/js/argon-dashboard.min.js?v=2.0.2')}}"></script>
