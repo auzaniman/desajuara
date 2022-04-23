@@ -5,6 +5,109 @@
 <script src="{{ url('backend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/chartjs.min.js')}}"></script>
 <script>
+
+  const ctx = document.getElementById('bar-chart').getContext("2d");
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['RT 1', 'RT 2', 'RT 3', 'RT 4'],
+      datasets: [{
+        label: 'Warga',
+        data: [140, 190, 91, 249],
+        backgroundColor: [
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)',
+          'rgba(255, 99, 132, 0.2)'
+        ],
+        borderColor: [
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 99, 132, 1)',
+          'rgba(255, 99, 132, 1)'
+        ],
+        borderWidth: 1
+    }, {
+      label: 'Kepala Keluarga',
+        data: [39, 45, 24, 66],
+        backgroundColor: [
+          'rgba(54, 162, 235, 0.2',
+          'rgba(54, 162, 235, 0.2)',
+          'rgba(54, 162, 235, 0.2',
+          'rgba(54, 162, 235, 0.2'
+        ],
+        borderColor: [
+          'rgba(54, 162, 235, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(54, 162, 235, 1)',
+          'rgba(54, 162, 235, 1)'
+        ],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+
+  const ctx2 = document.getElementById('pie-chart').getContext("2d");
+  new Chart(ctx2, {
+    type: 'pie',
+    data: {
+      labels: [
+        'PAUD',
+        'SD',
+        'SLTP',
+        'SLTA',
+        'SARJANA',
+        'BUTA AKSARA'
+      ],
+      datasets: [{
+        data: [76, 292, 92, 103, 16, 60],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(150, 34, 65)',
+          'rgb(200, 25, 100)',
+          'rgb(90, 77, 43)',
+        ],
+        hoverOffset: 4
+      }]
+    }
+  })
+
+  const ctx3 = document.getElementById('pie-chart2').getContext("2d");
+  new Chart(ctx3, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Petani',
+        'Pedagang',
+        'Tukang Kayu',
+        'Pegawai Perusahaan Sawit',
+        'Guru SD',
+        'PNS'
+      ],
+      datasets: [{
+        data: [337, 14, 20, 25, 11, 5],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(150, 34, 65)',
+          'rgb(200, 25, 100)',
+          'rgb(90, 77, 43)',
+        ],
+        hoverOffset: 4
+      }]
+    }
+  })
+
   var ctx1 = document.getElementById("chart-line").getContext("2d");
 
   var gradientStroke1 = ctx1.createLinearGradient(0, 230, 0, 50);
@@ -86,6 +189,7 @@
       },
     },
   });
+
 </script>
 <script>
   var win = navigator.platform.indexOf('Win') > -1;
@@ -99,7 +203,7 @@
 <script>
   let navActive = document.querySelectorAll('.nav-active')
 
-navActive.forEach((a) => {
+  navActive.forEach((a) => {
     a.addEventListener("click", (e) => {
         navActive.forEach((el) => el.classList.remove("active"));
         a.classList.add("active");
