@@ -113,10 +113,19 @@ Rencana Jangka Menengah
       <div class="col-lg-7 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
-            <h6 class="text-capitalize">Rencana Jangka Menengah</h6>
+            <h6 class="text-capitalize">Visi</h6>
             <p class="mb-3">
-              Di dalam fitur ini, terdapat uraian visi misi, kebijakan pembangunan, dan daftar prioritas pembangunan selama 6 tahun. Secara tampilah sama seperti profil dan potensi desa, hanya saja di bawah terdapat file RPJM yang dapat di didownload oleh publik.
+              “Menjadi Kampung CEMARA (Cerdas, Makmur, Kreatif, Berbudaya ) Melalui SDM yang Berkualitas, Pertanian yang Subur, Pariwisata yang Maju dan Kehidupan Yang Berkebudayaan”
             </p>
+          </div>
+          <div class="card-header pb-0 pt-3 bg-transparent">
+            <h6 class="text-capitalize">Misi</h6>
+            <ul class="mb-3">
+              <li>Membangun sarana dan prasarana kampung yang berkualitas</li>
+              <li>Menciptakan tata kelola pemerintahan yang bersih, transparan dan berkualitas</li>
+              <li>Meningkatkan kualitas sumber daya manusia</li>
+              <li>Meningkatkan perekonomian kampung melalui agrikultur dan kepariwisataan</li>
+            </ul>
           </div>
         </div>
       </div>

@@ -1,5 +1,5 @@
 {{-- <div class="min-height-300 bg-primary position-absolute w-100"></div> --}}
-<div class="position-absolute w-100 min-height-300" style="background-image: url('https://raw.githubusercontent.com/creativetimofficial/public-assets/master/argon-dashboard-pro/assets/img/profile-layout-header.jpg'); background-position-y: 50%;">
+<div class="position-absolute w-100 min-height-300" style="background-position-y: 50%;">
   <span class="mask bg-primary opacity-6"></span>
 </div>
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">

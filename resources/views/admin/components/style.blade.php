@@ -6,5 +6,7 @@
 <!-- Font Awesome Icons -->
 <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
 <link href="{{url('backend/assets/css/nucleo-svg.css')}}" rel="stylesheet" />
+{{-- Full Calender --}}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5/main.min.css,npm/fullcalendar@5/main.min.css">
 <!-- CSS Files -->
 <link id="pagestyle" href="{{url('backend/assets/css/argon-dashboard.css?v=2.0.2')}}" rel="stylesheet" />

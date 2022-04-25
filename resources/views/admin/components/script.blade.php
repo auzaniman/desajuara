@@ -4,6 +4,20 @@
 <script src="{{ url('backend/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/chartjs.min.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/main.min.js"></script>
+
+{{-- Calender --}}
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var calendarEl = document.getElementById('calendar');
+    var calendar = new FullCalendar.Calendar(calendarEl, {
+      initialView: 'dayGridMonth'
+    });
+    calendar.render();
+  });
+</script>
+
+{{-- Chart --}}
 <script>
 
   const ctx = document.getElementById('bar-chart').getContext("2d");
@@ -191,6 +205,7 @@
   });
 
 </script>
+
 <script>
   var win = navigator.platform.indexOf('Win') > -1;
   if (win && document.querySelector('#sidenav-scrollbar')) {
@@ -200,6 +215,7 @@
     Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
   }
 </script>
+
 <script>
   let navActive = document.querySelectorAll('.nav-active')
 

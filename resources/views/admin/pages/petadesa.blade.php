@@ -110,7 +110,7 @@ Peta Desa
       </div>
     </div> --}}
     <div class="row mt-4">
-      <div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="col-lg-12 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
             <h6 class="text-capitalize">Peta Desa</h6>
@@ -118,6 +118,16 @@ Peta Desa
               Fitur peta desa ini adalah fitur unggulan dari platform cendikia. Peta desa ini berbasis web gis dan menampilkan landskap desa tersebut. Di dalam peta desa terdapat fitur-fitur yang menampilkan informasi desa, yaitu penggunaan lahan, kondisi lahan, pekerjaan, status tanah, kepemilikan tanah. Kemudian terdapat fitur informasi lahan, secara teknis ketika salahs atu area di klik, maka muncul pop up informasi mengenai lahan tersebut. Informasi mengenai lahan ini hanya dapat diedit oleh petugas atas ijin pemilik lahan tersebut. Disamping itu terdapat fitur zoom in/out, tangging, dan pengukur jarak. Kedepannya, dalam fitur peta desa ini, terdapat fitur paint seperti game Warcraft/ rise empie karena fitur ini ditujukan untuk perencanaan pembangunan. Fitur paint tersebut seperti jalan, rumah, gedung kantor, hutan, dsb.
 
             </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-12 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header pb-0 pt-3 bg-transparent">
+            <h6 class="text-capitalize">Peta Desa</h6>
+            <img src="{{url('backend/assets/img/peta.png')}}" class="img-fluid mb-3" alt="gambar peta">
           </div>
         </div>
       </div>

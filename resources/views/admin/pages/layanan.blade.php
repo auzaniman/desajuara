@@ -8,21 +8,26 @@ Layanan
 <main class="main-content position-relative border-radius-lg ">
   @include('admin.components.topbar')
   <div class="container-fluid py-4">
-    {{-- <div class="row">
+    <div class="row mt-4">
+      <div class="col-lg-12 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header pb-0 pt-3 bg-transparent">
+            <h6 class="text-capitalize">Layanan</h6>
+            <p class="mb-3">
+              Fitur layanan ini bertujuan untuk mengefisiensikan pelayananan bagi masyarakat dalam hal administrasi. Ketika user mau mengajukan pelayanan administrasi, user akan mengisi pertanyaan yang ada di kolom di dalam fitur tersebut seperti mengisi kuisioner melalui google form. Setelah submit, data tersebut akan masuk ke dalam computer kampung dan petugas dapat segera memprosesnya dengan mengcopy-paste hasil isian user. Di dalam computer petugas, informasi yang masuk setelah user submit adalah data yang diiisi oleh user, tanggal (otomatis), dan nomer surat (otomatis). Adapun layanan default yang tersedia adalah surat kependudukan (pengajuan kk, ktp, mutasi, dll); perizinan (izin acara, pengajian, dll), keterangan desa (tidak mampu, domisili, usaha, dll), pelaporan (prestasi maupun kegaduhan), kritik dan saran.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
       <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-body p-3">
-            <div class="row">
+            <div class="row align-items-lg-center">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Money</p>
-                  <h5 class="font-weight-bolder">
-                    $53,000
-                  </h5>
-                  <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+55%</span>
-                    since yesterday
-                  </p>
+                  <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Layanan Administrasi</a>
                 </div>
               </div>
               <div class="col-4 text-end">
@@ -37,17 +42,10 @@ Layanan
       <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-body p-3">
-            <div class="row">
+            <div class="row align-items-lg-center">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Today's Users</p>
-                  <h5 class="font-weight-bolder">
-                    2,300
-                  </h5>
-                  <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+3%</span>
-                    since last week
-                  </p>
+                  <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan</a>
                 </div>
               </div>
               <div class="col-4 text-end">
@@ -62,17 +60,10 @@ Layanan
       <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
         <div class="card">
           <div class="card-body p-3">
-            <div class="row">
+            <div class="row align-items-lg-center">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">New Clients</p>
-                  <h5 class="font-weight-bolder">
-                    +3,462
-                  </h5>
-                  <p class="mb-0">
-                    <span class="text-danger text-sm font-weight-bolder">-2%</span>
-                    since last quarter
-                  </p>
+                  <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Akta Tanah</a>
                 </div>
               </div>
               <div class="col-4 text-end">
@@ -87,16 +78,10 @@ Layanan
       <div class="col-xl-3 col-sm-6">
         <div class="card">
           <div class="card-body p-3">
-            <div class="row">
+            <div class="row align-items-lg-center">
               <div class="col-8">
                 <div class="numbers">
-                  <p class="text-sm mb-0 text-uppercase font-weight-bold">Sales</p>
-                  <h5 class="font-weight-bolder">
-                    $103,430
-                  </h5>
-                  <p class="mb-0">
-                    <span class="text-success text-sm font-weight-bolder">+5%</span> than last month
-                  </p>
+                  <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">BPJS</a>
                 </div>
               </div>
               <div class="col-4 text-end">
@@ -105,18 +90,6 @@ Layanan
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div> --}}
-    <div class="row mt-4">
-      <div class="col-lg-7 mb-lg-0 mb-4">
-        <div class="card z-index-2 h-100">
-          <div class="card-header pb-0 pt-3 bg-transparent">
-            <h6 class="text-capitalize">Layanan</h6>
-            <p class="mb-3">
-              Fitur layanan ini bertujuan untuk mengefisiensikan pelayananan bagi masyarakat dalam hal administrasi. Ketika user mau mengajukan pelayanan administrasi, user akan mengisi pertanyaan yang ada di kolom di dalam fitur tersebut seperti mengisi kuisioner melalui google form. Setelah submit, data tersebut akan masuk ke dalam computer kampung dan petugas dapat segera memprosesnya dengan mengcopy-paste hasil isian user. Di dalam computer petugas, informasi yang masuk setelah user submit adalah data yang diiisi oleh user, tanggal (otomatis), dan nomer surat (otomatis). Adapun layanan default yang tersedia adalah surat kependudukan (pengajuan kk, ktp, mutasi, dll); perizinan (izin acara, pengajian, dll), keterangan desa (tidak mampu, domisili, usaha, dll), pelaporan (prestasi maupun kegaduhan), kritik dan saran.
-            </p>
           </div>
         </div>
       </div>
