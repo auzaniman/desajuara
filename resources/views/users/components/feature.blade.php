@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-8 mx-auto text-center">
-        <span class="badge badge-warning badge-pill mb-3 font-weight-bold" style="font-size: 16px">Insight</span>
+        <span class="badge badge-custom text-white badge-pill mb-3 font-weight-bold" style="font-size: 16px">Insight</span>
         <h3 class="display-3 mb-5">Fitur Unggulan</h3>
         {{-- <p class="lead mb-5">Dalam menggapai visi menjadi desa terintegrasi, desajuara.com memiliki fitur canggih yang mengakomodasi layanan desa.</p> --}}
       </div>

@@ -6,12 +6,57 @@
 <script src="{{ url('backend/assets/js/plugins/chartjs.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/main.min.js"></script>
 
-{{-- Calender --}}
+{{-- Calendar --}}
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var calendarEl = document.getElementById('calendar');
     var calendar = new FullCalendar.Calendar(calendarEl, {
-      initialView: 'dayGridMonth'
+      initialView: 'dayGridMonth',
+      initialDate: '2022-04-07',
+      headerToolbar: {
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay'
+      },
+      events: [
+        {
+          title: 'Hari Jadi Desa',
+          start: '2022-04-08',
+          end: '2022-04-09'
+        },
+        {
+          groupId: '999',
+          title: 'Kerja Bakti',
+          start: '2022-04-09T16:00:00'
+        },
+        {
+          title: 'Rapat Kerja Desa',
+          start: '2022-04-11',
+          end: '2022-04-13'
+        },
+        {
+          title: 'Rapat',
+          start: '2022-04-12T10:30:00',
+          end: '2022-04-12T12:30:00'
+        },
+        {
+          title: 'Makan',
+          start: '2022-04-12T12:00:00'
+        },
+        {
+          title: 'Selesai',
+          start: '2022-04-12T14:30:00'
+        },
+        {
+          title: 'Lomba Desa',
+          start: '2022-04-13T07:00:00'
+        },
+        {
+          title: 'Lihat Poster Acara',
+          url: '',
+          start: '2022-04-28'
+        }
+      ]
     });
     calendar.render();
   });

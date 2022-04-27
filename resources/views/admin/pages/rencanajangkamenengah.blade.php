@@ -113,7 +113,7 @@ Rencana Jangka Menengah
       <div class="col-lg-7 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
-            <h6 class="text-capitalize">Visi</h6>
+            <h6 class="text-capitalize text-primary">Visi</h6>
             <p class="mb-3">
               “Menjadi Kampung CEMARA (Cerdas, Makmur, Kreatif, Berbudaya ) Melalui SDM yang Berkualitas, Pertanian yang Subur, Pariwisata yang Maju dan Kehidupan Yang Berkebudayaan”
             </p>

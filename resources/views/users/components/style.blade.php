@@ -16,7 +16,6 @@
     src: url('frontend/assets/fonts/CenturyGothic.ttf') format('truetype'), url('frontend/assets/fonts/GOTHICB0.TTF') format('truetype');
   }
 
-
   body {
     font-family: 'Century Gothic';
   }
@@ -33,5 +32,9 @@
 
   .card {
     box-shadow: 0px 6px 20px 0px rgb(0 0 0 / 10%);
+  }
+
+  .badge-custom {
+    background-color: #FDD429;
   }
 </style>

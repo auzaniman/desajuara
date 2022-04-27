@@ -21,7 +21,7 @@ Profil Desa
       </div>
     </div>
     <div class="row mt-4">
-      <div class="col-lg-5 mb-lg-0 mb-4">
+      <div class="col-lg-4 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
             <h6 class="text-capitalize mb-0">Jumlah Penduduk Berdasarkan RT</h6>
@@ -33,7 +33,7 @@ Profil Desa
           </div>
         </div>
       </div>
-      <div class="col-lg-5 mb-lg-0 mb-4">
+      <div class="col-lg-4 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
             <h6 class="text-capitalize mb-0">Jumlah Pendudukan Berdasarkan Tingkat Pendidikan</h6>
@@ -45,9 +45,7 @@ Profil Desa
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-lg-5 mb-lg-0 mb-4">
+      <div class="col-lg-4 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
             <h6 class="text-capitalize mb-0">Jumlah Pendudukan Berdasarkan Mata Pencaharian</h6>
@@ -59,6 +57,8 @@ Profil Desa
           </div>
         </div>
       </div>
+    </div>
+    <div class="row mt-4">
       {{-- <div class="col-lg-5">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">

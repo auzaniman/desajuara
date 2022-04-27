@@ -10191,7 +10191,7 @@ fieldset:disabled .btn {
 
 /* rtl:end:remove */
 .text-primary {
-  color: #5e72e4 !important;
+  color: #000080 !important;
 }
 
 .text-secondary {
@@ -21565,7 +21565,7 @@ label,
 }
 
 svg.text-primary .color-foreground {
-  fill: #5e72e4;
+  fill: #000080;
 }
 
 svg.text-primary .color-background {

@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row mb-4">
       <div class="col-md-8 mx-auto text-center">
-        <span class="badge badge-warning badge-pill mb-3 font-weight-bold" style="font-size: 16px">Tentang Kami</span>
+        <span class="badge badge-custom badge-pill mb-3 font-weight-bold text-white" style="font-size: 16px">Tentang Kami</span>
         <h3 class="display-3">Desajuara</h3>
         <p class="lead mb-5">Desajuara merupakan sebuah platform yang berupaya membantu desa dalam memaksimalkan perencanaan pembangunan dan pemberian layanan kepada masyarakat. Fitur unggulan desajuara adalah optimalisasi peta bidang yang membantu meminimalisir permasalahan lahan dan pengembangan potensi desa.</p>
       </div>
@@ -11,7 +11,7 @@
     {{-- Benefit --}}
     <div class="row mb-5">
       <div class="col-md-8 mx-auto text-center">
-        <span class="badge badge-warning badge-pill mb-3 font-weight-bold" style="font-size: 16px">Narasi</span>
+        <span class="badge badge-custom text-white badge-pill mb-3 font-weight-bold" style="font-size: 16px">Narasi</span>
         <h3 class="display-3">Kelebihan</h3>
       </div>
     </div>

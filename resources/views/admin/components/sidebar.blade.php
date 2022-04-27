@@ -1,7 +1,7 @@
 {{-- <div class="min-height-300 bg-primary position-absolute w-100"></div> --}}
-<div class="position-absolute w-100 min-height-300" style="background-position-y: 50%;">
+{{-- <div class="position-absolute w-100 min-height-300" style="background-position-y: 50%;">
   <span class="mask bg-primary opacity-6"></span>
-</div>
+</div> --}}
 <aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 " id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
@@ -24,7 +24,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('profile_desa')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-warning text-sm opacity-10"></i>
+            <i class="ni ni-calendar-grid-58 text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Profil Desa</span>
         </a>
@@ -32,7 +32,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('tantangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-success text-sm opacity-10"></i>
+            <i class="ni ni-credit-card text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Tantangan dan Potensi</span>
         </a>
@@ -40,7 +40,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('rencana')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-info text-sm opacity-10"></i>
+            <i class="ni ni-app text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Rencana Jangka Menengah</span>
         </a>
@@ -48,7 +48,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('agenda')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-danger text-sm opacity-10"></i>
+            <i class="ni ni-world-2 text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Agenda</span>
         </a>
@@ -59,7 +59,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('keuangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-02 text-dark text-sm opacity-10"></i>
+            <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Keuangan</span>
         </a>
@@ -67,7 +67,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('layanan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-copy-04 text-warning text-sm opacity-10"></i>
+            <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Layanan</span>
         </a>
@@ -75,7 +75,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('peta')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-info text-sm opacity-10"></i>
+            <i class="ni ni-collection text-primary text-sm opacity-10"></i>
           </div>
           <span class="nav-link-text ms-1">Peta Desa</span>
         </a>

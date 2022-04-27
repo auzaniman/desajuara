@@ -9,12 +9,88 @@ Tantangan Dan Potensi
   @include('admin.components.topbar')
   <div class="container-fluid py-4">
     <div class="row mt-4">
-      <div class="col-lg-7 mb-lg-0 mb-4">
+      <div class="col-lg-12 mb-lg-0 mb-4">
         <div class="card z-index-2 h-100">
           <div class="card-header pb-0 pt-3 bg-transparent">
             <h6 class="text-capitalize">Tantangan dan Potensi</h6>
             <p class="mb-3">
               Fitur potensi desa mendeskripsikan berbagai tantangan dan potensi yang ada di desa. Berbentuk gambar, video, dan narasi maupun infografis. Sama dengan profil, materi didapat dari desa dan diolah oleh tim agar mudah dibaca oleh publik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-4 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header bg-transparent p-0 mx-3 mt-3 position-relative z-index-1">
+            <a href="" class="d-block">
+              <img src="{{url('backend/assets/img/img3.jpg')}}" class="img-fluid border-radius-xl mb-3" width="300" height="300" alt="ilustrasi sampah">
+            </a>
+          </div>
+          <div class="card-body py-0">
+            <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">Tantangan</span>
+            <a href="javascript:;" class="card-title h5 d-block text-darker">
+              Sampah
+            </a>
+            <p class="card-description">
+              Sampah rumah tangga dan industry yang belum terkelola dengan baik, sehingga menimbulkan dampak negative di beberapa titik.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header bg-transparent p-0 mx-3 mt-3 position-relative z-index-1">
+            <a href="" class="d-block">
+              <img src="{{url('backend/assets/img/img3.jpg')}}" class="img-fluid border-radius-xl mb-3" width="300" height="300" alt="ilustrasi sampah">
+            </a>
+          </div>
+          <div class="card-body py-0">
+            <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">Tantangan</span>
+            <a href="javascript:;" class="card-title h5 d-block text-darker">
+              Ekonomi
+            </a>
+            <p class="card-description">
+              Kesenjangan ekonomi antara penduduk asli dengan pendatang, serta tingginya angka pengangguran pada usia produktif.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header bg-transparent p-0 mx-3 mt-3 position-relative z-index-1">
+            <a href="" class="d-block">
+              <img src="{{url('backend/assets/img/img2.jpg')}}" class="img-fluid border-radius-xl mb-3" width="300" height="300" alt="ilustrasi sampah">
+            </a>
+          </div>
+          <div class="card-body py-0">
+            <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">Potensi</span>
+            <a href="javascript:;" class="card-title h5 d-block text-darker">
+              Air Terjun
+            </a>
+            <p class="card-description">
+              Air terjun berikut ekosistem di sekitarnya yang masih terjaga dengan baik.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row mt-4">
+      <div class="col-lg-4 mb-lg-0 mb-4">
+        <div class="card z-index-2 h-100">
+          <div class="card-header bg-transparent p-0 mx-3 mt-3 position-relative z-index-1">
+            <a href="" class="d-block">
+              <img src="{{url('backend/assets/img/img1.jpg')}}" class="img-fluid border-radius-xl mb-3" width="300" height="300" alt="ilustrasi sampah">
+            </a>
+          </div>
+          <div class="card-body py-0">
+            <span class="text-gradient text-primary text-uppercase text-xs font-weight-bold">Potensi</span>
+            <a href="javascript:;" class="card-title h5 d-block text-darker">
+              Atraksi Budaya
+            </a>
+            <p class="card-description">
+              Atraksi budaya yang dilakukan turunt-temurun dari tetua desa kami .
             </p>
           </div>
         </div>
