@@ -28,9 +28,9 @@ Route::get("/", function () {
 });
 
 // Dashboard
-Route::prefix("admin")
-->namespace("Admin")
-->middleware(["auth", "admin"])
+Route::prefix("user")
+->namespace("User")
+->middleware(["auth", "user"])
 ->group(function() {
 
   // Profile Akun
