@@ -13,7 +13,7 @@ class LayananController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.layanan');
+        return view('superuser.pages.layanan.layanan');
     }
 
     /**
@@ -82,8 +82,8 @@ class LayananController extends Controller
         //
     }
 
-    public function profileDesa()
+    public function administrasi()
     {
-      return view('admin.pages.profile_desa');
+      return view('superuser.pages.layanan.administrasi.administrasi');
     }
 }

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Models\ChartBar;
 
-class AgendaController extends Controller
+class ChartBarController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('superuser.pages.agenda');
+        //
     }
 
     /**
@@ -34,7 +36,18 @@ class AgendaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $chartbar = new ChartBar([
+        'jumlahWarga' => $request->get('jumlahWarga'),
+        'jumlahKepalaKeluarga' => $request->get('jumlahKepalaKeluarga'),
+        'rt' => $request->get('rt'),
+      ]);
+      $chartbar->save();
+
+      return redirect()->back()
+      ->with([
+          'message' => 'berhasil ditambahkan',
+          'status' => 'success'
+      ]);
     }
 
     /**
@@ -81,4 +94,26 @@ class AgendaController extends Controller
     {
         //
     }
+
+    public function chart()
+      {
+        $chart = ChartBar::all();
+
+        $rt = [];
+        $jmlwarga = [];
+        $jmlkepala = [];
+
+        foreach($chart as $row) {
+          $rt[] = $row->rt;
+          $jmlwarga[] = $row->jumlahWarga;
+          $jmlkepala[] = $row->jumlahKepalaKeluarga;
+        }
+
+        return view('superuser.pages.profiledesa', [
+          'rt' => $rt,
+          'jmlwarga' => $jmlwarga,
+          'jmlkepala' => $jmlkepala,
+
+        ]);
+      }
 }

@@ -13,7 +13,7 @@ class RencanaJangkaMenengahController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.rencanajangkamenengah');
+        return view('superuser.pages.rencanajangkamenengah');
     }
 
     /**
@@ -80,10 +80,5 @@ class RencanaJangkaMenengahController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function profileDesa()
-    {
-      return view('admin.pages.profile_desa');
     }
 }

@@ -13,7 +13,7 @@ class ProfileAkunController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.profileakun');
+        return view('superuser.pages.profileakun');
     }
 
     /**

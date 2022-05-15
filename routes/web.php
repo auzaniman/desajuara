@@ -6,8 +6,11 @@ use App\Http\Controllers\RencanaJangkaMenengahController;
 use App\Http\Controllers\KeuanganController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\LayananController;
+use App\Http\Controllers\ChartBarController;
+use App\Http\Controllers\BerkasController;
+use App\Http\Controllers\Administrasi\SuratDomisiliController;
 use App\Http\Controllers\PetaDesaController;
-
+use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 
@@ -24,7 +27,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Landing
 Route::get("/", function () {
-    return view('users.pages.index');
+    return view('home.pages.index');
 });
 
 // Dashboard
@@ -37,7 +40,9 @@ Route::prefix("user")
   Route::get("/", [ProfileAkunController::class, "index"])->name("dashboard");
 
   // Profile Desa
-  Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
+  // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
+  Route::post('/chart_add', [ChartBarController::class, "store"])->name("chart_add");
+  Route::get('chart', [ChartBarController::class, "chart"])->name("chart");
 
   // TDP
   Route::get("/tdp", [TantanganDanPotensiController::class, "Index"])->name("tantangan");
@@ -53,9 +58,16 @@ Route::prefix("user")
 
   // Layanan
   Route::get("/layanan", [LayananController::class, "Index"])->name("layanan");
+  Route::get("/administrasi", [LayananController::class, "administrasi"])->name("administrasi");
+  Route::get("/surdom", [SuratDomisiliController::class, "index"])->name("surdom");
+  Route::post("/post_surdom", [SuratDomisiliController::class, "store"])->name("post_surdom");
+  // End Layanan
 
   // Peta Desa
   Route::get("/peta", [PetaDesaController::class, "Index"])->name("peta");
+
+  // Berkas
+  Route::get("/berkas", [BerkasController::class, "Index"])->name("berkas");
 
 });
 

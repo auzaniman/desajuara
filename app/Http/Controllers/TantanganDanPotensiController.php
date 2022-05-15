@@ -13,7 +13,7 @@ class TantanganDanPotensiController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.tantangandanpotensi');
+        return view('superuser.pages.tantangandanpotensi');
     }
 
     /**
@@ -80,10 +80,5 @@ class TantanganDanPotensiController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function profileDesa()
-    {
-      return view('admin.pages.profile_desa');
     }
 }

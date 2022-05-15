@@ -13,7 +13,7 @@ class KeuanganController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.keuangan');
+        return view('superuser.pages.keuangan');
     }
 
     /**
@@ -80,10 +80,5 @@ class KeuanganController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function profileDesa()
-    {
-      return view('admin.pages.profile_desa');
     }
 }

@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\SuratDomisili;
 
-class AgendaController extends Controller
+class BerkasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,10 @@ class AgendaController extends Controller
      */
     public function index()
     {
-        return view('superuser.pages.agenda');
+      $berkas = SuratDomisili::all();
+      return view('superuser.pages.berkas', [
+        'berkas' => $berkas
+      ]);
     }
 
     /**

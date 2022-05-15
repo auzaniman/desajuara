@@ -13,7 +13,7 @@ class PetaDesaController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.petadesa');
+        return view('superuser.pages.petadesa');
     }
 
     /**
@@ -80,10 +80,5 @@ class PetaDesaController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function profileDesa()
-    {
-      return view('admin.pages.profile_desa');
     }
 }

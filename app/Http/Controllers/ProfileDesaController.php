@@ -13,7 +13,7 @@ class ProfileDesaController extends Controller
      */
     public function index()
     {
-        return view('admin.pages.profiledesa');
+        return view('superuser.pages.profiledesa');
     }
 
     /**
@@ -80,10 +80,5 @@ class ProfileDesaController extends Controller
     public function destroy($id)
     {
         //
-    }
-
-    public function profileDesa()
-    {
-      return view('admin.pages.profile_desa');
     }
 }
