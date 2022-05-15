@@ -1,4 +1,4 @@
-@extends('users.layouts.app')
+@extends('home.layouts.app')
 
 @section('content')
 <section class="section section-shaped section-lg">
