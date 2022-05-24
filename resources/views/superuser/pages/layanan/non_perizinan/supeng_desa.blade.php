@@ -32,13 +32,19 @@ Surat Pengantar Desa
     <div class="card">
       <div class="card-body">
         <p class="text-uppercase text-sm">Formulir Pembuatan Surat Pengantar Desa</p>
-        <form method="" action="" enctype="multipart/form-data">
+        <form method="POST" action="{{route('supengdesa_post')}}" enctype="multipart/form-data">
           @csrf
           <div class="row">
             <div class="col-md-2" hidden>
               <div class="form-group">
                 <label for="user_id" class="form-control-label" hidden>User ID</label>
-                <input name="user_id" id="user_id" class="form-control" type="text" value="{{Auth::user()->id}}" hidden>
+                <input name="user_id" id="user_id" class="form-control" type="text" value="{{$user->id}}" hidden>
+              </div>
+            </div>
+            <div class="col-md-2" hidden>
+              <div class="form-group">
+                <label for="berkas_id" class="form-control-label" hidden>Berkas ID</label>
+                <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="{{$berkas->id}}" hidden>
               </div>
             </div>
             <div class="col-md-5">
@@ -50,7 +56,27 @@ Surat Pengantar Desa
             <div class="col-md-5">
               <div class="form-group">
                 <label for="email_pemohon" class="form-control-label">Email Pemohon</label>
-                <input name="email_pemohon" id="email_pemohon" class="form-control disabled" type="email" value="{{Auth::user()->email}}">
+                <input name="email_pemohon" id="email_pemohon" class="form-control disabled" type="email" value="{{$user->email}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="keperluan" class="form-control-label">Keperluan</label>
+                <input name="keperluan" id="keperluan" class="form-control" type="text" value="">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="tanggal_keperluan" class="form-control-label">Tanggal Keperluan</label>
+                <input name="tanggal_keperluan" id="tanggal_keperluan" class="form-control" type="text" value="">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="tempat_keperluan" class="form-control-label">Tempat Keperluan</label>
+                <input name="tempat_keperluan" id="tempat_keperluan" class="form-control" type="text" value="">
               </div>
             </div>
           </div>
@@ -60,47 +86,47 @@ Surat Pengantar Desa
             <div class="col-md-4">
               <div class="form-group">
                 <label for="bukti_ktp" class="form-control-label">KTP</label>
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
-                {{-- @if ($berkas->isEmpty() )
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
+                @if (($berkas) != null)
+                  @if ($berkas->foto_ktp != null)
+                    <div class="ms-1">
+                      <i class="ni ni-check-bold text-success text-sm"></i>
+                      <span class="ms-1">Sudah Upload Berkas</span>
+                    </div>
+                  @else
+                    <div class="ms-1">
+                      <i class="ni ni-fat-remove text-danger text-sm"></i>
+                      <span class="ms-1">Belum Upload Berkas</span>
+                    </div>
+                  @endif
                 @else
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
-                @endif --}}
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="bukti_kk" class="form-control-label">Kartu Keluarga</label>
-                @if ($berkas->foto_kk = 0)
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
-                @else
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
+                  <div class="ms-1">
+                    <i class="ni ni-fat-remove text-danger text-sm"></i>
+                    <span class="ms-1">Belum Upload Berkas</span>
+                  </div>
                 @endif
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="bukti_pengantar" class="form-control-label">Surat Pengantar RT & RW</label>
-                <input name="bukti_pengantar" id="bukti_pengantar" class="form-control" type="file" value="">
+                <label for="bukti_kk" class="form-control-label">Kartu Keluarga</label>
+                @if (($berkas) != null)
+                  @if ($berkas->foto_kk != null)
+                    <div class="ms-1">
+                      <i class="ni ni-check-bold text-success text-sm"></i>
+                      <span class="ms-1">Sudah Upload Berkas</span>
+                    </div>
+                  @else
+                    <div class="ms-1">
+                      <i class="ni ni-fat-remove text-danger text-sm"></i>
+                      <span class="ms-1">Belum Upload Berkas</span>
+                    </div>
+                  @endif
+                @else
+                  <div class="ms-1">
+                    <i class="ni ni-fat-remove text-danger text-sm"></i>
+                    <span class="ms-1">Belum Upload Berkas</span>
+                  </div>
+                @endif
               </div>
             </div>
           </div>

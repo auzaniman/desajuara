@@ -150,11 +150,14 @@ Route::prefix("user")
   // Perizinan
   Route::get("/perizinan", [LayananController::class, "perizinan"])->name("perizinan");
   Route::get("/suketusaha", [SuketUsahaController::class, "index"])->name("suketusaha");
+  Route::post("/suketusaha", [SuketUsahaController::class, "store"])->name("suketusaha_post");
 
   // Non Perizinan
   Route::get("/nonperizinan", [LayananController::class, "non_perizinan"])->name("non_perizinan");
   Route::get("/sktm", [SKTMController::class, "index"])->name("sktm");
+  Route::post("/sktm", [SKTMController::class, "store"])->name("sktm_post");
   Route::get("/supengdesa", [SupengDesaController::class, "index"])->name("supengdesa");
+  Route::post("/supengdesa", [SupengDesaController::class, "store"])->name("supengdesa_post");
 
   // Pertanahan
   Route::get("/pertanahan", [LayananController::class, "pertanahan"])->name("pertanahan");

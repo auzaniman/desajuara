@@ -5,18 +5,22 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuratDomisili extends Model
+class SKTMModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'suratdomisili';
+    protected $table = 'sktm';
 
     protected $fillable = [
       'user_id',
       'berkas_id',
       'nama_pemohon',
       'email_pemohon',
-      'bukti_pengantar',
+      'bidang_usaha',
+      'foto_rumah_depan',
+      'foto_rumah_samping',
+      'tanda_pbb',
+      'pengantar',
     ];
 
     // Relation

@@ -38,7 +38,13 @@ Profil Akun
             <div class="col-md-2" hidden>
               <div class="form-group">
                 <label for="user_id" class="form-control-label" hidden>User ID</label>
-                <input name="user_id" id="user_id" class="form-control" type="text" value="{{Auth::user()->id}}" hidden>
+                <input name="user_id" id="user_id" class="form-control" type="text" value="{{$users->id}}" hidden>
+              </div>
+            </div>
+            <div class="col-md-2" hidden>
+              <div class="form-group">
+                <label for="berkas_id" class="form-control-label" hidden>Berkas ID</label>
+                <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="{{$berkas->id}}" hidden>
               </div>
             </div>
             <div class="col-md-5">
@@ -78,17 +84,6 @@ Profil Akun
                       <span class="ms-1">Belum Upload Berkas</span>
                     </div>
                   @endif
-                {{-- @if ($berkas->isEmpty() )
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
-                @else
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
-                @endif --}}
               </div>
             </div>
             <div class="col-md-4">

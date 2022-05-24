@@ -52,14 +52,11 @@ class SuratDomisiliController extends Controller
     {
       $suratdomisili = new SuratDomisili();
 
-      $suratdomisili->user_id = Auth::user()->id;
+      $suratdomisili->user_id = $request->user_id;
+      $suratdomisili->berkas_id = $request->berkas_id;
       $suratdomisili->nama_pemohon = $request->nama_pemohon;
       $suratdomisili->email_pemohon = $request->email_pemohon;
-      $suratdomisili->bukti_ktp = $request->image;
-      $suratdomisili->bukti_kk = $request->image;
       $suratdomisili->bukti_pengantar = $request->image;
-      $suratdomisili['bukti_ktp'] = $request->file('bukti_ktp')->store('', 'public');
-      $suratdomisili['bukti_kk'] = $request->file('bukti_kk')->store('', 'public');
       $suratdomisili['bukti_pengantar'] = $request->file('bukti_pengantar')->store('', 'public');
 
       $suratdomisili->save();

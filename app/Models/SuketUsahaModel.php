@@ -5,18 +5,24 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuratDomisili extends Model
+class SuketUsahaModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'suratdomisili';
+    protected $table = 'surat_keterangan_usaha';
 
     protected $fillable = [
       'user_id',
       'berkas_id',
       'nama_pemohon',
       'email_pemohon',
-      'bukti_pengantar',
+      'bidang_usaha',
+      'nama_usaha',
+      'alamat_usaha',
+      'tahun_memulai',
+      'jumlah_karyawan',
+      'omzet',
+      'aset',
     ];
 
     // Relation

@@ -21,6 +21,7 @@ class CreateUsersTable extends Migration
             $table->string('ttl');
             $table->string('nik')->unique();
             $table->string('kk');
+            $table->string('npwp')->nullable()->unique();
             $table->string('kelamin');
             $table->string('pekerjaan');
             $table->string('agama');

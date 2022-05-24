@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreSuratDomisiliRequest extends FormRequest
+class StoreSupengDesaRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,10 +26,12 @@ class StoreSuratDomisiliRequest extends FormRequest
     {
         return [
           'user_id' => 'required',
-          'berkas_id' => 'required',
-          'nama_pemohon' => 'required',
-          'email_pemohon' => 'required',
-          'bukti_pengantar' => 'required|image',
+          'berkas_id'  => 'required',
+          'nama_pemohon'  => 'required',
+          'email_pemohon'  => 'required',
+          'keperluan'  => 'required',
+          'tanggal_keperluan'  => 'required',
+          'tempat_keperluan'  => 'required',
         ];
     }
 }

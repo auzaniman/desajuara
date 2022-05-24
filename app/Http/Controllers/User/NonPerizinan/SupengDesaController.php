@@ -5,6 +5,8 @@ namespace App\Http\Controllers\User\NonPerizinan;
 use App\Models\User;
 use App\Models\Berkas;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSupengDesaRequest;
+use App\Models\SupengDesaModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,11 +19,11 @@ class SupengDesaController extends Controller
      */
     public function index()
     {
-      $users = User::all();
-      $berkas = Berkas::all();
+      $user = User::where('id', '=', Auth::user()->id)->first();
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
       return view('superuser.pages.layanan.non_perizinan.supeng_desa', [
-        'users' => $users,
+        'user' => $user,
         'berkas' => $berkas
       ]);
     }
@@ -42,9 +44,24 @@ class SupengDesaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSupengDesaRequest $request)
     {
+      $supeng_desa = new SupengDesaModel();
 
+      $supeng_desa->user_id = $request->user_id;
+      $supeng_desa->berkas_id = $request->berkas_id;;
+      $supeng_desa->nama_pemohon = $request->nama_pemohon;
+      $supeng_desa->email_pemohon = $request->email_pemohon;
+      $supeng_desa->keperluan = $request->keperluan;
+      $supeng_desa->tanggal_keperluan = $request->tanggal_keperluan;
+      $supeng_desa->tempat_keperluan = $request->tempat_keperluan;
+
+      $supeng_desa->save();
+
+      return redirect()->route('supengdesa')->with([
+        'message' => 'Permohonan berhasil ditambahkan',
+        'status' => 'success'
+      ]);
     }
 
     /**
