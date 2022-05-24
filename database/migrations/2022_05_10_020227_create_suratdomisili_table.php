@@ -16,10 +16,9 @@ class CreateSuratdomisiliTable extends Migration
         Schema::create('suratdomisili', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
+            $table->foreignId('berkas_id');
             $table->string('nama_pemohon');
             $table->string('email_pemohon')->unique();
-            $table->text('bukti_ktp');
-            $table->text('bukti_kk');
             $table->text('bukti_pengantar');
             $table->timestamps();
         });

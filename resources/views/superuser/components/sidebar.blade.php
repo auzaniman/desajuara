@@ -16,7 +16,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('dashboard')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-tv-2 text-primary text-sm opacity-10"></i>
+            <i class="ni ni-tv-2 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Profil Akun</span>
         </a>
@@ -24,7 +24,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('chart')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-primary text-sm opacity-10"></i>
+            <i class="ni ni-calendar-grid-58 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Profil Desa</span>
         </a>
@@ -32,7 +32,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('tantangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-primary text-sm opacity-10"></i>
+            <i class="ni ni-credit-card text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Tantangan dan Potensi</span>
         </a>
@@ -40,7 +40,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('rencana')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-primary text-sm opacity-10"></i>
+            <i class="ni ni-app text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Rencana Jangka Menengah</span>
         </a>
@@ -48,7 +48,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('agenda')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-primary text-sm opacity-10"></i>
+            <i class="ni ni-world-2 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Agenda</span>
         </a>
@@ -59,7 +59,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('keuangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-02 text-primary text-sm opacity-10"></i>
+            <i class="ni ni-single-02 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Keuangan</span>
         </a>
@@ -67,7 +67,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('layanan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-copy-04 text-primary text-sm opacity-10"></i>
+            <i class="ni ni-single-copy-04 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Layanan</span>
         </a>
@@ -75,7 +75,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('peta')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-primary text-sm opacity-10"></i>
+            <i class="ni ni-collection text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Peta Desa</span>
         </a>
@@ -83,7 +83,7 @@
       <li class="nav-item">
         <a class="nav-link nav-active" href="{{route('berkas')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-primary text-sm opacity-10"></i>
+            <i class="ni ni-collection text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Berkas</span>
         </a>

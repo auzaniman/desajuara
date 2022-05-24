@@ -13,6 +13,7 @@ class SuratDomisili extends Model
 
     protected $fillable = [
       'user_id',
+      'berkas_id',
       'nama_pemohon',
       'email_pemohon',
       'bukti_ktp',
@@ -24,5 +25,9 @@ class SuratDomisili extends Model
     public function user()
     {
       return $this->belongsTo(User::class);
+    }
+    public function berkas()
+    {
+      return $this->belongsTo(Berkas::class);
     }
 }
