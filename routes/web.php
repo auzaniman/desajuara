@@ -42,7 +42,7 @@ use Illuminate\Support\Facades\Auth;
 
 // Landing
 Route::get("/", function () {
-    return view('home.pages.index')->name('home');
+    return view('home.pages.index');
 });
 
 // Login Officer
