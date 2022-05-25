@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User\Administrasi;
+namespace App\Http\Controllers\Officer\Administrasi;
 
 use App\Models\SuratDomisili;
 use App\Models\User;

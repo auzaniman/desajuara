@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User\NonPerizinan;
+namespace App\Http\Controllers\Officer\NonPerizinan;
 
 use App\Models\User;
 use App\Models\Berkas;
