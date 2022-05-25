@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\User\Perizinan;
+namespace App\Http\Controllers\User\NonPerizinan;
 
 use App\Models\User;
 use App\Models\Berkas;
@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class SuketUsahaController extends Controller
+class SupengDesaOfficerController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -20,7 +20,7 @@ class SuketUsahaController extends Controller
       $users = User::all();
       $berkas = Berkas::all();
 
-      return view('officer.pages.layanan.perizinan.suket_usaha', [
+      return view('officer.pages.layanan.non_perizinan.supeng_desa', [
         'users' => $users,
         'berkas' => $berkas
       ]);
