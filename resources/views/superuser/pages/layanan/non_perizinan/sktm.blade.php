@@ -45,7 +45,15 @@ Surat Keterangan Tidak Mampu
             <div class="col-md-2" hidden>
               <div class="form-group">
                 <label for="berkas_id" class="form-control-label" hidden>Berkas ID</label>
-                <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="{{$berkas->id}}" hidden>
+                @if (($berkas) != null)
+                  @if ($berkas->id != null)
+                  <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="{{$berkas->id}}" hidden>
+                  @else
+                  <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="" hidden>
+                  @endif
+                @else
+                <input name="berkas_id" id="berkas_id" class="form-control" type="text" value="" hidden>
+                @endif
               </div>
             </div>
             <div class="col-md-5">

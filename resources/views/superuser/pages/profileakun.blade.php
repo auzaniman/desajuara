@@ -88,16 +88,22 @@ Profil Akun
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Biodata</p>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="example-text-input" class="form-control-label">NIK</label>
                 <input class="form-control" type="text" value="{{$user->nik}}">
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="example-text-input" class="form-control-label">No KK</label>
                 <input class="form-control" type="text" value="{{$user->kk}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="example-text-input" class="form-control-label">No NPWP</label>
+                <input class="form-control" type="text" value="{{$user->npwp}}">
               </div>
             </div>
           </div>

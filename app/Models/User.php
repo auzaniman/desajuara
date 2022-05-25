@@ -24,6 +24,7 @@ class User extends Authenticatable
       'ttl',
       'nik',
       'kk',
+      'npwp',
       'kelamin',
       'pekerjaan',
       'agama',
