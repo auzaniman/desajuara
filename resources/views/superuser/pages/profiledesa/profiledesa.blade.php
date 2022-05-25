@@ -41,11 +41,6 @@ Profil Desa
 <div class="row mt-4">
   <div class="col-lg-4 mb-lg-0 mb-4">
     <div class="card z-index-2 h-100">
-      <div class="px-3">
-        <a href="{{route('chart_edit_page')}}" class="btn text-white btn-sm btn-warning btn-icon btn-3 mt-3 mb-sm-0 text-decoration-none">
-          <span class="btn-inner--text">Edit Data</span>
-        </a>
-      </div>
       {{-- Chart --}}
       <div class="card-header pb-0 pt-3 bg-transparent">
         <h6 class="text-capitalize mb-0">Jumlah Penduduk Berdasarkan RT</h6>
