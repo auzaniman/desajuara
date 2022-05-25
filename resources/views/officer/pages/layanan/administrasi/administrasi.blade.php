@@ -30,7 +30,7 @@ Bidang Administrasi Kependudukan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a>
+              <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a>
             </div>
           </div>
           <div class="col-4 text-end">

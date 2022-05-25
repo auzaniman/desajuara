@@ -30,7 +30,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kelakuan Baik</a>
+              <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kelakuan Baik</a>
             </div>
           </div>
           <div class="col-4 text-end">
@@ -66,7 +66,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('sktm')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Tidak Mampu</a>
+              <a href="{{route('officer.sktm')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Tidak Mampu</a>
             </div>
           </div>
           <div class="col-4 text-end">
@@ -120,7 +120,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('supengdesa')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Pengantar Desa</a>
+              <a href="{{route('officer.supengdesa')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Pengantar Desa</a>
             </div>
           </div>
           <div class="col-4 text-end">
