@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Officer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ChartBar;
+use App\Models\SettingSejKampModel;
 
 class ProfileDesaOfficerController extends Controller
 {
@@ -15,9 +16,13 @@ class ProfileDesaOfficerController extends Controller
      */
     public function index()
     {
-        $charts = ChartBar::all();
+      $charts = ChartBar::all();
+      $profiledesa = SettingSejKampModel::where('id')->first();
 
-        return view('officer.pages.profiledesa', $charts);
+      return view('officer.pages.profiledesa', [
+        'charts' => $charts,
+        'profiledesa' => $profiledesa
+      ]);
     }
 
     /**

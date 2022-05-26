@@ -13,13 +13,8 @@ Profil Akun
           <div class="col-auto my-auto">
             <div class="h-100">
               <h5 class="mb-1">
-                Syarat Pembuatan Surat Domisili
+                Data Pemohon Surat Domisili
               </h5>
-              <p class="mb-0 font-weight-bold text-sm">
-                KTP
-                KK
-                Pengantar RT & RW
-              </p>
             </div>
           </div>
         </div>
@@ -31,109 +26,51 @@ Profil Akun
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
-        <p class="text-uppercase text-sm">Formulir Pembuatan Surat Domisili</p>
-        <form method="POST" action="{{route('officer.post_surdom')}}" enctype="multipart/form-data">
-          @csrf
-          <div class="row">
-            <div class="col-md-2" hidden>
-              <div class="form-group">
-                <label for="user_id" class="form-control-label" hidden>User ID</label>
-                <input name="user_id" id="user_id" class="form-control" type="text" value="" hidden>
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="nama_pemohon" class="form-control-label">Nama Pemohon</label>
-                <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="">
-              </div>
-            </div>
-            <div class="col-md-5">
-              <div class="form-group">
-                <label for="email_pemohon" class="form-control-label">Email Pemohon</label>
-                <input name="email_pemohon" id="email_pemohon" class="form-control disabled" type="email" value="">
-              </div>
-            </div>
-          </div>
-          <hr class="horizontal dark">
-          <p class="text-uppercase text-sm">Berkas</p>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="bukti_ktp" class="form-control-label">KTP</label>
-                  @if (($berkas) != null)
-                    @if ($berkas->foto_ktp != null)
-                      <div class="ms-1">
-                        <i class="ni ni-check-bold text-success text-sm"></i>
-                        <span class="ms-1">Sudah Upload Berkas</span>
-                      </div>
-                    @else
-                      <div class="ms-1">
-                        <i class="ni ni-fat-remove text-danger text-sm"></i>
-                        <span class="ms-1">Belum Upload Berkas</span>
-                      </div>
-                    @endif
-                  @else
-                    <div class="ms-1">
-                      <i class="ni ni-fat-remove text-danger text-sm"></i>
-                      <span class="ms-1">Belum Upload Berkas</span>
-                    </div>
-                  @endif
-                {{-- @if ($berkas->isEmpty() )
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
-                @else
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
-                @endif --}}
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="bukti_kk" class="form-control-label">Kartu Keluarga</label>
-                @if (($berkas) != null)
-                  @if ($berkas->foto_kk != null)
-                    <div class="ms-1">
-                      <i class="ni ni-check-bold text-success text-sm"></i>
-                      <span class="ms-1">Sudah Upload Berkas</span>
-                    </div>
-                  @else
-                    <div class="ms-1">
-                      <i class="ni ni-fat-remove text-danger text-sm"></i>
-                      <span class="ms-1">Belum Upload Berkas</span>
-                    </div>
-                  @endif
-                @else
-                  <div class="ms-1">
-                    <i class="ni ni-fat-remove text-danger text-sm"></i>
-                    <span class="ms-1">Belum Upload Berkas</span>
-                  </div>
-                @endif
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="bukti_pengantar" class="form-control-label">Surat Pengantar RT & RW</label>
-                <input name="bukti_pengantar" id="bukti_pengantar" class="form-control" type="file" value="">
-              </div>
-            </div>
-          </div>
-          <div class="d-flex align-items-center mt-3">
-            @if (($berkas) != null)
-              @if ($berkas->foto_ktp != null && $berkas->foto_kk != null)
-                <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button>
-              @else
-                <button type="submit" class="btn btn-primary btn-sm ms-auto" disabled>Kirim</button>
-              @endif
-            @else
-              <button type="submit" class="btn btn-primary btn-sm ms-auto" disabled>Kirim</button>
-            @endif
-            {{-- <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button> --}}
-          </div>
-        </form>
+        <p class="text-uppercase text-sm">Table Data</p>
+        <div class="table-responsive">
+          @forelse ($surdom as $item)
+          <table class="table align-items-center mb-3">
+            <thead>
+              <tr>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Pemohon</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Email Pemohon</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KTP</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KK</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas Pengantar</th>
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Verifikasi</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs">{{$item->nama_pemohon}}</h6>
+                </td>
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs">{{$item->email_pemohon}}</h6>
+                </td>
+                @foreach ($berkas as $berkass)
+                <td class="align-middle text-center">
+                  <img src="{{ asset('storage/'.$berkass->foto_ktp)}}" alt="" style="width: 150px" class="img-thumbnail">
+                </td>
+                <td class="align-middle text-center">
+                  <img src="{{ asset('storage/'.$berkass->foto_kk)}}" alt="" style="width: 150px" class="img-thumbnail">
+                </td>
+                @endforeach
+                <td class="align-middle text-center">
+                  <img src="{{ asset('storage/'.$item->bukti_pengantar)}}" alt="" style="width: 150px" class="img-thumbnail">
+                </td>
+                <td class="align-middle text-center">
+                  <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
+                    Edit
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          @empty
+
+          @endforelse
+        </div>
       </div>
     </div>
   </div>

@@ -24,7 +24,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('administrasi')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Administrasi Kependudukan</a>
+              <a href="{{route('officer.administrasi')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Administrasi Kependudukan</a>
             </div>
           </div>
           <div class="col-4 text-end">
@@ -42,7 +42,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Perizinan</a>
+              <a href="{{route('officer.perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Perizinan</a>
             </div>
           </div>
           <div class="col-4 text-end">
@@ -60,7 +60,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('non_perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Non Perizinan</a>
+              <a href="{{route('officer.non_perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Non Perizinan</a>
             </div>
           </div>
           <div class="col-4 text-end">
@@ -78,7 +78,7 @@ Layanan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('pertanahan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Pertanahan</a>
+              <a href="{{route('officer.pertanahan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Pertanahan</a>
             </div>
           </div>
           <div class="col-4 text-end">

@@ -11,6 +11,11 @@ use App\Http\Controllers\Officer\LayananOfficerController;
 use App\Http\Controllers\Officer\ChartBarOfficerController;
 use App\Http\Controllers\Officer\BerkasOfficerController;
 use App\Http\Controllers\Officer\PetaDesaOfficerController;
+use App\Http\Controllers\Officer\SettingController;
+use App\Http\Controllers\Officer\Administrasi\SuratDomisiliOfficerController;
+use App\Http\Controllers\Officer\Perizinan\SuketUsahaOfficerController;
+use App\Http\Controllers\Officer\NonPerizinan\SKTMOfficerController;
+use App\Http\Controllers\Officer\NonPerizinan\SupengDesaOfficerController;
 use App\Http\Controllers\User\ProfileAkunController;
 use App\Http\Controllers\User\ProfileDesaController;
 use App\Http\Controllers\User\TantanganDanPotensiController;
@@ -56,10 +61,10 @@ Route::middleware(["officer"])
 ->prefix("officer")
 ->namespace("Officer")
 ->group(function () {
-    //Profile
-    Route::get("/", [ProfileAkunOfficerController::class, "index"])->name("dashboard");
+  //Profile
+  Route::get("/", [ProfileAkunOfficerController::class, "index"])->name("dashboard");
 
-    // Profile Desa
+  // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
   Route::get('/chart', [ChartBarOfficerController::class, "index"])->name("chart");
   Route::post('/chart_add', [ChartBarOfficerController::class, "store"])->name("chart_add");
@@ -108,6 +113,10 @@ Route::middleware(["officer"])
   Route::get("/berkas", [BerkasOfficerController::class, "Index"])->name("berkas");
   Route::post("/berkas_post", [BerkasOfficerController::class, "store"])->name("berkas_post");
   Route::post("/berkas_alt_post", [BerkasOfficerController::class, "berkas_alt"])->name("berkas_alt");
+
+  // Setting
+  Route::get("/setting", [SettingController::class, "index"])->name("setting");
+  Route::post("/set_profiledesa", [SettingController::class, "store"])->name("setprofiledesa");
 });
 
 // Dashboard User
@@ -118,6 +127,8 @@ Route::prefix("user")
 
   // Profile Akun
   Route::get("/", [ProfileAkunController::class, "index"])->name("dashboard");
+  Route::put("/profile_edit/{id}", [ProfileAkunController::class, "update"])->name("profile_edit");
+  Route::get("/kumpulan_berkas", [ProfileAkunController::class, "kumpulan_berkas"])->name("kumpulan_berkas");
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
@@ -170,7 +181,9 @@ Route::prefix("user")
   // Berkas
   Route::get("/berkas", [BerkasController::class, "Index"])->name("berkas");
   Route::post("/berkas_post", [BerkasController::class, "store"])->name("berkas_post");
+  Route::put("/berkas_edit/{id}", [BerkasController::class, "update"])->name("berkas_edit");
   Route::post("/berkas_alt_post", [BerkasController::class, "berkas_alt"])->name("berkas_alt");
+  Route::post("/berkas_alt_edit/{id}", [BerkasController::class, "berkas_alt_update"])->name("berkas_alt_edit");
 
 });
 

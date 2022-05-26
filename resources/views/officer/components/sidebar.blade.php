@@ -88,6 +88,28 @@
           <span class="nav-link-text ms-1">Berkas</span>
         </a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link nav-active" href="{{route('officer.setting')}}">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
+            <i class="fa fa-cog text-primary text-sm"></i>
+          </div>
+          <span class="nav-link-text ms-1">Setting</span>
+        </a>
+      </li>
+      {{-- <li class="nav-item">
+        <a class="nav-link nav-active" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+          <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
+            <i class="fa fa-cog text-primary text-sm"></i>
+          </div>
+          <span class="nav-link-text ms-1">Setting</span>
+        </a>
+        <div class="collapse" id="collapseExample">
+          <div class="card card-body collapsed">
+            <a href="{{route('officer.dashboard')}}" class="nav-link">Profile</a>
+            <a class="nav-link ">Profile</a>
+          </div>
+        </div>
+      </li> --}}
     </ul>
   </div>
   {{-- <div class="sidenav-footer mx-3 ">

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\ChartBar;
+use App\Models\SettingSejKampModel;
 
 class ChartBarOfficerController extends Controller
 {
@@ -17,6 +18,7 @@ class ChartBarOfficerController extends Controller
     public function index()
     {
       $charts = ChartBar::all();
+      // $profiledesa = SettingSejKampModel::where('id')->first();
 
       $rt = [];
       $jmlwarga = [];
@@ -34,6 +36,7 @@ class ChartBarOfficerController extends Controller
           'rt' => $rt,
           'jmlwarga' => $jmlwarga,
           'jmlkepala' => $jmlkepala,
+          // 'profiledesa' => $profiledesa
 
         ]
       );

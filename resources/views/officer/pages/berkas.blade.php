@@ -9,7 +9,7 @@ Berkas
   <div class="col-lg-12">
     <div class="card">
       <div class="card-body">
-        <form method="post" action="{{route('berkas_post')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('officer.berkas_post')}}" enctype="multipart/form-data">
           @csrf
           <p class="text-uppercase text-sm">Berkas Wajib</p>
           <div class="row">
@@ -54,7 +54,7 @@ Berkas
   <div class="col-lg-12 mt-4">
     <div class="card">
       <div class="card-body">
-        <form method="post" action="{{route('berkas_alt')}}" enctype="multipart/form-data">
+        <form method="post" action="{{route('officer.berkas_alt')}}" enctype="multipart/form-data">
           @csrf
           <p class="text-uppercase text-sm">Berkas (optional)</p>
           <div class="row">

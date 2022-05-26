@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\Officer;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Models\ChartBar;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreSettingSejKampRequest;
 use App\Models\SettingSejKampModel;
 
-class ProfileDesaController extends Controller
+class SettingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,13 +16,10 @@ class ProfileDesaController extends Controller
      */
     public function index()
     {
-        $charts = ChartBar::all();
-        $profiledesa = SettingSejKampModel::where('id')->first();
-
-        return view('superuser.pages.profiledesa', [
-          'charts' => $charts,
-          'profiledesa' => $profiledesa
-        ]);
+      $profiledesa = SettingSejKampModel::where('id')->first();
+      return view('officer.pages.setting', [
+        'profiledesa' => $profiledesa
+      ]);
     }
 
     /**
@@ -41,9 +38,20 @@ class ProfileDesaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreSettingSejKampRequest $request)
     {
-        //
+      $profiledesa = new SettingSejKampModel();
+
+      $profiledesa->sejarah_kampung = $request->sejarah_kampung;
+      $profiledesa->video_desa = $request->video_desa;
+      $profiledesa['foto_kades'] = $request->file('foto_kades')->store('', 'public');
+
+      $profiledesa->save();
+
+      return redirect()->back()->with([
+        'message' => 'Profile Desa berhasil Ditambahkan',
+        'status' => 'Profile Desa berhasil Ditambahkan'
+      ]);
     }
 
     /**

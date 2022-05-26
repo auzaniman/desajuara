@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreBerkasRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
@@ -17,8 +18,9 @@ class BerkasController extends Controller
      */
     public function index()
     {
-      $user = User::all();
-      $berkas = Berkas::all();
+      $user = User::where('id', '=', Auth::user()->id)->first();
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
+
       return view('superuser.pages.berkas', [
         'user' => $user,
         'berkas' => $berkas
@@ -41,11 +43,11 @@ class BerkasController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreBerkasRequest $request)
     {
       $berkas = new berkas();
 
-      $berkas->user_id = Auth::user()->id;
+      $berkas->user_id = $request->user_id;
       $berkas['foto_ktp'] = $request->file('foto_ktp')->store('', 'public');
       $berkas['foto_kk'] = $request->file('foto_kk')->store('', 'public');
       $berkas['foto_diri'] = $request->file('foto_diri')->store('', 'public');
@@ -63,8 +65,6 @@ class BerkasController extends Controller
     public function berkas_alt(Request $request)
     {
       $berkas = new berkas();
-
-      $berkas->user_id = Auth::user()->id;
       $berkas['npwp'] = $request->file('npwp')->store('', 'public');
       $berkas['buku_nikah'] = $request->file('buku_nikah')->store('', 'public');
 
@@ -107,7 +107,35 @@ class BerkasController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
+
+      $berkas->user_id = $request->user_id;
+      $berkas['foto_ktp'] = $request->file('foto_ktp')->store('', 'public');
+      $berkas['foto_kk'] = $request->file('foto_kk')->store('', 'public');
+      $berkas['foto_diri'] = $request->file('foto_diri')->store('', 'public');
+      $berkas['akta_kelahiran'] = $request->file('akta_kelahiran')->store('', 'public');
+      $berkas['paspoto'] = $request->file('paspoto')->store('', 'public');
+
+      $berkas->save();
+
+      return redirect()->route('berkas')->with([
+        'message' => 'Berkas berhasil diubah',
+        'status' => 'Berkas berhasil diubah'
+      ]);
+    }
+
+    public function berkas_alt_update(Request $request, $id)
+    {
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
+      $berkas['npwp'] = $request->file('npwp')->store('', 'public');
+      $berkas['buku_nikah'] = $request->file('buku_nikah')->store('', 'public');
+
+      $berkas->save();
+
+      return redirect()->route('berkas')->with([
+        'message' => 'Berkas berhasil diubah',
+        'status' => 'Berkas berhasil diubah'
+      ]);
     }
 
     /**
