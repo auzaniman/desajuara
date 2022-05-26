@@ -85,10 +85,11 @@ Profil Akun
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="email" class="form-control-label">Email address</label>
-                <input id="email" name="email" class="form-control" type="email" value="{{$user->email}}">
+                <label for="name" class="form-control-label">Nama</label>
+                <input id="name" name="name" class="form-control" type="text" value="{{$user->name}}">
               </div>
             </div>
+
           </div>
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Nomor Kependudukan</p>
@@ -115,12 +116,7 @@ Profil Akun
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Biodata</p>
           <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="name" class="form-control-label">Nama</label>
-                <input id="name" name="name" class="form-control" type="text" value="{{$user->name}}">
-              </div>
-            </div>
+
             <div class="col-md-4">
               <div class="form-group">
                 <label for="ttl" class="form-control-label">Tempat Tanggal Lahir</label>
@@ -165,24 +161,18 @@ Profil Akun
             </div>
           </div>
           <hr class="horizontal dark">
-          <p class="text-uppercase text-sm">Kontak</p>
+          <p class="text-uppercase text-sm">Alamat</p>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">Alamat KTP</label>
                 <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="alamat_domisili" class="form-control-label">Alamat Domisili</label>
-                <input id="alamat_domisili" name="alamat_domisili" class="form-control" type="text" value="{{$user->alamat_domisili}}">
-              </div>
-            </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="provinsi" class="form-control-label">Provinsi</label>
-                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
+                <label for="kecamatan" class="form-control-label">Kecamatan</label>
+                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -193,17 +183,33 @@ Profil Akun
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="kecamatan" class="form-control-label">Kecamatan</label>
-                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan}}">
+                <label for="provinsi" class="form-control-label">Provinsi</label>
+                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="alamat_domisili" class="form-control-label">Alamat Domisili</label>
+                <input id="alamat_domisili" name="alamat_domisili" class="form-control" type="text" value="{{$user->alamat_domisili}}">
+              </div>
+            </div>
+          </div>
+          <hr class="horizontal dark">
+          <p class="text-uppercase text-sm">Kontak</p>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="email" class="form-control-label">Email address</label>
+                <input id="email" name="email" class="form-control" type="email" value="{{$user->email}}">
+              </div>
+            </div>
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="no_telpon" class="form-control-label">No Telpon</label>
                 <input id="no_telpon" name="no_telpon" class="form-control" type="text" value="{{$user->no_telpon}}">
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <label for="no_wa" class="form-control-label">No Whatsapp</label>
                 <input id="no_wa" name="no_wa" class="form-control" type="text" value="{{$user->no_wa}}">

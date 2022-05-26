@@ -30,7 +30,7 @@ Bidang Perizinan
         <div class="row align-items-lg-center">
           <div class="col-8">
             <div class="numbers">
-              <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Domisili Usaha</a>
+              <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Domisili Usaha</a>
             </div>
           </div>
           <div class="col-4 text-end">

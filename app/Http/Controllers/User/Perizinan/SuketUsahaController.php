@@ -22,7 +22,7 @@ class SuketUsahaController extends Controller
       $users = User::where('id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
-      return view('officer.pages.layanan.perizinan.suket_usaha', [
+      return view('superuser.pages.layanan.perizinan.suket_usaha', [
         'users' => $users,
         'berkas' => $berkas
       ]);
