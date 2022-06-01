@@ -17,8 +17,12 @@ class CreateSuratdomisiliTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('berkas_id');
+            $table->foreignId('verifikasi_id')->nullable();
+            $table->string('kategori')->default('Administrasi Kependudukan');
+            $table->string('nama_ajuan')->default('Surat Domisili');
             $table->string('nama_pemohon');
             $table->string('email_pemohon')->unique();
+            $table->text('file_surdom')->nullable();
             $table->text('bukti_pengantar');
             $table->timestamps();
         });

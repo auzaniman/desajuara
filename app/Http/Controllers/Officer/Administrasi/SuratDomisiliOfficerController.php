@@ -6,6 +6,7 @@ use App\Models\SuratDomisili;
 use App\Models\User;
 use App\Models\Berkas;
 use App\Http\Controllers\Controller;
+use App\Models\VerifikasiModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -21,13 +22,15 @@ class SuratDomisiliOfficerController extends Controller
       $users = User::all();
       $berkas = Berkas::all();
       $surdom = SuratDomisili::all();
+      $verifikasi = VerifikasiModel::all();
 
       return
-      view('officer.pages.layanan.administrasi.suratdomisili',
+      view('officer.pages.layanan.administrasi.surdom.suratdomisili',
         [
           'users' => $users,
           'berkas' => $berkas,
-          'surdom' => $surdom
+          'surdom' => $surdom,
+          'verifikasi' => $verifikasi,
         ]
       );
     }
@@ -61,7 +64,17 @@ class SuratDomisiliOfficerController extends Controller
      */
     public function show($id)
     {
-        //
+        $surdom = SuratDomisili::findOrFail($id);
+        $berkas = Berkas::findOrFail($id);
+        $user = User::findOrFail($id);
+        $verifikasi = VerifikasiModel::all();
+
+        return view('officer.pages.layanan.administrasi.surdom.verify', [
+          'user' => $user,
+          'surdom' => $surdom,
+          'berkas' => $berkas,
+          'verifikasi' => $verifikasi,
+        ]);
     }
 
     /**
@@ -84,7 +97,16 @@ class SuratDomisiliOfficerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $surdom = SuratDomisili::findOrFail($id);
+
+      $surdom->verifikasi_id = $request->verifikasi_id;
+
+      $surdom->save();
+
+      return redirect()->back()->with([
+        'message' => 'Permohonan berhasil diverifikasi',
+        'status' => 'success'
+      ]);
     }
 
     /**

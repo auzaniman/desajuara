@@ -1,7 +1,7 @@
 <?php
 use App\Http\Controllers\Officer\Auth\LoginController;
 use App\Http\Controllers\Officer\DashboardController;
-use App\Http\Controllers\Officer\ProfileAkunOfficerController;
+use App\Http\Controllers\Officer\MainDashboardController;
 use App\Http\Controllers\Officer\ProfileDesaOfficerController;
 use App\Http\Controllers\Officer\TantanganDanPotensiOfficerController;
 use App\Http\Controllers\Officer\RencanaJangkaMenengahOfficerController;
@@ -33,6 +33,7 @@ use App\Http\Controllers\User\NonPerizinan\SupengDesaController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\DependantDropdownController;
 
 /*
 |--------------------------------------------------------------------------
@@ -62,7 +63,7 @@ Route::middleware(["officer"])
 ->namespace("Officer")
 ->group(function () {
   //Profile
-  Route::get("/", [ProfileAkunOfficerController::class, "index"])->name("dashboard");
+  Route::get("/", [MainDashboardController::class, "index"])->name("dashboard");
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
@@ -91,6 +92,8 @@ Route::middleware(["officer"])
   Route::get("/administrasi", [LayananOfficerController::class, "administrasi"])->name("administrasi");
   Route::get("/surdom", [SuratDomisiliOfficerController::class, "index"])->name("surdom");
   Route::post("/post_surdom", [SuratDomisiliOfficerController::class, "store"])->name("post_surdom");
+  Route::get("/show_surdom/{id}", [SuratDomisiliOfficerController::class, "show"])->name("show_surdom");
+  Route::put("/update_surdom/{id}", [SuratDomisiliOfficerController::class, "update"])->name("update_surdom");
 
   // Perizinan
   Route::get("/perizinan", [LayananOfficerController::class, "perizinan"])->name("perizinan");
@@ -128,7 +131,9 @@ Route::prefix("user")
   // Profile Akun
   Route::get("/", [ProfileAkunController::class, "index"])->name("dashboard");
   Route::put("/profile_edit/{id}", [ProfileAkunController::class, "update"])->name("profile_edit");
+  Route::post("/tambah_foto", [ProfileAkunController::class, "store"])->name("tambah_foto");
   Route::get("/kumpulan_berkas", [ProfileAkunController::class, "kumpulan_berkas"])->name("kumpulan_berkas");
+  Route::get("/kumpulan_ajuan/{id}", [ProfileAkunController::class, "kumpulan_ajuan"])->name("kumpulan_ajuan");
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
@@ -188,4 +193,3 @@ Route::prefix("user")
 });
 
 Auth::routes();
-

@@ -8,56 +8,7 @@ Profil Akun
 <div class="row">
   <div class="col-lg-12">
     {{-- Avatar --}}
-    <div class="card">
-      <div class="card-body p-3">
-        <div class="row gx-4">
-          <div class="col-auto">
-            <div class="avatar avatar-xl position-relative">
-              <img src="{{url('frontend/assets/img/user.jpg')}}" alt="profile_image" class="w-100 border-radius-lg shadow-sm">
-              <div class="w-100 border-radius-lg shadow-sm bg-gradient-primary h-100"></div>
-            </div>
-          </div>
-          <div class="col-auto my-auto">
-            <div class="h-100">
-              <h5 class="mb-1">
-                {{$user->name}}
-              </h5>
-              <p class="mb-0 font-weight-bold text-sm">
-                {{$user->email}}
-              </p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-            <div class="nav-wrapper position-relative end-0">
-              <ul class="nav nav-pills nav-fill p-1" role="tablist">
-                <li class="nav-item">
-                  <ul class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
-                    <i class="ni ni-app"></i>
-                    <a href="{{route('dashboard')}}">
-                      <span class="ms-2">Akun</span>
-                    </a>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <ul class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="{{route('berkas')}}" role="tab" aria-selected="false">
-                    <i class="ni ni-email-83"></i>
-                    <a href="{{route('kumpulan_berkas')}}">
-                      <span class="ms-2">Berkas</span>
-                    </a>
-                  </ul>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                    <i class="ni ni-settings-gear-65"></i>
-                    <span class="ms-2">Settings</span>
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    @include('superuser.components.avatar_profile')
     {{-- End Avatar --}}
   </div>
 </div>
@@ -65,14 +16,8 @@ Profil Akun
   {{-- Detail Profile --}}
   <div class="col-md-8">
     <div class="card">
-      {{-- <div class="card-header pb-0">
-        <div class="d-flex align-items-center">
-          <p class="mb-0">Edit Profile</p>
-          <button class="btn btn-primary btn-sm ms-auto">Settings</button>
-        </div>
-      </div> --}}
       <div class="card-body">
-        <p class="text-uppercase text-sm">Detail Akun</p>
+        <p class="text-uppercase text-sm">Edit Detail Akun</p>
         <form action="{{route('profile_edit', $user->id)}}" method="POST">
           @method('put')
           @csrf
@@ -89,7 +34,6 @@ Profil Akun
                 <input id="name" name="name" class="form-control" type="text" value="{{$user->name}}">
               </div>
             </div>
-
           </div>
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Nomor Kependudukan</p>
@@ -161,14 +105,28 @@ Profil Akun
             </div>
           </div>
           <hr class="horizontal dark">
-          <p class="text-uppercase text-sm">Alamat</p>
+          <p class="text-uppercase text-sm">Alamat KTP</p>
           <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-4">
               <div class="form-group">
-                <label for="alamat_ktp" class="form-control-label">Alamat KTP</label>
+                <label for="alamat_ktp" class="form-control-label">Desa</label>
                 <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
               </div>
             </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="alamat_ktp" class="form-control-label">RT</label>
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="alamat_ktp" class="form-control-label">RW</label>
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kecamatan" class="form-control-label">Kecamatan</label>
@@ -187,10 +145,49 @@ Profil Akun
                 <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
               </div>
             </div>
-            <div class="col-md-12">
+          </div>
+          <p class="text-uppercase text-sm">Alamat Domisili</p>
+          <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="fcustomCheck1">
+            <label class="custom-control-label" for="customCheck1">Alamat Domisili sama dengan Alamat KTP</label>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
               <div class="form-group">
-                <label for="alamat_domisili" class="form-control-label">Alamat Domisili</label>
-                <input id="alamat_domisili" name="alamat_domisili" class="form-control" type="text" value="{{$user->alamat_domisili}}">
+                <label for="alamat_ktp" class="form-control-label">Desa</label>
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="alamat_ktp" class="form-control-label">RT</label>
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="alamat_ktp" class="form-control-label">RW</label>
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="kecamatan" class="form-control-label">Kecamatan</label>
+                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="kota" class="form-control-label">Kota/Kabupaten</label>
+                <input id="kota" name="kota" class="form-control" type="text" value="{{$user->kota}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="provinsi" class="form-control-label">Provinsi</label>
+                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
               </div>
             </div>
           </div>
@@ -220,6 +217,52 @@ Profil Akun
             <button type="submit" class="btn btn-primary btn-sm ms-auto">Update</button>
           </div>
         </form>
+        <hr class="horizontal dark">
+        @if (($foto) != null)
+        <p class="text-uppercase text-sm">Edit Foto Profile</p>
+        <form action="" enctype="multipart/form-data">
+          @csrf
+          <div class="row">
+            <div class="col-md-12" hidden>
+              <div class="form-group">
+                <label for="user_id" class="form-control-label">User ID</label>
+                <input id="user_id" name="user_id" class="form-control" type="file" value="{{$user->id}}">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="foto_profile" class="form-control-label">Foto Profile (UKURAN GAMBAR < 2MB)</label>
+                <input id="foto_profile" name="foto_profile" class="form-control" type="file" value="{{$foto->foto_profile}}">
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mt-3">
+            <button type="submit" class="btn btn-primary btn-sm ms-auto">Edit Foto</button>
+          </div>
+        </form>
+        @else
+        <p class="text-uppercase text-sm">Tambahkan Foto Profile</p>
+        <form action="{{route('tambah_foto')}}" method="POST"  enctype="multipart/form-data">
+          @csrf
+          <div class="row">
+            <div class="col-md-12" hidden>
+              <div class="form-group">
+                <label for="user_id" class="form-control-label">User ID</label>
+                <input id="user_id" name="user_id" class="form-control" type="text" value="{{$user->id}}">
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="foto_profile" class="form-control-label">Foto Profile (UKURAN GAMBAR < 2MB)</label>
+                <input id="foto_profile" name="foto_profile" class="form-control" type="file" value="">
+              </div>
+            </div>
+          </div>
+          <div class="d-flex align-items-center mt-3">
+            <button type="submit" class="btn btn-primary btn-sm ms-auto">Tambah Foto</button>
+          </div>
+        </form>
+        @endif
       </div>
     </div>
   </div>
@@ -237,7 +280,7 @@ Profil Akun
           @else
           <div class="d-flex pb-3">
             <div>
-              <i class="fas fa-times text-danger text-sm" aria-hidden="true"></i>
+              <i class="fas fa-times-circle text-danger text-sm" aria-hidden="true"></i>
             </div>
             <div class="ps-3">
               <span class="text-sm">Kamu belum mengisi NPWP</span>
@@ -247,7 +290,7 @@ Profil Akun
         @else
         <div class="d-flex pb-3">
           <div>
-            <i class="fas fa-times text-danger text-sm" aria-hidden="true"></i>
+            <i class="fas fa-times-circle text-danger text-sm" aria-hidden="true"></i>
           </div>
           <div class="ps-3">
             <span class="text-sm">Kamu belum mengisi NPWP</span>
@@ -260,7 +303,7 @@ Profil Akun
           @else
           <div class="d-flex pb-3">
             <div>
-              <i class="fas fa-times text-danger text-sm" aria-hidden="true"></i>
+              <i class="fas fa-times-circle text-danger text-sm" aria-hidden="true"></i>
             </div>
             <div class="ps-3">
               <span class="text-sm">Kamu belum mengisi Nomor Whatsapp</span>
@@ -270,10 +313,33 @@ Profil Akun
         @else
         <div class="d-flex pb-3">
           <div>
-            <i class="fas fa-times text-danger text-sm" aria-hidden="true"></i>
+            <i class="fas fa-times-circle text-danger text-sm" aria-hidden="true"></i>
           </div>
           <div class="ps-3">
-            <span class="text-sm">Kamu belum mengisi NPWP</span>
+            <span class="text-sm">Kamu belum mengisi Nomor Whatsapp</span>
+          </div>
+        </div>
+        @endif
+        @if (($foto) != null)
+          @if ($foto->foto_profile != null)
+
+          @else
+          <div class="d-flex pb-3">
+            <div>
+              <i class="fas fa-exclamation-circle text-warning text-sm" aria-hidden="true"></i>
+            </div>
+            <div class="ps-3">
+              <span class="text-sm">Kamu belum menambahkan Foto Profile</span>
+            </div>
+          </div>
+          @endif
+        @else
+        <div class="d-flex pb-3">
+          <div>
+            <i class="fas fa-exclamation-circle text-warning text-sm" aria-hidden="true"></i>
+          </div>
+          <div class="ps-3">
+            <span class="text-sm">Kamu belum menambahkan Foto Profile</span>
           </div>
         </div>
         @endif

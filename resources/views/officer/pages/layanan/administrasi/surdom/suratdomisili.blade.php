@@ -34,10 +34,11 @@ Profil Akun
               <tr>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Pemohon</th>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Email Pemohon</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KTP</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas</th>
+                {{-- <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KTP</th>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KK</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas Pengantar</th>
-                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Verifikasi</th>
+                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas Pengantar</th> --}}
+                <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Aksi</th>
               </tr>
             </thead>
             <tbody>
@@ -49,19 +50,28 @@ Profil Akun
                   <h6 class="mb-0 text-xs">{{$item->email_pemohon}}</h6>
                 </td>
                 @foreach ($berkas as $berkass)
-                <td class="align-middle text-center">
+                @if ($berkass != null)
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Lengkap</h6>
+                </td>
+                @else
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs">Tidak Lengkap</h6>
+                </td>
+                @endif
+                @endforeach
+                {{-- <td class="align-middle text-center">
                   <img src="{{ asset('storage/'.$berkass->foto_ktp)}}" alt="" style="width: 150px" class="img-thumbnail">
                 </td>
                 <td class="align-middle text-center">
                   <img src="{{ asset('storage/'.$berkass->foto_kk)}}" alt="" style="width: 150px" class="img-thumbnail">
-                </td>
-                @endforeach
-                <td class="align-middle text-center">
+                </td> --}}
+                {{-- <td class="align-middle text-center">
                   <img src="{{ asset('storage/'.$item->bukti_pengantar)}}" alt="" style="width: 150px" class="img-thumbnail">
-                </td>
+                </td> --}}
                 <td class="align-middle text-center">
-                  <a href="" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                    Edit
+                  <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-sm btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
+                    Verifikasi
                   </a>
                 </td>
               </tr>

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Officer;
 use Illuminate\Support\Facades\Auth;
 
-class ProfileAkunOfficerController extends Controller
+class MainDashboardController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,7 +17,7 @@ class ProfileAkunOfficerController extends Controller
     public function index()
     {
       $officer = Officer::where('id', '=', Auth::guard('officer')->user()->id)->first();
-      return view('officer.pages.profileakun', [
+      return view('officer.pages.maindashboard', [
         'officer' => $officer
       ]);
     }

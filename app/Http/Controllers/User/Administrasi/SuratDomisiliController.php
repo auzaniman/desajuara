@@ -27,7 +27,7 @@ class SuratDomisiliController extends Controller
       view('superuser.pages.layanan.administrasi.suratdomisili',
         [
           'users' => $users,
-          'berkas' => $berkas
+          'berkas' => $berkas,
         ]
       );
     }

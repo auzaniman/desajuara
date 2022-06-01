@@ -2,7 +2,7 @@
 {{-- <div class="position-absolute w-100 min-height-300" style="background-position-y: 50%;">
   <span class="mask bg-primary opacity-6"></span>
 </div> --}}
-<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4 z-index-1" id="sidenav-main">
+<aside class="sidenav bg-white navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-4" id="sidenav-main">
   <div class="sidenav-header">
     <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
     <a class="navbar-brand m-0" href="" target="_blank">
@@ -14,7 +14,11 @@
   <div class=" w-auto ">
     <ul class="navbar-nav">
       <li class="nav-item">
-        <a class="nav-link active" href="{{route('dashboard')}}">
+        <a class="nav-link
+          @if (\Request::is('user'))
+          active
+          @endif"
+          href="{{route('dashboard')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-tv-2 text-primary text-sm"></i>
           </div>
@@ -22,7 +26,11 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('chart')}}">
+        <a class="nav-link
+          @if (\Request::is('user/chart'))
+          active
+          @endif"
+          href="{{route('chart')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-calendar-grid-58 text-primary text-sm"></i>
           </div>
@@ -30,7 +38,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('tantangan')}}">
+        <a class="nav-link
+          @if (\Request::is('user/tdp'))
+          active
+          @endif" href="{{route('tantangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-credit-card text-primary text-sm"></i>
           </div>
@@ -38,7 +49,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('rencana')}}">
+        <a class="nav-link
+          @if (\Request::is('user/rjm'))
+          active
+          @endif" href="{{route('rencana')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-app text-primary text-sm"></i>
           </div>
@@ -46,7 +60,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('agenda')}}">
+        <a class="nav-link
+          @if (\Request::is('user/agenda'))
+          active
+          @endif" href="{{route('agenda')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-world-2 text-primary text-sm"></i>
           </div>
@@ -57,7 +74,10 @@
         <h6 class="ps-4 ms-2 text-uppercase text-xs font-weight-bolder opacity-6">Account pages</h6>
       </li> --}}
       <li class="nav-item">
-        <a class="nav-link" href="{{route('keuangan')}}">
+        <a class="nav-link
+          @if (\Request::is('user/keuangan'))
+          active
+          @endif" href="{{route('keuangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-02 text-primary text-sm"></i>
           </div>
@@ -65,7 +85,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('layanan')}}">
+        <a class="nav-link
+          @if (\Request::is('user/layanan'))
+          active
+          @endif" href="{{route('layanan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-copy-04 text-primary text-sm"></i>
           </div>
@@ -73,7 +96,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('peta')}}">
+        <a class="nav-link
+          @if (\Request::is('user/peta'))
+          active
+          @endif" href="{{route('peta')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-collection text-primary text-sm"></i>
           </div>
@@ -81,7 +107,10 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{route('berkas')}}">
+        <a class="nav-link
+          @if (\Request::is('user/berkas'))
+          active
+          @endif" href="{{route('berkas')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-collection text-primary text-sm"></i>
           </div>

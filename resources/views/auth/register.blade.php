@@ -18,10 +18,24 @@
         <div class="card bg-secondary shadow border-0">
           <div class="card-body px-lg-5 py-lg-5">
             <div class="text-center text-muted mb-4">
-              <small>{{ __('Register') }}</small>
+              <h3>{{ __('Register') }}</h3>
             </div>
             <form role="form" action="{{ route('register') }}" method="post">
               @csrf
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username" type="text">
+                  @error('username')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <h6>Biodata</h6>
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
@@ -40,21 +54,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('username') is-invalid @enderror" id="username" name="username" placeholder="Username" type="text">
-                  @error('username')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
-                  </div>
-                  <input class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email" type="email">
-                  @error('email')
+                  <input class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" name="tempat_lahir" placeholder="Tempat Lahir" type="text">
+                  @error('tempat_lahir')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -66,8 +67,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('ttl') is-invalid @enderror" id="ttl" name="ttl" placeholder="Tempat Tanggal Lahir" type="text">
-                  @error('ttl')
+                  <input class="form-control datepicker @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" placeholder="Tanggal Lahir" type="text">
+                  @error('tanggal_lahir')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -110,6 +111,19 @@
                     <option value="Perempuan">Perempuan</option>
                   </select>
                   @error('kelamin')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('pendidikan') is-invalid @enderror" id="pendidikan" name="pendidikan" placeholder="Pendidikan/Keahlian" type="text">
+                  @error('pendidikan/keahlian')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -181,13 +195,15 @@
                   @enderror
                 </div>
               </div>
+              {{-- Alamat KTP --}}
+              <h6>Alamat KTP</h6>
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('alamat_ktp') is-invalid @enderror" id="alamat_ktp" name="alamat_ktp" placeholder="Alamat KTP" type="text">
-                  @error('alamat_ktp')
+                  <input class="form-control @error('desa_ktp') is-invalid @enderror" id="desa_ktp" name="desa_ktp" placeholder="Desa" type="text">
+                  @error('desa_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -199,8 +215,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('alamat_domisili') is-invalid @enderror" id="alamat_domisili" name="alamat_domisili" placeholder="Alamat Domisili" type="text">
-                  @error('alamat_domisili')
+                  <input class="form-control @error('rt_ktp') is-invalid @enderror" id="rt_ktp" name="rt_ktp" placeholder="RT" type="text">
+                  @error('rt_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -212,8 +228,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('provinsi') is-invalid @enderror" id="provinsi" name="provinsi" placeholder="Provinsi" type="text">
-                  @error('provinsi')
+                  <input class="form-control @error('rw_ktp') is-invalid @enderror" id="rw_ktp" name="rw_ktp" placeholder="RW" type="text">
+                  @error('rw_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -225,8 +241,8 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('kota') is-invalid @enderror" id="kota" name="kota" placeholder="Kota" type="text">
-                  @error('kota')
+                  <input class="form-control @error('provinsi_ktp') is-invalid @enderror" id="provinsi_ktp" name="provinsi_ktp" placeholder="Provinsi" type="text">
+                  @error('provinsi_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -238,8 +254,119 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('kecamatan') is-invalid @enderror" id="kecamatan" name="kecamatan" placeholder="Kecamatan" type="text">
-                  @error('kecamatan')
+                  <input class="form-control @error('kota_ktp') is-invalid @enderror" id="kota_ktp" name="kota_ktp" placeholder="Kota" type="text">
+                  @error('kota_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('kecamatan_ktp') is-invalid @enderror" id="kecamatan_ktp" name="kecamatan_ktp" placeholder="Kecamatan" type="text">
+                  @error('kecamatan_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              {{-- Alamat Domisili--}}
+              <h6>Alamat Domisili</h6>
+              <div class="custom-control custom-checkbox mb-3">
+                <input class="custom-control-input" id="customCheck1" type="checkbox">
+                <label class="custom-control-label" for="customCheck1">Alamat Domisili sama dengan Alamat KTP</label>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('desa_domisili') is-invalid @enderror" id="desa_domisili" name="desa_domisili" placeholder="Desa" type="text">
+                  @error('desa_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('rt_domisili') is-invalid @enderror" id="rt_domisili" name="rt_domisili" placeholder="RT" type="text">
+                  @error('rt_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('rw_domisili') is-invalid @enderror" id="rw_domisili" name="rw_domisili" placeholder="RW" type="text">
+                  @error('rw_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('provinsi_domisili') is-invalid @enderror" id="provinsi_domisili" name="provinsi_domisili" placeholder="Provinsi" type="text">
+                  @error('provinsi_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('kota_domisili') is-invalid @enderror" id="kota_domisili" name="kota_domisili" placeholder="Kota" type="text">
+                  @error('kota_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('kecamatan_domisili') is-invalid @enderror" id="kecamatan_domisili" name="kecamatan_domisili" placeholder="Kecamatan" type="text">
+                  @error('kecamatan_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <h6>Kontak</h6>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  </div>
+                  <input class="form-control @error('email') is-invalid @enderror" id="email" name="email" placeholder="Email" type="email">
+                  @error('email')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
                     </span>
@@ -272,19 +399,7 @@
                   @enderror
                 </div>
               </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
-                  </div>
-                  <input class="form-control @error('pendidikan') is-invalid @enderror" id="pendidikan" name="pendidikan" placeholder="Pendidikan/Keahlian" type="text">
-                  @error('pendidikan/keahlian')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
+              <h6>Password</h6>
               <div class="form-group focused">
                 <div class="input-group input-group-alternative">
                   <div class="input-group-prepend">

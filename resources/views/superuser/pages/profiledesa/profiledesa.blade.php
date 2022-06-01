@@ -12,19 +12,18 @@ Profil Desa
       <div class="card-header pb-0 pt-3 bg-transparent">
         <div class="row">
           <div class="col-lg-12">
-            <h6 class="text-capitalize">Highlight Kampung</h6>
+            <h6 class="text-capitalize">Foto Kampung</h6>
+            <img src="{{url('frontend/assets/img/1.jpg')}}" class="img-fluid" alt="foto kampung">
+          </div>
+          <hr class="horizontal dark">
+          <div class="col-lg-4">
+            <h6 class="text-capitalize">Video Desa</h6>
               <iframe
                 class="mb-3"
                 mute=1
                 autoplay=1
-                style="width: 100%; height:12.7rem;"
                 src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
               </iframe>
-          </div>
-          <hr class="horizontal dark">
-          <div class="col-lg-4">
-            <h6 class="text-capitalize">Kepala Desa</h6>
-              <img src="{{url('backend/assets/img/img2.jpg')}}" class="img-fluid mb-3" alt="foto kepala desa">
           </div>
           <div class="col-lg-8">
             <h6 class="text-capitalize">Sejarah Kampung</h6>

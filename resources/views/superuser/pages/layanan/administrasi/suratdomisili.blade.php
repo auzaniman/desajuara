@@ -125,6 +125,10 @@ Profil Akun
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
+            <a href="{{route('administrasi')}}" class="btn btn-sm btn-warning btn-icon">
+              <span class="btn-inner--icon"><i class="ni ni-bold-left text-white"></i></span>
+              <span class="btn-inner--text text-white">Kembali</span>
+            </a>
             @if (($berkas) != null)
               @if ($berkas->foto_ktp != null && $berkas->foto_kk != null)
                 <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button>
@@ -134,7 +138,6 @@ Profil Akun
             @else
               <button type="submit" class="btn btn-primary btn-sm ms-auto" disabled>Kirim</button>
             @endif
-            {{-- <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button> --}}
           </div>
         </form>
       </div>

@@ -69,7 +69,7 @@
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
             <i class="ni ni-single-copy-04 text-primary text-sm"></i>
           </div>
-          <span class="nav-link-text ms-1">Layanan</span>
+          <span class="nav-link-text ms-1">Data Layanan</span>
         </a>
       </li>
       <li class="nav-item">
@@ -78,14 +78,6 @@
             <i class="ni ni-collection text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Peta Desa</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link nav-active" href="{{route('officer.berkas')}}">
-          <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-primary text-sm"></i>
-          </div>
-          <span class="nav-link-text ms-1">Berkas</span>
         </a>
       </li>
       <li class="nav-item">

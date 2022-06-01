@@ -14,9 +14,11 @@ class SuratDomisili extends Model
     protected $fillable = [
       'user_id',
       'berkas_id',
+      'verifikasi_id',
       'nama_pemohon',
       'email_pemohon',
       'bukti_pengantar',
+      'file_surdom',
     ];
 
     // Relation
@@ -24,8 +26,14 @@ class SuratDomisili extends Model
     {
       return $this->belongsTo(User::class);
     }
+
     public function berkas()
     {
       return $this->belongsTo(Berkas::class);
+    }
+
+    public function verifikasi()
+    {
+      return $this->belongsTo(VerifikasiModel::class);
     }
 }

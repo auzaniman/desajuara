@@ -3,7 +3,15 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\FotoProfileRequest;
 use App\Models\Berkas;
+use App\Models\FotoProfileModel;
+use App\Models\KategoriModel;
+use App\Models\NamaAjuanModel;
+use App\Models\SKTMModel;
+use App\Models\SuketUsahaModel;
+use App\Models\SupengDesaModel;
+use App\Models\SuratDomisili;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -18,8 +26,10 @@ class ProfileAkunController extends Controller
     public function index()
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
+      $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
       return view('superuser.pages.profileakun.profileakun', [
-        'user' => $user
+        'user' => $user,
+        'foto' => $foto,
       ]);
     }
 
@@ -39,9 +49,18 @@ class ProfileAkunController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(FotoProfileRequest $request)
     {
-        //
+      $foto = new FotoProfileModel();
+      $foto->user_id = $request->user_id;
+      $foto['foto_profile'] = $request->file('foto_profile')->store('', 'public');
+
+      $foto->save();
+
+      return redirect()->back()->with([
+        'message' => 'Permohonan berhasil ditambahkan',
+        'status' => 'success'
+      ]);
     }
 
     /**
@@ -75,8 +94,6 @@ class ProfileAkunController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
-
       $user = User::where('id', '=', Auth::user()->id)->first();
       $user->name = $request->name;
       $user->email = $request->email;
@@ -106,7 +123,6 @@ class ProfileAkunController extends Controller
           'message' => 'berhasil diubah',
           'status' => 'success'
       ]);
-
     }
 
     /**
@@ -123,11 +139,32 @@ class ProfileAkunController extends Controller
     public function kumpulan_berkas()
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
+      $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
       return view('superuser.pages.profileakun.berkas2', [
         'user' => $user,
-        'berkas' =>$berkas
+        'berkas' =>$berkas,
+        'foto' =>$foto,
+      ]);
+    }
+
+    public function kumpulan_ajuan()
+    {
+      $user = User::where('id', '=', Auth::user()->id)->first();
+      $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
+      $surdom = SuratDomisili::where('user_id', '=', Auth::user()->id)->first();
+      // $suket = SuketUsahaModel::where('user_id', '=', Auth::user()->id)->first();
+      // $sktm = SKTMModel::where('user_id', '=', Auth::user()->id)->first();
+      // $supeng = SupengDesaModel::where('user_id', '=', Auth::user()->id)->first();
+
+      return view('superuser.pages.profileakun.ajuan', [
+        'user' => $user,
+        'foto' =>$foto,
+        'surdom' =>$surdom,
+        // 'suket' =>$suket,
+        // 'sktm' =>$sktm,
+        // 'supeng' =>$supeng,
       ]);
     }
 }
