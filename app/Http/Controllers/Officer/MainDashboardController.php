@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Officer;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Officer;
+use App\Models\SuratDomisili;
 use Illuminate\Support\Facades\Auth;
 
 class MainDashboardController extends Controller
@@ -16,9 +17,14 @@ class MainDashboardController extends Controller
      */
     public function index()
     {
-      $officer = Officer::where('id', '=', Auth::guard('officer')->user()->id)->first();
-      return view('officer.pages.maindashboard', [
-        'officer' => $officer
+      $administrasi = SuratDomisili::where('kategori', 'Administrasi Kependudukan')->count();
+      $surdom = SuratDomisili::where('nama_ajuan', 'Surat Domisili')->count();
+      $verifikasi = SuratDomisili::where('verifikasi_id', '1')->count();
+
+      return view('officer.pages.dashboard.maindashboard', [
+        'administrasi' => $administrasi,
+        'surdom' => $surdom,
+        'verifikasi' => $verifikasi,
       ]);
     }
 

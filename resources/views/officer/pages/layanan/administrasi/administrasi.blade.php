@@ -20,15 +20,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan/perubahan Kartu Keluarga</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-              <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -38,15 +41,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
-              <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a>
+              <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili ({{$surdom}})</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-              <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">{{$verifikasi}}</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -56,15 +62,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan KTP</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-              <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -74,15 +83,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Pindah</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -94,15 +106,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kelahiran</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -112,15 +127,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kematian</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>
@@ -130,15 +148,18 @@ Bidang Administrasi Kependudukan
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
-          <div class="col-8">
+          <div class="col-md-12">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Cerai</a>
             </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
-            </div>
+            <p class="mb-0">
+              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              Terverifikasi
+            </p>
+            <p class="mb-0">
+              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              Waiting
+            </p>
           </div>
         </div>
       </div>

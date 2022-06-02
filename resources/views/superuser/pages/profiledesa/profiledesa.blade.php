@@ -18,12 +18,7 @@ Profil Desa
           <hr class="horizontal dark">
           <div class="col-lg-4">
             <h6 class="text-capitalize">Video Desa</h6>
-              <iframe
-                class="mb-3"
-                mute=1
-                autoplay=1
-                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-              </iframe>
+
           </div>
           <div class="col-lg-8">
             <h6 class="text-capitalize">Sejarah Kampung</h6>

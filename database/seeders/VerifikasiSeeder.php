@@ -17,6 +17,7 @@ class VerifikasiSeeder extends Seeder
         $verify = [
         ['status_verifikasi' => 'Diterima'],
         ['status_verifikasi' => 'Ditolak'],
+        ['status_verifikasi' => 'Waiting'],
       ];
 
       VerifikasiModel::insert($verify);
