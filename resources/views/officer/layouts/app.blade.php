@@ -42,6 +42,7 @@
   {{-- @include('officer.components.plugin') --}}
   @include('officer.components.script')
   @stack('chart')
+  @stack('chart_keuangan')
   @stack('calendar')
 </body>
 </html>

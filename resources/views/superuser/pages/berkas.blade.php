@@ -14,7 +14,8 @@ Berkas
           <form method="POST" action="{{route('berkas_edit', $berkas->id)}}" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <p class="text-uppercase text-sm">Edit Berkas Wajib</p>
+            <p class="text-uppercase text-sm mb-0">Edit Berkas Wajib</p>
+            <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-sm" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
             <div class="row">
               <div class="col-md-4" hidden>
                 <div class="form-group">
@@ -54,13 +55,14 @@ Berkas
               </div>
             </div>
             <div class="d-flex align-items-center mt-3">
-              <button type="submit" class="btn btn-primary btn-sm ms-auto">Edit</button>
+              <button type="submit" class="btn btn-primary btn-sm">Edit</button>
             </div>
           </form>
           @else
           <form method="POST" action="{{route('berkas_post')}}" enctype="multipart/form-data">
             @csrf
             <p class="text-uppercase text-sm">Berkas Wajib</p>
+            <h6 class="text-uppercase text-sm">(File Berkas Maksimal 3MB!)</h6>
             <div class="row">
               <div class="col-md-4" hidden>
                 <div class="form-group">
@@ -107,7 +109,8 @@ Berkas
         @else
         <form method="POST" action="{{route('berkas_post')}}" enctype="multipart/form-data">
           @csrf
-          <p class="text-uppercase text-sm">Berkas Wajib</p>
+          <p class="text-uppercase text-sm mb-0">Berkas Wajib</p>
+          <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-sm" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
           <div class="row">
             <div class="col-md-4" hidden>
               <div class="form-group">
@@ -147,7 +150,7 @@ Berkas
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
-            <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button>
+            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
           </div>
         </form>
         @endif
@@ -163,7 +166,8 @@ Berkas
           <form method="post" action="{{route('berkas_alt_edit', $berkas->id)}}" enctype="multipart/form-data">
             @method('put')
             @csrf
-            <p class="text-uppercase text-sm">Edit Berkas (optional)</p>
+            <p class="text-uppercase text-sm mb-0">Edit Berkas (optional)</p>
+            <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-sm" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
             <div class="row">
               <div class="col-md-4">
                 <div class="form-group">
@@ -179,7 +183,7 @@ Berkas
               </div>
             </div>
             <div class="d-flex align-items-center mt-3">
-              <button type="submit" class="btn btn-primary btn-sm ms-auto">Edit</button>
+              <button type="submit" class="btn btn-primary btn-sm">Edit</button>
             </div>
           </form>
           @else
@@ -208,7 +212,8 @@ Berkas
         @else
         <form method="post" action="{{route('berkas_alt')}}" enctype="multipart/form-data">
           @csrf
-          <p class="text-uppercase text-sm">Berkas (optional)</p>
+          <p class="text-uppercase text-sm mb-0">Berkas (optional)</p>
+          <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-sm" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
@@ -224,7 +229,7 @@ Berkas
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
-            <button type="submit" class="btn btn-primary btn-sm ms-auto">Kirim</button>
+            <button type="submit" class="btn btn-primary btn-sm">Kirim</button>
           </div>
         </form>
         @endif

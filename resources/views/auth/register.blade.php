@@ -202,7 +202,7 @@
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
-                  <input class="form-control @error('desa_ktp') is-invalid @enderror" id="desa_ktp" name="desa_ktp" placeholder="Desa" type="text">
+                  <input class="form-control @error('desa_ktp') is-invalid @enderror" id="desa_ktp" name="desa_ktp" placeholder="Tulis Nama Desa Anda Tinggal" type="text">
                   @error('desa_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -278,85 +278,87 @@
               {{-- Alamat Domisili--}}
               <h6>Alamat Domisili</h6>
               <div class="custom-control custom-checkbox mb-3">
-                <input class="custom-control-input" id="customCheck1" type="checkbox">
+                <input class="custom-control-input" onclick="document.getElementById('sembunyikan').hidden=this.checked;" id="customCheck1" type="checkbox">
                 <label class="custom-control-label" for="customCheck1">Alamat Domisili sama dengan Alamat KTP</label>
               </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+              <div id="sembunyikan">
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('desa_domisili') is-invalid @enderror" id="desa_domisili" name="desa_domisili" placeholder="Desa" type="text">
+                    @error('desa_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('desa_domisili') is-invalid @enderror" id="desa_domisili" name="desa_domisili" placeholder="Desa" type="text">
-                  @error('desa_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('rt_domisili') is-invalid @enderror" id="rt_domisili" name="rt_domisili" placeholder="RT" type="text">
+                    @error('rt_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('rt_domisili') is-invalid @enderror" id="rt_domisili" name="rt_domisili" placeholder="RT" type="text">
-                  @error('rt_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('rw_domisili') is-invalid @enderror" id="rw_domisili" name="rw_domisili" placeholder="RW" type="text">
+                    @error('rw_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('rw_domisili') is-invalid @enderror" id="rw_domisili" name="rw_domisili" placeholder="RW" type="text">
-                  @error('rw_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('provinsi_domisili') is-invalid @enderror" id="provinsi_domisili" name="provinsi_domisili" placeholder="Provinsi" type="text">
+                    @error('provinsi_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('provinsi_domisili') is-invalid @enderror" id="provinsi_domisili" name="provinsi_domisili" placeholder="Provinsi" type="text">
-                  @error('provinsi_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('kota_domisili') is-invalid @enderror" id="kota_domisili" name="kota_domisili" placeholder="Kota" type="text">
+                    @error('kota_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('kota_domisili') is-invalid @enderror" id="kota_domisili" name="kota_domisili" placeholder="Kota" type="text">
-                  @error('kota_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
-              </div>
-              <div class="form-group">
-                <div class="input-group input-group-alternative mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                <div class="form-group">
+                  <div class="input-group input-group-alternative mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                    </div>
+                    <input class="form-control @error('kecamatan_domisili') is-invalid @enderror" id="kecamatan_domisili" name="kecamatan_domisili" placeholder="Kecamatan" type="text">
+                    @error('kecamatan_domisili')
+                      <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                      </span>
+                    @enderror
                   </div>
-                  <input class="form-control @error('kecamatan_domisili') is-invalid @enderror" id="kecamatan_domisili" name="kecamatan_domisili" placeholder="Kecamatan" type="text">
-                  @error('kecamatan_domisili')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
                 </div>
               </div>
               <h6>Kontak</h6>

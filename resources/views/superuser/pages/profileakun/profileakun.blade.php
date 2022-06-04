@@ -57,14 +57,20 @@ Profil Akun
               </div>
             </div>
           </div>
+
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Biodata</p>
           <div class="row">
-
             <div class="col-md-4">
               <div class="form-group">
-                <label for="ttl" class="form-control-label">Tempat Tanggal Lahir</label>
-                <input id="ttl" name="ttl" class="form-control" type="text" value="{{$user->ttl}}">
+                <label for="ttl" class="form-control-label">Tempat Lahir</label>
+                <input id="ttl" name="ttl" class="form-control" type="text" value="{{$user->tempat_lahir}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="ttl" class="form-control-label">Tanggal Lahir</label>
+                <input id="ttl" name="ttl" class="form-control" type="text" value="{{$user->tanggal_lahir}}">
               </div>
             </div>
             <div class="col-md-4">
@@ -104,25 +110,26 @@ Profil Akun
               </div>
             </div>
           </div>
+
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Alamat KTP</p>
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">Desa</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->desa_ktp}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">RT</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->rt_ktp}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">RW</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->rw_ktp}}">
               </div>
             </div>
           </div>
@@ -130,19 +137,19 @@ Profil Akun
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kecamatan" class="form-control-label">Kecamatan</label>
-                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan}}">
+                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan_ktp}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kota" class="form-control-label">Kota/Kabupaten</label>
-                <input id="kota" name="kota" class="form-control" type="text" value="{{$user->kota}}">
+                <input id="kota" name="kota" class="form-control" type="text" value="{{$user->kota_ktp}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="provinsi" class="form-control-label">Provinsi</label>
-                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
+                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi_ktp}}">
               </div>
             </div>
           </div>
@@ -155,19 +162,19 @@ Profil Akun
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">Desa</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->desa_domisili}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">RT</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->rt_domisili}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="alamat_ktp" class="form-control-label">RW</label>
-                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->alamat_ktp}}">
+                <input id="alamat_ktp" name="alamat_ktp" class="form-control" type="text" value="{{$user->rw_domisili}}">
               </div>
             </div>
           </div>
@@ -175,22 +182,23 @@ Profil Akun
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kecamatan" class="form-control-label">Kecamatan</label>
-                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan}}">
+                <input id="kecamatan" name="kecamatan" class="form-control" type="text" value="{{$user->kecamatan_domisili}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kota" class="form-control-label">Kota/Kabupaten</label>
-                <input id="kota" name="kota" class="form-control" type="text" value="{{$user->kota}}">
+                <input id="kota" name="kota" class="form-control" type="text" value="{{$user->kota_domisili}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="provinsi" class="form-control-label">Provinsi</label>
-                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi}}">
+                <input id="provinsi" name="provinsi" class="form-control" type="text" value="{{$user->provinsi_domisili}}">
               </div>
             </div>
           </div>
+
           <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Kontak</p>
           <div class="row">
@@ -214,9 +222,10 @@ Profil Akun
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
-            <button type="submit" class="btn btn-primary btn-sm ms-auto">Update</button>
+            <button type="submit" class="btn btn-primary btn-sm">Update</button>
           </div>
         </form>
+
         <hr class="horizontal dark">
         @if (($foto) != null)
         <p class="text-uppercase text-sm">Edit Foto Profile</p>
@@ -237,7 +246,7 @@ Profil Akun
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
-            <button type="submit" class="btn btn-primary btn-sm ms-auto">Edit Foto</button>
+            <button type="submit" class="btn btn-primary btn-sm">Edit Foto</button>
           </div>
         </form>
         @else
@@ -259,7 +268,7 @@ Profil Akun
             </div>
           </div>
           <div class="d-flex align-items-center mt-3">
-            <button type="submit" class="btn btn-primary btn-sm ms-auto">Tambah Foto</button>
+            <button type="submit" class="btn btn-primary btn-sm">Tambah Foto</button>
           </div>
         </form>
         @endif

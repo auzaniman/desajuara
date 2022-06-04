@@ -35,9 +35,6 @@ Profil Akun
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Pemohon</th>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Email Pemohon</th>
                 <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas</th>
-                {{-- <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KTP</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas KK</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Berkas Pengantar</th> --}}
                 <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Aksi</th>
               </tr>
             </thead>
@@ -60,15 +57,6 @@ Profil Akun
                 </td>
                 @endif
                 @endforeach
-                {{-- <td class="align-middle text-center">
-                  <img src="{{ asset('storage/'.$berkass->foto_ktp)}}" alt="" style="width: 150px" class="img-thumbnail">
-                </td>
-                <td class="align-middle text-center">
-                  <img src="{{ asset('storage/'.$berkass->foto_kk)}}" alt="" style="width: 150px" class="img-thumbnail">
-                </td> --}}
-                {{-- <td class="align-middle text-center">
-                  <img src="{{ asset('storage/'.$item->bukti_pengantar)}}" alt="" style="width: 150px" class="img-thumbnail">
-                </td> --}}
                 <td class="align-middle text-center">
                   <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-sm btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
                     Verifikasi

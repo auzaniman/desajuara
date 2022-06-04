@@ -15,7 +15,11 @@ class LayananOfficerController extends Controller
      */
     public function index()
     {
-        return view('officer.pages.layanan.layanan');
+      $administrasi = SuratDomisili::where('kategori', 'Administrasi Kependudukan')->count();
+
+      return view('officer.pages.layanan.layanan', [
+        'administrasi' => $administrasi,
+      ]);
     }
 
     /**

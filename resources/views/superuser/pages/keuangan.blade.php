@@ -195,3 +195,57 @@ Keuangan
   </div>
 </div>
 @endsection
+
+@push('chart_keuangan')
+<script>
+  const ctx4 = document.getElementById('pie-chart3').getContext("2d");
+  new Chart(ctx4, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Pendapatan Asli Desa',
+        'Bantuan dari Pemerintah Kabupaten',
+        'Bantuan dari Pemerintah dan Pemerintah Provinsi',
+        'Sumber Pihak ke-3',
+      ],
+      datasets: [{
+        data: [1000000000, 1000000000, 1000000000, 200000000,],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(150, 34, 65)',
+        ],
+        hoverOffset: 4
+      }]
+    }
+  })
+</script>
+
+<script>
+  const ctx5 = document.getElementById('pie-chart4').getContext("2d");
+  new Chart(ctx5, {
+    type: 'pie',
+    data: {
+      labels: [
+        'Belanja aparatur desa',
+        'Pembangunan infrastruktur',
+        'Pembangunan ekonomi',
+        'Pembangunan pendidikan',
+        'Pemberdayaan masyarakat',
+      ],
+      datasets: [{
+        data: [500000000, 1000000000, 500000000, 500000000, 500000000],
+        backgroundColor: [
+          'rgb(255, 99, 132)',
+          'rgb(54, 162, 235)',
+          'rgb(255, 205, 86)',
+          'rgb(150, 34, 65)',
+          'rgb(200, 25, 100)',
+        ],
+        hoverOffset: 4
+      }]
+    }
+  })
+</script>
+@endpush

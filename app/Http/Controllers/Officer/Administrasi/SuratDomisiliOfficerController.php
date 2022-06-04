@@ -109,6 +109,19 @@ class SuratDomisiliOfficerController extends Controller
       ]);
     }
 
+    public function update_alt(Request $request, $id)
+    {
+      $surdom = SuratDomisili::findOrFail($id);
+      $surdom->file_surdom = $request->file_surdom;
+
+      $surdom->save();
+
+      return redirect()->back()->with([
+        'message' => 'File Permohonan berhasil dikirim',
+        'status' => 'success'
+      ]);
+    }
+
     /**
      * Remove the specified resource from storage.
      *

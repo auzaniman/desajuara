@@ -42,6 +42,7 @@
   {{-- @include('superuser.components.plugin') --}}
   @include('superuser.components.script')
   @stack('chart')
+  @stack('chart_keuangan')
   @stack('calendar')
 </body>
 </html>

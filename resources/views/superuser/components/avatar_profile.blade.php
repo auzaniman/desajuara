@@ -23,7 +23,7 @@
             {{$user->name}}
           </h5>
           <p class="mb-0 font-weight-bold text-sm">
-            {{$user->email}}
+            {{$user->desa_ktp}} RT{{$user->rt_ktp}} RW{{$user->rw_ktp}}, {{$user->kecamatan_ktp}}, {{$user->kota_ktp}}, {{$user->provinsi_ktp}}
           </p>
         </div>
       </div>

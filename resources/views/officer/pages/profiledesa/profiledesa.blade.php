@@ -12,19 +12,13 @@ Profil Desa
       <div class="card-header pb-0 pt-3 bg-transparent">
         <div class="row">
           <div class="col-lg-12">
-            <h6 class="text-capitalize">Highlight Kampung</h6>
-              <iframe
-                class="mb-3"
-                mute=1
-                autoplay=1
-                style="width: 100%; height:12.7rem;"
-                src="https://www.youtube.com/embed/tgbNymZ7vqY?autoplay=1&mute=1">
-              </iframe>
+            <h6 class="text-capitalize">Foto Kampung</h6>
+            <img src="{{url('frontend/assets/img/1.jpg')}}" class="img-fluid" alt="foto kampung">
           </div>
           <hr class="horizontal dark">
           <div class="col-lg-4">
-            <h6 class="text-capitalize">Kepala Desa</h6>
-              <img src="{{url('backend/assets/img/img2.jpg')}}" class="img-fluid mb-3" alt="foto kepala desa">
+            <h6 class="text-capitalize">Video Desa</h6>
+
           </div>
           <div class="col-lg-8">
             <h6 class="text-capitalize">Sejarah Kampung</h6>
@@ -189,54 +183,6 @@ Profil Desa
       }
     }
   });
-
-  // const ctx = document.getElementById('bar-chart').getContext("2d");
-  // new Chart(ctx, {
-  //   type: 'bar',
-  //   data: {
-  //     labels: ['RT 1', 'RT 2', 'RT 3', 'RT 4'],
-  //     datasets: [{
-  //       label: 'Warga',
-  //       data: [140, 190, 91, 249],
-  //       backgroundColor: [
-  //         'rgba(255, 99, 132, 0.2)',
-  //         'rgba(255, 99, 132, 0.2)',
-  //         'rgba(255, 99, 132, 0.2)',
-  //         'rgba(255, 99, 132, 0.2)'
-  //       ],
-  //       borderColor: [
-  //         'rgba(255, 99, 132, 1)',
-  //         'rgba(255, 99, 132, 1)',
-  //         'rgba(255, 99, 132, 1)',
-  //         'rgba(255, 99, 132, 1)'
-  //       ],
-  //       borderWidth: 1
-  //   }, {
-  //     label: 'Kepala Keluarga',
-  //       data: [39, 45, 24, 66],
-  //       backgroundColor: [
-  //         'rgba(54, 162, 235, 0.2',
-  //         'rgba(54, 162, 235, 0.2)',
-  //         'rgba(54, 162, 235, 0.2',
-  //         'rgba(54, 162, 235, 0.2'
-  //       ],
-  //       borderColor: [
-  //         'rgba(54, 162, 235, 1)',
-  //         'rgba(54, 162, 235, 1)',
-  //         'rgba(54, 162, 235, 1)',
-  //         'rgba(54, 162, 235, 1)'
-  //       ],
-  //       borderWidth: 1
-  //     }]
-  //   },
-  //   options: {
-  //     scales: {
-  //       y: {
-  //         beginAtZero: true
-  //       }
-  //     }
-  //   }
-  // });
 </script>
 
 {{-- Chart --}}
@@ -291,58 +237,6 @@ Profil Desa
           'rgb(150, 34, 65)',
           'rgb(200, 25, 100)',
           'rgb(90, 77, 43)',
-        ],
-        hoverOffset: 4
-      }]
-    }
-  })
-</script>
-
-<script>
-  const ctx4 = document.getElementById('pie-chart3').getContext("2d");
-  new Chart(ctx4, {
-    type: 'pie',
-    data: {
-      labels: [
-        'Pendapatan Asli Desa',
-        'Bantuan dari Pemerintah Kabupaten',
-        'Bantuan dari Pemerintah dan Pemerintah Provinsi',
-        'Sumber Pihak ke-3',
-      ],
-      datasets: [{
-        data: [1000000000, 1000000000, 1000000000, 200000000,],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'rgb(150, 34, 65)',
-        ],
-        hoverOffset: 4
-      }]
-    }
-  })
-</script>
-
-<script>
-  const ctx5 = document.getElementById('pie-chart4').getContext("2d");
-  new Chart(ctx5, {
-    type: 'pie',
-    data: {
-      labels: [
-        'Belanja aparatur desa',
-        'Pembangunan infrastruktur',
-        'Pembangunan ekonomi',
-        'Pembangunan pendidikan',
-        'Pemberdayaan masyarakat',
-      ],
-      datasets: [{
-        data: [500000000, 1000000000, 500000000, 500000000, 500000000],
-        backgroundColor: [
-          'rgb(255, 99, 132)',
-          'rgb(54, 162, 235)',
-          'rgb(255, 205, 86)',
-          'rgb(150, 34, 65)',
-          'rgb(200, 25, 100)',
         ],
         hoverOffset: 4
       }]

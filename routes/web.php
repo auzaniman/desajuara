@@ -94,6 +94,7 @@ Route::middleware(["officer"])
   Route::post("/post_surdom", [SuratDomisiliOfficerController::class, "store"])->name("post_surdom");
   Route::get("/show_surdom/{id}", [SuratDomisiliOfficerController::class, "show"])->name("show_surdom");
   Route::put("/update_surdom/{id}", [SuratDomisiliOfficerController::class, "update"])->name("update_surdom");
+  Route::put("/update_alt_surdom/{id}", [SuratDomisiliOfficerController::class, "update_alt"])->name("update_alt_surdom");
 
   // Perizinan
   Route::get("/perizinan", [LayananOfficerController::class, "perizinan"])->name("perizinan");

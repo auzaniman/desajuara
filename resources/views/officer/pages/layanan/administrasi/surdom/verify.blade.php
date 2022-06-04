@@ -35,6 +35,7 @@ Profil Akun
               <h6 class="mb-3">{{$surdom->nama_pemohon}}</h6>
               <span class="mb-2">NIK: <span class="text-dark ms-sm-2 font-weight-bold">{{$user->nik}}</span></span>
               <span class="mb-2">No KK: <span class="text-dark ms-sm-2 font-weight-bold">{{$user->kk}}</span></span>
+              <span class="mb-2">Alamat: <span class="text-dark ms-sm-2 font-weight-bold">{{$user->desa_ktp}} RT{{$user->rt_ktp}} RW{{$user->rw_ktp}}, {{$user->kecamatan_ktp}}, {{$user->kota_ktp}}, {{$user->provinsi_ktp}}</span></span>
               <span class="mb-2">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->email_pemohon}}</span></span>
               <span class="mb-2">No Telpon: <span class="text-dark ms-sm-2 font-weight-bold">{{$user->no_telpon}}</span></span>
             </div>
@@ -44,7 +45,7 @@ Profil Akun
               <img src="{{ asset('storage/'.$berkas->foto_kk)}}" alt="" style="width: 150px" class="img-thumbnail me-3">
               <img src="{{ asset('storage/'.$surdom->bukti_pengantar)}}" alt="" style="width: 150px" class="img-thumbnail me-3">
             </div>
-            <h6 class="mb-3">Verifikasi Pengajuan Pemohon</h6>
+            <h6 class="mb-3">Verifikasi Permohonan</h6>
             <div class="ms-auto text-end mb-3">
               <form action="{{route('officer.update_surdom', $surdom->id)}}" method="POST" enctype="multipart/form-data">
                 @method('put')
@@ -66,7 +67,7 @@ Profil Akun
             </div>
             <h6 class="mb-3">Upload File</h6>
             <div class="ms-auto text-end">
-              <form action="{{route('officer.update_surdom', $surdom->id)}}" method="POST" enctype="multipart/form-data">
+              <form action="{{route('officer.update_alt_surdom', $surdom->id)}}" method="POST" enctype="multipart/form-data">
                 @method('put')
                 @csrf
                 <div class="d-flex">

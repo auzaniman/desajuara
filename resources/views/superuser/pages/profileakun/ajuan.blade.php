@@ -30,6 +30,7 @@ Riwayat Pengajuan Permohonan
               </tr>
             </thead>
             <tbody>
+              @if ($surdom != null)
               <tr>
                 <td class="align-middle text-center text-sm">
                   <h6 class="mb-0 text-xs">{{$surdom->nama_pemohon}}</h6>
@@ -60,6 +61,13 @@ Riwayat Pengajuan Permohonan
                   <h6 class="mb-0 text-xs ps-2"></h6>
                 </td>
               </tr>
+              @else
+              <tr>
+                <td colspan="6" class="align-middle text-center">
+                  <h6 class="mb-0">Belum ada riwayat pengajuan</h6>
+                </td>
+              </tr>
+              @endif
             </tbody>
           </table>
         </div>
