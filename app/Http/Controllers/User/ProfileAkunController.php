@@ -154,7 +154,6 @@ class ProfileAkunController extends Controller
       $user = User::where('id', '=', Auth::user()->id)->first();
       $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
       $surdom = SuratDomisili::where('user_id', '=', Auth::user()->id)->first();
-      $file_ajuan = FileA
       // $suket = SuketUsahaModel::where('user_id', '=', Auth::user()->id)->first();
       // $sktm = SKTMModel::where('user_id', '=', Auth::user()->id)->first();
       // $supeng = SupengDesaModel::where('user_id', '=', Auth::user()->id)->first();
