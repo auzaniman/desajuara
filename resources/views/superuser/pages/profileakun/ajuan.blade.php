@@ -57,9 +57,15 @@ Riwayat Pengajuan Permohonan
                   <h6 class="mb-0 text-xs ps-2">Menunggu Proses</h6>
                 </td>
                 @endif
+                @if ($surdom->file_surdom != null)
+                <td class="align-middle text-center">
+                  <h6 class="mb-0 text-xs ps-2">{{$surdom->file_surdom}}</h6>
+                </td>
+                @else
                 <td class="align-middle text-center">
                   <h6 class="mb-0 text-xs ps-2"></h6>
                 </td>
+                @endif
               </tr>
               @else
               <tr>
