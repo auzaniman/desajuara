@@ -105,7 +105,7 @@ class SuratDomisiliOfficerController extends Controller
 
       return redirect()->back()->with([
         'message' => 'Permohonan berhasil diverifikasi',
-        'status' => 'success'
+        'status' => 'Berhasil memverifikasi permohonan'
       ]);
     }
 
@@ -118,7 +118,7 @@ class SuratDomisiliOfficerController extends Controller
 
       return redirect()->back()->with([
         'message' => 'File Permohonan berhasil dikirim',
-        'status' => 'success'
+        'status' => 'Berhasil mengirimkan dokumen permohonan'
       ]);
     }
 

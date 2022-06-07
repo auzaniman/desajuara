@@ -15,18 +15,22 @@
     <div class="container-fluid py-3">
       {{-- Alert --}}
       @if ($errors->any())
-      <div class="alert alert-danger">
+      <div class="alert alert-danger text-white">
         <ul>
           @foreach ($errors->all() as $error)
-          <li>{{ $error }}</li>
+          <li><strong>{{ $error }}</strong></li>
           @endforeach
         </ul>
       </div>
       @endif
 
       @if (session('status'))
-      <div class="alert alert-success text-white" role="alert">
-          {{ session('status') }}
+      <div class="alert text-white alert-success alert-dismissible fade show" role="alert">
+        <span class="alert-icon"><i class="ni ni-like-2"></i></span>
+        <span class="alert-text"><strong>{{ session('status') }}</strong></span>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
       </div>
       @endif
       {{-- End Alert --}}

@@ -1,7 +1,7 @@
 @extends('superuser.layouts.app')
 
 @section('title')
-Tantangan Dan Potensi
+Potensi Tantangan
 @endsection
 
 @section('content')

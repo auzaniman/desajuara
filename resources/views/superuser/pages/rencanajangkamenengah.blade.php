@@ -1,7 +1,7 @@
 @extends('superuser.layouts.app')
 
 @section('title')
-Rencana Jangka Menengah
+Rencana
 @endsection
 
 @section('content')

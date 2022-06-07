@@ -60,7 +60,7 @@ class SupengDesaController extends Controller
 
       return redirect()->route('supengdesa')->with([
         'message' => 'Permohonan berhasil ditambahkan',
-        'status' => 'success'
+        'status' => 'Sukses! Permohonan berhasil diajukan'
       ]);
     }
 

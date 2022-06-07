@@ -9,18 +9,28 @@ Profil Desa
 <div class="row">
   <div class="col-lg-12 mb-lg-0 mb-4">
     <div class="card z-index-2 h-100">
-      <div class="card-header pb-0 pt-3 bg-transparent">
-        <div class="row">
+      <div class="card-body pb-0 pt-3 bg-transparent">
+        <div class="row mb-3">
           <div class="col-lg-12">
             <h6 class="text-capitalize">Foto Kampung</h6>
             <img src="{{url('frontend/assets/img/1.jpg')}}" class="img-fluid" alt="foto kampung">
           </div>
-          <hr class="horizontal dark">
-          <div class="col-lg-4">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row mt-4">
+  <div class="col-lg-12 mb-lg-0 mb-4">
+    <div class="card z-index-2 h-100">
+      <div class="card-body pb-0 pt-3 bg-transparent">
+        <div class="row">
+          <div class="col-lg-5">
             <h6 class="text-capitalize">Video Desa</h6>
 
           </div>
-          <div class="col-lg-8">
+          <div class="col-lg-7">
             <h6 class="text-capitalize">Sejarah Kampung</h6>
             <p class="mb-3">
               Kampung xxx merupakan kampung yang mayoritas penduduknya adalah suku xxx. Sebelum disahkan namanya menjadi Xxx, masyarakat setempat menyebut kampung tersebut dengan istilah xxx yang diambil dari nama kepala adat saat kampung pertama kali pindah di lokasi yang sekarang didiami. Sebelum tahun 1985, seperti budaya suku xxx pada umumnya, masyarakat Xxx hidup dengan berpindah-pindah tempat di sepanjang tepian Sungai Segah dari hulu ke hilir sungai, sampai akhirnya mulai menetap di lokasi kampung yang sekarang.

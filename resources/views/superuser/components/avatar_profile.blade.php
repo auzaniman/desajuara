@@ -27,11 +27,45 @@
           </p>
         </div>
       </div>
-      <div class="col-lg-4 col-md-6 my-sm-auto ms-sm-auto me-sm-0 mx-auto mt-3">
-        <div class="nav-wrapper position-relative end-0">
+      <div class="col-auto my-sm-auto ms-sm-auto me-5 mt-3">
+        <div class="dropdown">
+          <a href="#" class="btn mb-0 bg-primary text-white dropdown-toggle " data-bs-toggle="dropdown" id="navbarDropdownMenuLink2">
+              @if (\Request::is('user'))
+              <i class="ni ni-circle-08 me-1 text-white"></i>
+              Akun Profile
+              @elseif (\Request::is('user/kumpulan_berkas'))
+              <i class="ni ni-collection me-1 text-white"></i>
+              Koleksi Berkas
+              @else
+              <i class="ni ni-book-bookmark me-1 text-white"></i>
+              Riwayat Permohonan
+              @endif
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink2">
+              <li>
+                  <a class="dropdown-item mb-1 mt-1" href="{{route('dashboard')}}">
+                    <i class="ni ni-circle-08 me-1"></i>
+                    Akun Profile
+                  </a>
+              </li>
+              <li>
+                  <a class="dropdown-item mb-1" href="{{route('kumpulan_berkas')}}">
+                    <i class="ni ni-collection me-1"></i>
+                    Koleksi Berkas
+                  </a>
+              </li>
+              <li>
+                  <a class="dropdown-item mb-1" href="{{route('kumpulan_ajuan', $user->id)}}">
+                    <i class="ni ni-book-bookmark me-1"></i>
+                    Riwayat Permohonan
+                  </a>
+              </li>
+          </ul>
+        </div>
+        {{-- <div class="nav-wrapper position-relative end-0">
           <ul class="nav nav-pills nav-fill p-1" role="tablist">
             <li class="nav-item">
-              <ul class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
+              <ul class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
                 <i class="ni ni-circle-08"></i>
                 <a href="{{route('dashboard')}}">
                   <span class="ms-2">Akun</span>
@@ -55,7 +89,7 @@
               </ul>
             </li>
           </ul>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>

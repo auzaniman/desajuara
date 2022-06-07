@@ -30,50 +30,7 @@
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text font-weight-bold">Home</span>
           </a>
-          {{-- <div class="dropdown-menu dropdown-menu-xl">
-            <div class="dropdown-menu-inner">
-              <a href="" class="media d-flex align-items-center">
-                <div class="icon icon-shape bg-gradient-primary rounded-circle text-white">
-                  <i class="ni ni-spaceship"></i>
-                </div>
-                <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Mulai Jelajahi</h6>
-                  <p class="description d-none d-md-inline-block mb-0"></p>
-                </div>
-              </a>
-              <a href="" class="media d-flex align-items-center">
-                <div class="icon icon-shape bg-gradient-success rounded-circle text-white">
-                  <i class="ni ni-palette"></i>
-                </div>
-                <div class="media-body ml-3">
-                  <h6 class="heading text-primary mb-md-1">Informasi</h6>
-                  <p class="description d-none d-md-inline-block mb-0"></p>
-                </div>
-              </a>
-              <a href="https://demos.creative-tim.com/argon-design-system/docs/components/alerts.html" class="media d-flex align-items-center">
-                <div class="icon icon-shape bg-gradient-warning rounded-circle text-white">
-                  <i class="ni ni-ui-04"></i>
-                </div>
-                <div class="media-body ml-3">
-                  <h5 class="heading text-warning mb-md-1">Components</h5>
-                  <p class="description d-none d-md-inline-block mb-0">Browse our 50 beautiful handcrafted components offered in the Free version.</p>
-                </div>
-              </a>
-            </div>
-          </div> --}}
-        </li>
-        {{-- <li class="nav-item dropdown">
-          <a href="#" class="nav-link" data-toggle="dropdown" href="#" role="button">
-            <i class="ni ni-collection d-lg-none"></i>
-            <span class="nav-link-inner--text">Examples</span>
-          </a>
-          <div class="dropdown-menu">
-            <a href="" class="dropdown-item">Landing</a>
-            <a href="" class="dropdown-item">Profile</a>
-            <a href="" class="dropdown-item">Login</a>
-            <a href="" class="dropdown-item">Register</a>
-          </div>
-        </li> --}}
+        </li>]
         <li class="nav-item">
           <a href="#desajuara" class="nav-link">
             <i class="ni ni-collection d-lg-none"></i>
@@ -128,7 +85,7 @@
             <button class="btn btn-danger btn-icon">
               <a>
                 <span class="btn-inner--icon">
-                  <i class="fa fa-shopping-cart"></i>
+                  <i class="fa fa-sign-out"></i>
                 </span>
                 <span class="nav-link-inner--text">Keluar</span>
               </a>
@@ -136,6 +93,19 @@
           </form>
         </li>
         @endauth
+
+        @guest
+        <li class="nav-item d-none d-lg-block">
+            <button class="btn btn-success btn-icon">
+              <a href="{{route('register')}}" class="text-decoration-none text-reset">
+                <span class="btn-inner--icon">
+                  <i class="fa fa-user-plus"></i>
+                </span>
+                <span class="nav-link-inner--text">Daftar</span>
+              </a>
+            </button>
+        </li>
+        @endguest
 
       </ul>
     </div>

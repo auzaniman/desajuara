@@ -65,7 +65,7 @@ class SKTMController extends Controller
 
       return redirect()->route('sktm')->with([
         'message' => 'Permohonan berhasil ditambahkan',
-        'status' => 'success'
+        'status' => 'Sukses! Permohonan berhasil diajukan'
       ]);
     }
 

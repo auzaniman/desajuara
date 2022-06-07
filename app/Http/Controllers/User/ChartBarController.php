@@ -67,7 +67,7 @@ class ChartBarController extends Controller
       return redirect()->back()
       ->with([
           'message' => 'berhasil ditambahkan',
-          'status' => 'success'
+          'status' => 'Sukses! Data chart berhasil ditambahkan'
       ]);
     }
 
@@ -112,7 +112,7 @@ class ChartBarController extends Controller
       return redirect()->back()
       ->with([
           'message' => 'berhasil diubah',
-          'status' => 'success'
+          'status' => 'Data chart berhasil diubah'
       ]);
       // return $request;
     }
@@ -131,7 +131,7 @@ class ChartBarController extends Controller
       return redirect()->back()
       ->with([
           'message' => 'berhasil dihapus',
-          'status' => 'success'
+          'status' => 'Data chart berhasil dihapus'
       ]);
 
     }

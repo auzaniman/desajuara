@@ -39,13 +39,13 @@
             <div class="btn-wrapper mt-4">
               @guest
               <a href="" class="btn btn-warning btn-icon mt-3 mb-sm-0" data-toggle="modal" data-target="#modal-form">
-                <span class="btn-inner--icon"><i class="ni ni-button-power" style="font-size: 1rem"></i></span>
+                <span class="btn-inner--icon"><i class="fa fa-sign-in" style="font-size: 1rem"></i></span>
                 <span class="btn-inner--text font-weight-bold" style="font-size: 1rem">Masuk</span>
               </a>
               @endguest
               @auth
               <a href="{{route('dashboard')}}" class="btn btn-warning btn-icon mt-3 mb-sm-0">
-                <span class="btn-inner--icon"><i class="ni ni-button-power" style="font-size: 1rem"></i></span>
+                <span class="btn-inner--icon"><i class="fa fa-sign-in" style="font-size: 1rem"></i></span>
                 <span class="btn-inner--text font-weight-bold" style="font-size: 1rem">Dashboard</span>
               </a>
               @endauth

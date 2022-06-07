@@ -59,7 +59,7 @@ class ProfileAkunController extends Controller
 
       return redirect()->back()->with([
         'message' => 'Permohonan berhasil ditambahkan',
-        'status' => 'success'
+        'status' => 'Sukses! Foto Profile berhasil ditambahkan'
       ]);
     }
 
@@ -98,7 +98,8 @@ class ProfileAkunController extends Controller
       $user->name = $request->name;
       $user->email = $request->email;
       $user->username = $request->username;
-      $user->ttl = $request->ttl;
+      $user->tempat_lahir = $request->tempat_lahir;
+      $user->tanggal_lahir = $request->tanggal_lahir;
       $user->nik = $request->nik;
       $user->kk = $request->kk;
       $user->npwp = $request->npwp;
@@ -107,11 +108,18 @@ class ProfileAkunController extends Controller
       $user->agama = $request->agama;
       $user->perkawinan = $request->perkawinan;
       $user->kewarganegaraan = $request->kewarganegaraan;
-      $user->alamat_ktp = $request->alamat_ktp;
-      $user->alamat_domisili = $request->alamat_domisili;
-      $user->provinsi = $request->provinsi;
-      $user->kota = $request->kota;
-      $user->kecamatan = $request->kecamatan;
+      $user->desa_ktp = $request-> desa_ktp;
+      $user->rt_ktp = $request-> rt_ktp;
+      $user->rw_ktp = $request-> rw_ktp;
+      $user->provinsi_ktp = $request-> provinsi_ktp;
+      $user->kota_ktp = $request-> kota_ktp;
+      $user->kecamatan_ktp = $request-> kecamatan_ktp;
+      $user->desa_domisili = $request-> desa_domisili;
+      $user->rt_domisili = $request-> rt_domisili;
+      $user->rw_domisili = $request-> rw_domisili;
+      $user->provinsi_domisili = $request-> provinsi_domisili;
+      $user->kota_domisili = $request-> kota_domisili;
+      $user->kecamatan_domisili = $request-> kecamatan_domisili;
       $user->no_telpon = $request->no_telpon;
       $user->no_wa = $request->no_wa;
       $user->pendidikan = $request->pendidikan;
@@ -133,7 +141,14 @@ class ProfileAkunController extends Controller
      */
     public function destroy($id)
     {
-        //
+      $foto = FotoProfileModel::where('id', $id)->first();
+      $foto->delete();
+
+      return redirect()->back()
+      ->with([
+          'message' => 'berhasil dihapus',
+          'status' => 'Sukses! Foto Profile Berhasil dihapus'
+      ]);
     }
 
     public function kumpulan_berkas()

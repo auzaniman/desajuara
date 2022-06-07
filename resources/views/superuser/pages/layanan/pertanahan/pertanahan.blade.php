@@ -15,11 +15,11 @@ Layanan
     <li><a class="dropdown-item" href="{{route('non_perizinan')}}">Bidang Non Perizinan</a></li>
   </ul>
 </div>
-<div class="row mb-4">
+<div class="row">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pembuatan Surat Garapan</a>
@@ -37,7 +37,7 @@ Layanan
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pengajuan Sertifikat Tanah</a>
@@ -55,7 +55,7 @@ Layanan
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Surat Keterangan Kepemilikan Lahan</a>

@@ -15,11 +15,11 @@ Bidang Perizinan
     <li><a class="dropdown-item" href="{{route('pertanahan')}}">Bidang Pertanahan</a></li>
   </ul>
 </div>
-<div class="row mb-4">
+<div class="row">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a href="{{route('suketusaha')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Usaha</a>
@@ -37,7 +37,7 @@ Bidang Perizinan
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Domisili Usaha</a>
@@ -55,7 +55,7 @@ Bidang Perizinan
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Izin Mendirikan Bangunan</a>
@@ -70,10 +70,10 @@ Bidang Perizinan
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-sm-6">
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
-        <div class="row align-items-lg-center">
+        <div class="row align-items-center">
           <div class="col-8">
             <div class="numbers">
               <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Izin Keramaian</a>

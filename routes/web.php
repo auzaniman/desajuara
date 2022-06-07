@@ -49,7 +49,7 @@ use App\Http\Controllers\DependantDropdownController;
 // Landing
 Route::get("/", function () {
     return view('home.pages.index');
-});
+})->name('home');
 
 // Login Officer
 Route::get('/login_officer', [LoginController::class, "index"])->name("login_officer");
@@ -135,6 +135,7 @@ Route::prefix("user")
   Route::post("/tambah_foto", [ProfileAkunController::class, "store"])->name("tambah_foto");
   Route::get("/kumpulan_berkas", [ProfileAkunController::class, "kumpulan_berkas"])->name("kumpulan_berkas");
   Route::get("/kumpulan_ajuan/{id}", [ProfileAkunController::class, "kumpulan_ajuan"])->name("kumpulan_ajuan");
+  Route::delete('/foto_profile_delete/{id}', [ProfileAkunController::class, "destroy"])->name("foto_profile_delete");
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
@@ -187,9 +188,8 @@ Route::prefix("user")
   // Berkas
   Route::get("/berkas", [BerkasController::class, "Index"])->name("berkas");
   Route::post("/berkas_post", [BerkasController::class, "store"])->name("berkas_post");
-  Route::put("/berkas_edit/{id}", [BerkasController::class, "update"])->name("berkas_edit");
   Route::post("/berkas_alt_post", [BerkasController::class, "berkas_alt"])->name("berkas_alt");
-  Route::post("/berkas_alt_edit/{id}", [BerkasController::class, "berkas_alt_update"])->name("berkas_alt_edit");
+  Route::delete('/berkas_delete/{id}', [BerkasController::class, "destroy"])->name("berkas_delete");
 
 });
 
