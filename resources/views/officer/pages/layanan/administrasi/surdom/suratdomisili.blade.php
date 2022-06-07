@@ -46,17 +46,15 @@ Profil Akun
                 <td class="align-middle text-center text-sm">
                   <h6 class="mb-0 text-xs">{{$item->email_pemohon}}</h6>
                 </td>
-                @foreach ($berkas as $berkass)
-                  @if ($berkass != null)
-                  <td class="align-middle text-center text-sm">
-                    <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Lengkap</h6>
-                  </td>
-                  @else
-                  <td class="align-middle text-center text-sm">
-                    <h6 class="mb-0 text-xs">Tidak Lengkap</h6>
-                  </td>
-                  @endif
-                @endforeach
+                @if ($berkas != null)
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Lengkap</h6>
+                </td>
+                @else
+                <td class="align-middle text-center text-sm">
+                  <h6 class="mb-0 text-xs">Tidak Lengkap</h6>
+                </td>
+                @endif
                 <td class="align-middle text-center">
                   <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-sm btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
                     Verifikasi

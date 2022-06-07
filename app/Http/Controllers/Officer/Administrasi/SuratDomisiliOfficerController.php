@@ -20,7 +20,7 @@ class SuratDomisiliOfficerController extends Controller
     public function index()
     {
       $users = User::all();
-      $berkas = Berkas::all();
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
       $surdom = SuratDomisili::all();
       $verifikasi = VerifikasiModel::all();
 
