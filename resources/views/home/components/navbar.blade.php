@@ -30,7 +30,7 @@
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text font-weight-bold">Home</span>
           </a>
-        </li>]
+        </li>
         <li class="nav-item">
           <a href="#desajuara" class="nav-link">
             <i class="ni ni-collection d-lg-none"></i>
@@ -79,7 +79,7 @@
         </li>
 
         @auth
-        <li class="nav-item d-none d-lg-block">
+        <li class="nav-item">
           <form action="{{url('logout')}}" method="POST">
             @csrf
             <button class="btn btn-danger btn-icon">
@@ -95,7 +95,7 @@
         @endauth
 
         @guest
-        <li class="nav-item d-none d-lg-block">
+        <li class="nav-item">
             <button class="btn btn-success btn-icon">
               <a href="{{route('register')}}" class="text-decoration-none text-reset">
                 <span class="btn-inner--icon">
