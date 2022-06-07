@@ -46,10 +46,13 @@ Profil Akun
                 <td class="align-middle text-center text-sm">
                   <h6 class="mb-0 text-xs">{{$item->email_pemohon}}</h6>
                 </td>
-                @if ($berkas != null)
-                <td class="align-middle text-center text-sm">
-                  <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Lengkap</h6>
-                </td>
+                @if (($berkas) != null)
+                  @if ($berkas->foto_ktp != null && $berkas->foto_kk != null)
+                  <td class="align-middle text-center text-sm">
+                    <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Lengkap</h6>
+                  </td>
+                  @else
+                  @endif
                 @else
                 <td class="align-middle text-center text-sm">
                   <h6 class="mb-0 text-xs">Tidak Lengkap</h6>
