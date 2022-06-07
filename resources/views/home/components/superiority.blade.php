@@ -30,7 +30,7 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="card border-0" style="border-radius: 1rem">
+        <div class="card border-0 mb-5" style="border-radius: 1rem">
           <div class="info info-horizontal info-hover-primary ">
             <div class="card-body">
               <div class="description">
@@ -45,7 +45,7 @@
     </div>
     <div class="row">
       <div class="col-lg-6">
-        <div class="card border-0" style="border-radius: 1rem">
+        <div class="card border-0 mb-5" style="border-radius: 1rem">
           <div class="info info-horizontal info-hover-primary ">
             <div class="card-body">
               <div class="description">
@@ -58,7 +58,7 @@
         </div>
       </div>
       <div class="col-lg-6">
-        <div class="card border-0" style="border-radius: 1rem">
+        <div class="card border-0 mb-5" style="border-radius: 1rem">
           <div class="info info-horizontal info-hover-primary ">
             <div class="card-body">
               <div class="description">
