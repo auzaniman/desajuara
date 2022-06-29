@@ -29,15 +29,15 @@ Permohonan Terverifikasi
         <p class="text-uppercase text-sm">Table Data</p>
         <button class="btn btn-icon btn-xs btn-3 btn-primary me-2" type="button">
           <span class="btn-inner--icon"><i class="fa fa-globe"></i></span>
-          <a href="{{route('officer.surdom')}}" class="btn-inner--text text-decoration-none text-reset">Semua</a>
+          <a href="{{route('officer.suketusaha')}}" class="btn-inner--text text-decoration-none text-reset">Semua</a>
         </button>
         <button class="btn btn-icon btn-xs btn-3 btn-warning me-2" type="button">
           <span class="btn-inner--icon"><i class="fa fa-clock-o"></i></span>
-          <a href="{{route('officer.waiting_supengdesa')}}" class="btn-inner--text text-decoration-none text-reset">Waiting</a>
+          <a href="{{route('officer.waiting_suketusaha')}}" class="btn-inner--text text-decoration-none text-reset">Waiting</a>
         </button>
         <button class="btn btn-icon btn-xs btn-3 btn-danger" type="button">
           <span class="btn-inner--icon"><i class="fa fa-times-circle"></i></span>
-          <a href="{{route('officer.ditolak_supengdesa')}}" class="btn-inner--text text-decoration-none text-reset">Ditolak</a>
+          <a href="{{route('officer.ditolak_suketusaha')}}" class="btn-inner--text text-decoration-none text-reset">Ditolak</a>
         </button>
         <div class="table-responsive">
           <table class="table align-items-center mb-3">
@@ -54,7 +54,7 @@ Permohonan Terverifikasi
               </tr>
             </thead>
             <tbody>
-              @forelse ($surdom as $item)
+              @forelse ($suketusaha as $item)
                 <tr>
                   <td class="align-middle text-sm">
                     <h6 class="mb-0 text-xs">{{ ++$i }}</h6>
@@ -88,7 +88,7 @@ Permohonan Terverifikasi
                     </h6>
                   </td>
                   <td class="align-middle text-center">
-                    <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-xs btn-primary text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="{{route('officer.show_suketusaha', $item->id)}}" class="btn btn-xs btn-primary text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
                     Detail
                     </a>
                   </td>

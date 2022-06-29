@@ -29,7 +29,7 @@ Permohonan Waiting
         <p class="text-uppercase text-sm">Table Data</p>
         <button class="btn btn-icon btn-xs btn-3 btn-primary me-2" type="button">
           <span class="btn-inner--icon"><i class="fa fa-globe"></i></span>
-          <a href="{{route('officer.surdom')}}" class="btn-inner--text text-decoration-none text-reset">Semua</a>
+          <a href="{{route('officer.supengdesa')}}" class="btn-inner--text text-decoration-none text-reset">Semua</a>
         </button>
         <button class="btn btn-icon btn-xs btn-3 btn-success me-2" type="button">
           <span class="btn-inner--icon"><i class="fa fa-check-circle"></i></span>
@@ -52,7 +52,7 @@ Permohonan Waiting
               </tr>
             </thead>
             <tbody>
-              @forelse ($surdom as $item)
+              @forelse ($supengdesa as $item)
                 <tr>
                   <td class="align-middle text-sm">
                     <h6 class="mb-0 text-xs">{{++$i}}</h6>
@@ -79,7 +79,7 @@ Permohonan Waiting
                     <h6 class="mb-0 text-xs">{{$item->created_at}}</h6>
                   </td>
                   <td class="align-middle text-center">
-                    <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-xs btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="{{route('officer.show_supengdesa', $item->id)}}" class="btn btn-xs btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
                       Verifikasi
                     </a>
                   </td>

@@ -52,7 +52,7 @@ Permohonan Waiting
               </tr>
             </thead>
             <tbody>
-              @forelse ($surdom as $item)
+              @forelse ($suketusaha as $item)
                 <tr>
                   <td class="align-middle text-sm">
                     <h6 class="mb-0 text-xs">{{++$i}}</h6>
@@ -79,7 +79,7 @@ Permohonan Waiting
                     <h6 class="mb-0 text-xs">{{$item->created_at}}</h6>
                   </td>
                   <td class="align-middle text-center">
-                    <a href="{{route('officer.show_surdom', $item->id)}}" class="btn btn-xs btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
+                    <a href="{{route('officer.show_suketusaha', $item->id)}}" class="btn btn-xs btn-success text-xs mb-0" data-toggle="tooltip" data-original-title="Edit user">
                       Verifikasi
                     </a>
                   </td>
