@@ -19,15 +19,24 @@ Bidang Administrasi
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
+        <a href="" class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan/perubahan Kartu Keluarga</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card h-100">
+      <div class="card-body p-3">
+        <a href="{{route('surdom')}}" class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a>
+      </div>
+    </div>
+  </div>
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
+    <div class="card h-100">
+      <div class="card-body p-3">
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-12">
             <div class="numbers">
-              <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan/perubahan Kartu Keluarga</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-              <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+              <a class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan KTP</a>
             </div>
           </div>
         </div>
@@ -35,53 +44,12 @@ Bidang Administrasi
     </div>
   </div>
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
+    <div class="card h-100">
       <div class="card-body p-3">
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-12">
             <div class="numbers">
-              <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-              <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
-      <div class="card-body p-3">
-        <div class="row align-items-center">
-          <div class="col-8">
-            <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Pembuatan KTP</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-              <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
-      <div class="card-body p-3">
-        <div class="row align-items-center">
-          <div class="col-8">
-            <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Pindah</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+              <a class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Pindah</a>
             </div>
           </div>
         </div>
@@ -94,14 +62,9 @@ Bidang Administrasi
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-12">
             <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kelahiran</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+              <a class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kelahiran</a>
             </div>
           </div>
         </div>
@@ -112,14 +75,9 @@ Bidang Administrasi
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-12">
             <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kematian</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+              <a class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Kematian</a>
             </div>
           </div>
         </div>
@@ -127,17 +85,12 @@ Bidang Administrasi
     </div>
   </div>
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
+    <div class="card h-100">
       <div class="card-body p-3">
         <div class="row align-items-center">
-          <div class="col-8">
+          <div class="col-12">
             <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Cerai</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+              <a class="text-sm text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Keterangan Cerai</a>
             </div>
           </div>
         </div>

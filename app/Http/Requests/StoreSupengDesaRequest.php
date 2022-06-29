@@ -27,8 +27,11 @@ class StoreSupengDesaRequest extends FormRequest
         return [
           'user_id' => 'required',
           'berkas_id'  => 'required',
-          'nama_pemohon'  => 'required',
-          'email_pemohon'  => 'required',
+          'nama_pemohon' => 'required',
+          'nik_pemohon' => 'required',
+          'kk_pemohon' => 'required',
+          'foto_ktp_pemohon' => 'required',
+          'foto_kk_pemohon' => 'required',
           'keperluan'  => 'required',
           'tanggal_keperluan'  => 'required',
           'tempat_keperluan'  => 'required',

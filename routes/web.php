@@ -12,11 +12,14 @@ use App\Http\Controllers\Officer\ChartBarOfficerController;
 use App\Http\Controllers\Officer\BerkasOfficerController;
 use App\Http\Controllers\Officer\PetaDesaOfficerController;
 use App\Http\Controllers\Officer\SettingController;
+use App\Http\Controllers\Officer\Administrasi\AdministrasiOfficerController;
 use App\Http\Controllers\Officer\Administrasi\SuratDomisiliOfficerController;
 use App\Http\Controllers\Officer\Perizinan\SuketUsahaOfficerController;
+use App\Http\Controllers\Officer\NonPerizinan\NonPerizinanOfficerController;
 use App\Http\Controllers\Officer\NonPerizinan\SKTMOfficerController;
 use App\Http\Controllers\Officer\NonPerizinan\SupengDesaOfficerController;
-use App\Http\Controllers\User\ProfileAkunController;
+use App\Http\Controllers\User\ProfileAkun\ProfileAkunController;
+use App\Http\Controllers\User\ProfileAkun\KumpulanAjuanController;
 use App\Http\Controllers\User\ProfileDesaController;
 use App\Http\Controllers\User\TantanganDanPotensiController;
 use App\Http\Controllers\User\RencanaJangkaMenengahController;
@@ -89,24 +92,68 @@ Route::middleware(["officer"])
   Route::get("/layanan", [LayananOfficerController::class, "Index"])->name("layanan");
 
   // Administrasi Kependudukan
-  Route::get("/administrasi", [LayananOfficerController::class, "administrasi"])->name("administrasi");
+  Route::get("/administrasi", [AdministrasiOfficerController::class, "administrasi"])->name("administrasi");
+
+  // Administrasi Kependudukan - Surat Domisili
   Route::get("/surdom", [SuratDomisiliOfficerController::class, "index"])->name("surdom");
+  Route::get("/surdom_waiting", [SuratDomisiliOfficerController::class, "waiting"])->name("waiting_surdom");
+  Route::get("/surdom_verified", [SuratDomisiliOfficerController::class, "terverifikasi"])->name("terverifikasi_surdom");
+  Route::get("/surdom_tolak", [SuratDomisiliOfficerController::class, "ditolak"])->name("ditolak_surdom");
   Route::post("/post_surdom", [SuratDomisiliOfficerController::class, "store"])->name("post_surdom");
   Route::get("/show_surdom/{id}", [SuratDomisiliOfficerController::class, "show"])->name("show_surdom");
   Route::put("/update_surdom/{id}", [SuratDomisiliOfficerController::class, "update"])->name("update_surdom");
   Route::put("/update_alt_surdom/{id}", [SuratDomisiliOfficerController::class, "update_alt"])->name("update_alt_surdom");
+  Route::put("/update_keterangan_surdom/{id}", [SuratDomisiliOfficerController::class, "update_keterangan"])->name("update_keterangan_surdom");
+
+  // End Administrasi
 
   // Perizinan
   Route::get("/perizinan", [LayananOfficerController::class, "perizinan"])->name("perizinan");
+
+  // Perizinan - Surat Keterangan Usaha
   Route::get("/suketusaha", [SuketUsahaOfficerController::class, "index"])->name("suketusaha");
+  Route::get("/suketusaha_waiting", [SuketUsahaOfficerController::class, "waiting"])->name("waiting_suketusaha");
+  Route::get("/suketusaha_verified", [SuketUsahaOfficerController::class, "terverifikasi"])->name("terverifikasi_suketusaha");
+  Route::get("/suketusaha_tolak", [SuketUsahaOfficerController::class, "ditolak"])->name("ditolak_suketusaha");
+  Route::post("/post_suketusaha", [SuketUsahaOfficerController::class, "store"])->name("post_suketusaha");
+  Route::get("/show_suketusaha/{id}", [SuketUsahaOfficerController::class, "show"])->name("show_suketusaha");
+  Route::put("/update_suketusaha/{id}", [SuketUsahaOfficerController::class, "update"])->name("update_suketusaha");
+  Route::put("/update_alt_suketusaha/{id}", [SuketUsahaOfficerController::class, "update_alt"])->name("update_alt_suketusaha");
+  Route::put("/update_keterangan_suketusaha/{id}", [SuketUsahaOfficerController::class, "update_keterangan"])->name("update_keterangan_suketusaha");
+
+  // End Perizinan
 
   // Non Perizinan
-  Route::get("/nonperizinan", [LayananOfficerController::class, "non_perizinan"])->name("non_perizinan");
+  Route::get("/nonperizinan", [NonPerizinanOfficerController::class, "non_perizinan"])->name("non_perizinan");
+
+  // Non Perizinan - Surat Keterangan Tidak Mampu
   Route::get("/sktm", [SKTMOfficerController::class, "index"])->name("sktm");
+  Route::get("/sktm_waiting", [SKTMOfficerController::class, "waiting"])->name("waiting_sktm");
+  Route::get("/sktm_verified", [SKTMOfficerController::class, "terverifikasi"])->name("terverifikasi_sktm");
+  Route::get("/sktm_tolak", [SKTMOfficerController::class, "ditolak"])->name("ditolak_sktm");
+  Route::post("/post_sktm", [SKTMOfficerController::class, "store"])->name("post_sktm");
+  Route::get("/show_sktm/{id}", [SKTMOfficerController::class, "show"])->name("show_sktm");
+  Route::put("/update_sktm/{id}", [SKTMOfficerController::class, "update"])->name("update_sktm");
+  Route::put("/update_alt_sktm/{id}", [SKTMOfficerController::class, "update_alt"])->name("update_alt_sktm");
+  Route::put("/update_keterangan_sktm/{id}", [SupengDesaOfficerController::class, "update_keterangan"])->name("update_keterangan_sktm");
+
+  // Non Perizinan - Surat Pengantar Desa
   Route::get("/supengdesa", [SupengDesaOfficerController::class, "index"])->name("supengdesa");
+  Route::get("/supengdesa_waiting", [SupengDesaOfficerController::class, "waiting"])->name("waiting_supengdesa");
+  Route::get("/supengdesa_verified", [SupengDesaOfficerController::class, "terverifikasi"])->name("terverifikasi_supengdesa");
+  Route::get("/supengdesa_tolak", [SupengDesaOfficerController::class, "ditolak"])->name("ditolak_supengdesa");
+  Route::post("/post_supengdesa", [SupengDesaOfficerController::class, "store"])->name("post_supengdesa");
+  Route::get("/show_supengdesa/{id}", [SupengDesaOfficerController::class, "show"])->name("show_supengdesa");
+  Route::put("/update_supengdesa/{id}", [SupengDesaOfficerController::class, "update"])->name("update_supengdesa");
+  Route::put("/update_alt_supengdesa/{id}", [SupengDesaOfficerController::class, "update_alt"])->name("update_alt_supengdesa");
+  Route::put("/update_keterangan_supengdesa/{id}", [SupengDesaOfficerController::class, "update_keterangan"])->name("update_keterangan_supengdesa");
+
+  // End Non Perizinan
 
   // Pertanahan
   Route::get("/pertanahan", [LayananOfficerController::class, "pertanahan"])->name("pertanahan");
+
+  // End Pertanahan
 
   // End Layanan
 
@@ -115,8 +162,6 @@ Route::middleware(["officer"])
 
   // Berkas
   Route::get("/berkas", [BerkasOfficerController::class, "Index"])->name("berkas");
-  Route::post("/berkas_post", [BerkasOfficerController::class, "store"])->name("berkas_post");
-  Route::post("/berkas_alt_post", [BerkasOfficerController::class, "berkas_alt"])->name("berkas_alt");
 
   // Setting
   Route::get("/setting", [SettingController::class, "index"])->name("setting");
@@ -134,8 +179,21 @@ Route::prefix("user")
   Route::put("/profile_edit/{id}", [ProfileAkunController::class, "update"])->name("profile_edit");
   Route::post("/tambah_foto", [ProfileAkunController::class, "store"])->name("tambah_foto");
   Route::get("/kumpulan_berkas", [ProfileAkunController::class, "kumpulan_berkas"])->name("kumpulan_berkas");
-  Route::get("/kumpulan_ajuan/{id}", [ProfileAkunController::class, "kumpulan_ajuan"])->name("kumpulan_ajuan");
   Route::delete('/foto_profile_delete/{id}', [ProfileAkunController::class, "destroy"])->name("foto_profile_delete");
+  // Profile Akun - Kumpulan Ajuan
+  Route::get("/kumpulan_ajuan", [KumpulanAjuanController::class, "kumpulan_ajuan"])->name("kumpulan_ajuan");
+  Route::get("/kumpulan_administrasi", [KumpulanAjuanController::class, "kumpulan_administrasi"])->name("kumpulan_administrasi");
+  Route::get("/kumpulan_perizinan", [KumpulanAjuanController::class, "kumpulan_perizinan"])->name("kumpulan_perizinan");
+  Route::get("/kumpulan_nonperizinan", [KumpulanAjuanController::class, "kumpulan_nonperizinan"])->name("kumpulan_nonperizinan");
+  Route::get("/kumpulan_pertanahan", [KumpulanAjuanController::class, "kumpulan_pertanahan"])->name("kumpulan_pertanahan");
+  Route::get('/download_surdom', [KumpulanAjuanController::class, "downloadSurdom"])->name("download_surdom");
+  Route::get('/download_suketusaha', [KumpulanAjuanController::class, "downloadSuketusaha"])->name("download_suketusaha");
+  Route::get('/download_sktm', [KumpulanAjuanController::class, "downloadSktm"])->name("download_sktm");
+  Route::get('/download_supengdesa', [KumpulanAjuanController::class, "downloadSupengdesa"])->name("download_supengdesa");
+  Route::get('/search_administrasi', [KumpulanAjuanController::class, "searchAdministrasi"]);
+  Route::get('/search_perizinan', [KumpulanAjuanController::class, "searchPerizinan"]);
+  Route::get('/search_nonperizinan', [KumpulanAjuanController::class, "searchNonPerizinan"]);
+  Route::get('/search_pertanahan', [KumpulanAjuanController::class, "searchPertanahan"]);
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
@@ -160,24 +218,24 @@ Route::prefix("user")
   // Layanan
   Route::get("/layanan", [LayananController::class, "Index"])->name("layanan");
 
-  // Administrasi Kependudukan
+  // Layanan - Administrasi Kependudukan
   Route::get("/administrasi", [LayananController::class, "administrasi"])->name("administrasi");
   Route::get("/surdom", [SuratDomisiliController::class, "index"])->name("surdom");
   Route::post("/post_surdom", [SuratDomisiliController::class, "store"])->name("post_surdom");
 
-  // Perizinan
+  // Layanan - Perizinan
   Route::get("/perizinan", [LayananController::class, "perizinan"])->name("perizinan");
   Route::get("/suketusaha", [SuketUsahaController::class, "index"])->name("suketusaha");
   Route::post("/suketusaha", [SuketUsahaController::class, "store"])->name("suketusaha_post");
 
-  // Non Perizinan
+  // Layanan - Non Perizinan
   Route::get("/nonperizinan", [LayananController::class, "non_perizinan"])->name("non_perizinan");
   Route::get("/sktm", [SKTMController::class, "index"])->name("sktm");
   Route::post("/sktm", [SKTMController::class, "store"])->name("sktm_post");
   Route::get("/supengdesa", [SupengDesaController::class, "index"])->name("supengdesa");
   Route::post("/supengdesa", [SupengDesaController::class, "store"])->name("supengdesa_post");
 
-  // Pertanahan
+  // Layanan - Pertanahan
   Route::get("/pertanahan", [LayananController::class, "pertanahan"])->name("pertanahan");
 
   // End Layanan

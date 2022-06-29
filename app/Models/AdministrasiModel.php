@@ -5,24 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuketUsahaModel extends Model
+class AdministrasiModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'surat_keterangan_usaha';
+    protected $table = 'administrasi';
 
     protected $fillable = [
       'user_id',
       'berkas_id',
+      'verifikasi_id',
+      'nama_ajuan',
       'nama_pemohon',
+      'alamat_pemohon',
+      'hp_pemohon',
+      'nik_pemohon',
+      'kk_pemohon',
       'email_pemohon',
-      'bidang_usaha',
-      'nama_usaha',
-      'alamat_usaha',
-      'tahun_memulai',
-      'jumlah_karyawan',
-      'omzet',
-      'aset',
+      'foto_ktp_pemohon',
+      'foto_kk_pemohon',
+      'pengantar_rtrw',
+      'file_surdom',
+      'keterangan',
     ];
 
     // Relation
@@ -30,8 +34,14 @@ class SuketUsahaModel extends Model
     {
       return $this->belongsTo(User::class);
     }
+
     public function berkas()
     {
       return $this->belongsTo(Berkas::class);
+    }
+
+    public function verifikasi()
+    {
+      return $this->belongsTo(VerifikasiModel::class);
     }
 }

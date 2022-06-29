@@ -14,11 +14,20 @@ class SupengDesaModel extends Model
     protected $fillable = [
       'user_id',
       'berkas_id',
+      'verifikasi_id',
       'nama_pemohon',
       'email_pemohon',
+      'foto_ktp_pemohon',
+      'foto_kk_pemohon',
+      'alamat_pemohon',
+      'hp_pemohon',
+      'nik_pemohon',
+      'kk_pemohon',
       'keperluan',
       'tanggal_keperluan',
-      'tempat_keperluan'
+      'tempat_keperluan',
+      'file_supeng',
+      'keterangan',
     ];
 
     // Relation

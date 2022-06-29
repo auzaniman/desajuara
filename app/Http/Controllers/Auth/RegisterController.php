@@ -57,6 +57,8 @@ class RegisterController extends Controller
             'nik' => ['required', 'string', 'max:16', 'unique:users'],
             'kk' => ['required', 'string', 'max:16'],
             'kelamin' => ['required', 'string', 'in:Laki-Laki,Perempuan'],
+            'pendidikan' => ['required', 'string', 'in:SD,SMP,SMA,D1,D2,D3,D4,S1,S2,S3'],
+            'jurusan' => ['required', 'string', 'max:255'],
             'pekerjaan' => ['required', 'string', 'max:255'],
             'agama' => ['required', 'string', 'in:Islam,Katolik,Kristen,Hindu,Budha'],
             'perkawinan' => ['required', 'string', 'in:BelumMenikah,Menikah,PernahMenikah'],
@@ -67,7 +69,6 @@ class RegisterController extends Controller
             'provinsi_ktp' => ['required', 'string', 'max:255'],
             'kota_ktp' => ['required', 'string', 'max:255'],
             'kecamatan_ktp' => ['required', 'string', 'max:255'],
-            'pendidikan' => ['required', 'string', 'max:255'],
             'no_telpon' => ['required', 'string', 'max:255', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
@@ -91,6 +92,8 @@ class RegisterController extends Controller
             'nik' => $data['nik'],
             'kk' => $data['kk'],
             'kelamin' => $data['kelamin'],
+            'pendidikan' => $data['pendidikan'],
+            'jurusan' => $data['jurusan'],
             'pekerjaan' => $data['pekerjaan'],
             'agama' => $data['agama'],
             'perkawinan' => $data['perkawinan'],
@@ -109,7 +112,6 @@ class RegisterController extends Controller
             'kecamatan_domisili' => $data['kecamatan_domisili'],
             'no_telpon' => $data['no_telpon'],
             'no_wa' => $data['no_wa'],
-            'pendidikan' => $data['pendidikan'],
             'password' => Hash::make($data['password']),
         ]);
     }

@@ -4,9 +4,9 @@ namespace App\Http\Controllers\User\NonPerizinan;
 
 use App\Models\User;
 use App\Models\Berkas;
-use App\Models\SKTMModel;
-use App\Http\Requests\StoreSKTMRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreNonPerizinanRequest;
+use App\Models\NonPerizinanModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -44,22 +44,25 @@ class SKTMController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSKTMRequest $request)
+    public function store(StoreNonPerizinanRequest $request)
     {
-      $sktm = new SKTMModel();
+      $sktm = new NonPerizinanModel();
 
       $sktm->user_id = $request->user_id;
-      $sktm->berkas_id = $request->berkas_id;;
+      $sktm->berkas_id = $request->berkas_id;
+      $sktm->nama_ajuan = $request->nama_ajuan;
       $sktm->nama_pemohon = $request->nama_pemohon;
       $sktm->email_pemohon = $request->email_pemohon;
-      $sktm->foto_rumah_depan = $request->image;
-      $sktm->foto_rumah_samping = $request->image;
-      $sktm->tanda_pbb = $request->image;
-      $sktm->pengantar = $request->image;
+      $sktm->alamat_pemohon = $request->alamat_pemohon;
+      $sktm->hp_pemohon = $request->hp_pemohon;
+      $sktm->nik_pemohon = $request->nik_pemohon;
+      $sktm->kk_pemohon = $request->kk_pemohon;
+      $sktm->foto_ktp_pemohon = $request->foto_ktp_pemohon;
+      $sktm->foto_kk_pemohon = $request->foto_kk_pemohon;
       $sktm['foto_rumah_depan'] = $request->file('foto_rumah_depan')->store('', 'public');
       $sktm['foto_rumah_samping'] = $request->file('foto_rumah_samping')->store('', 'public');
       $sktm['tanda_pbb'] = $request->file('tanda_pbb')->store('', 'public');
-      $sktm['pengantar'] = $request->file('pengantar')->store('', 'public');
+      $sktm['pengantar_rtrw'] = $request->file('pengantar_rtrw')->store('', 'public');
 
       $sktm->save();
 

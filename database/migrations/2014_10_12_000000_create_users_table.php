@@ -24,6 +24,8 @@ class CreateUsersTable extends Migration
             $table->string('kk');
             $table->string('npwp')->nullable()->unique();
             $table->string('kelamin');
+            $table->string('pendidikan');
+            $table->string('jurusan');
             $table->string('pekerjaan');
             $table->string('agama');
             $table->string('perkawinan');
@@ -42,7 +44,6 @@ class CreateUsersTable extends Migration
             $table->string('kecamatan_domisili')->nullable();
             $table->string('no_telpon')->unique();
             $table->string('no_wa')->nullable();
-            $table->string('pendidikan');
             $table->string('roles')->default('USER');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');

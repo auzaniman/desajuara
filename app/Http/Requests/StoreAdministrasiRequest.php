@@ -5,7 +5,7 @@ namespace App\Http\Requests;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Auth;
 
-class StoreSuketUsahaRequest extends FormRequest
+class StoreAdministrasiRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -26,17 +26,10 @@ class StoreSuketUsahaRequest extends FormRequest
     {
         return [
           'user_id' => 'required',
-          'berkas_id'  => 'required',
-          'nama_pemohon'  => 'required',
-          'email_pemohon'  => 'required',
-          'bidang_usaha'  => 'required',
-          'nama_usaha'  => 'required',
-          'alamat_usaha'  => 'required',
-          'tahun_memulai'  => 'required',
-          'jumlah_karyawan'  => 'required',
-          'omzet'  => 'required',
-          'aset'  => 'required',
-          'pengantar'  => 'required|image',
+          'berkas_id' => 'required',
+          'nama_pemohon' => 'required',
+          'nik_pemohon' => 'required',
+          'kk_pemohon' => 'required',
         ];
     }
 }

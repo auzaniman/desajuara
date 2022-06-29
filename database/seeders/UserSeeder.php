@@ -24,6 +24,8 @@ class UserSeeder extends Seeder
           'nik' => '1234567890123457',
           'kk' => '1234567890123458',
           'kelamin' => 'Laki-Laki',
+          'pendidikan' => 'S1',
+          'jurusan' => 'Aplikasi Desa Juara',
           'pekerjaan' => 'Wiraswasta',
           'agama' => 'Islam',
           'perkawinan' => 'Menikah',
@@ -35,7 +37,6 @@ class UserSeeder extends Seeder
           'kota_ktp' => 'Banyumas',
           'kecamatan_ktp' => 'Karangnangka',
           'no_telpon' => '089607575813',
-          'pendidikan' => 'Aplikasi Desa Juara',
           'password' => bcrypt('desajuara12345')
         ],
         [
@@ -47,6 +48,8 @@ class UserSeeder extends Seeder
           'nik' => '1234567890123456',
           'kk' => '1234567890123459',
           'kelamin' => 'Laki-Laki',
+          'pendidikan' => 'S1',
+          'jurusan' => 'Ilmu Bisnis',
           'pekerjaan' => 'Wiraswasta',
           'agama' => 'Islam',
           'perkawinan' => 'Menikah',
@@ -58,7 +61,6 @@ class UserSeeder extends Seeder
           'kota_ktp' => 'Yogya',
           'kecamatan_ktp' => 'Umbulharjo',
           'no_telpon' => '089607575819',
-          'pendidikan' => 'Programmer Web',
           'password' => bcrypt('auzaniman12345')
         ],
 

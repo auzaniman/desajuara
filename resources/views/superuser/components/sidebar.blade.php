@@ -20,7 +20,7 @@
           @endif"
           href="{{route('dashboard')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-tv-2 text-primary text-sm"></i>
+            <i class="ni ni-single-02  text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Profil Akun</span>
         </a>
@@ -32,7 +32,7 @@
           @endif"
           href="{{route('chart')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-calendar-grid-58 text-primary text-sm"></i>
+            <i class="ni ni-building text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Profil Desa</span>
         </a>
@@ -43,7 +43,7 @@
           active
           @endif" href="{{route('tantangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-credit-card text-primary text-sm"></i>
+            <i class="ni ni-app text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Tantangan dan Potensi</span>
         </a>
@@ -54,7 +54,7 @@
           active
           @endif" href="{{route('rencana')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-app text-primary text-sm"></i>
+            <i class="ni ni-single-copy-04 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Rencana Jangka Menengah</span>
         </a>
@@ -65,7 +65,7 @@
           active
           @endif" href="{{route('agenda')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-world-2 text-primary text-sm"></i>
+            <i class="ni ni-calendar-grid-58 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Agenda</span>
         </a>
@@ -79,7 +79,7 @@
           active
           @endif" href="{{route('keuangan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-02 text-primary text-sm"></i>
+            <i class="ni ni-money-coins text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Keuangan</span>
         </a>
@@ -90,7 +90,7 @@
           active
           @endif" href="{{route('layanan')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-single-copy-04 text-primary text-sm"></i>
+            <i class="ni ni-collection text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Layanan</span>
         </a>
@@ -101,7 +101,7 @@
           active
           @endif" href="{{route('peta')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-primary text-sm"></i>
+            <i class="ni ni-map-big text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Peta Desa</span>
         </a>
@@ -112,7 +112,7 @@
           active
           @endif" href="{{route('berkas')}}">
           <div class="icon icon-shape icon-sm border-radius-md text-center me-1 d-flex align-items-center justify-content-center">
-            <i class="ni ni-collection text-primary text-sm"></i>
+            <i class="ni ni-archive-2 text-primary text-sm"></i>
           </div>
           <span class="nav-link-text ms-1">Berkas</span>
         </a>

@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers\User\Administrasi;
 
-use App\Models\SuratDomisili;
 use App\Models\User;
 use App\Models\Berkas;
-use App\Http\Requests\StoreSuratDomisiliRequest;
+use App\Http\Requests\StoreAdministrasiRequest;
 use App\Http\Controllers\Controller;
+use App\Models\AdministrasiModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,16 +48,22 @@ class SuratDomisiliController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSuratDomisiliRequest $request)
+    public function store(StoreAdministrasiRequest $request)
     {
-      $suratdomisili = new SuratDomisili();
+      $suratdomisili = new AdministrasiModel();
 
       $suratdomisili->user_id = $request->user_id;
       $suratdomisili->berkas_id = $request->berkas_id;
+      $suratdomisili->nama_ajuan = $request->nama_ajuan;
       $suratdomisili->nama_pemohon = $request->nama_pemohon;
       $suratdomisili->email_pemohon = $request->email_pemohon;
-      $suratdomisili->bukti_pengantar = $request->image;
-      $suratdomisili['bukti_pengantar'] = $request->file('bukti_pengantar')->store('', 'public');
+      $suratdomisili->alamat_pemohon = $request->alamat_pemohon;
+      $suratdomisili->hp_pemohon = $request->hp_pemohon;
+      $suratdomisili->nik_pemohon = $request->nik_pemohon;
+      $suratdomisili->kk_pemohon = $request->kk_pemohon;
+      $suratdomisili->foto_ktp_pemohon = $request->foto_ktp_pemohon;
+      $suratdomisili->foto_kk_pemohon = $request->foto_kk_pemohon;
+      $suratdomisili['pengantar_rtrw'] = $request->file('pengantar_rtrw')->store('', 'public');
 
       $suratdomisili->save();
 

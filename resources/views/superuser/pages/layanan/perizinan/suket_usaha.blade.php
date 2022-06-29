@@ -33,6 +33,40 @@ Surat Keterangan Usaha
         <p class="text-uppercase text-sm">Formulir Pembuatan Surat Keterangan Usaha</p>
         <form method="POST" action="{{route('suketusaha_post')}}" enctype="multipart/form-data">
           @csrf
+          <div class="row" hidden>
+            <div class="col-md-12">
+              <div class="form-group">
+                <label for="nama_ajuan" class="form-control-label">Nama Ajuan</label>
+                <input name="nama_ajuan" id="nama_ajuan" class="form-control disabled" type="text" value="Surat Keterangan Usaha">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6" hidden>
+              <div class="form-group">
+                <label for="user_id" class="form-control-label" hidden>Berkas KK</label>
+                @if (($berkas) != null)
+                  @if ($berkas->foto_kk != null)
+                  <input name="foto_kk_pemohon" id="foto_kk_pemohon" class="form-control" type="text" value="{{$berkas->foto_kk}}" hidden>
+                  @else
+                  @endif
+                @else
+                @endif
+              </div>
+            </div>
+            <div class="col-md-6" hidden>
+              <div class="form-group">
+                <label for="berkas_id" class="form-control-label" hidden>Berkas KTP</label>
+                  @if (($berkas) != null)
+                    @if ($berkas->foto_ktp != null)
+                    <input name="foto_ktp_pemohon" id="foto_ktp_pemohon" class="form-control" type="text" value="{{$berkas->foto_ktp}}" hidden>
+                    @else
+                    @endif
+                  @else
+                  @endif
+              </div>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-2" hidden>
               <div class="form-group">
@@ -54,16 +88,44 @@ Surat Keterangan Usaha
                 @endif
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="nama_pemohon" class="form-control-label">Nama Pemohon</label>
                 <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="">
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="email_pemohon" class="form-control-label">Email Pemohon</label>
                 <input name="email_pemohon" id="email_pemohon" class="form-control" type="email" value="{{$users->email}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="nik_pemohon" class="form-control-label">NIK Pemohon</label>
+                <input name="nik_pemohon" id="nik_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->nik}}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="kk_pemohon" class="form-control-label">No KK Pemohon</label>
+                <input name="kk_pemohon" id="kk_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->kk}}">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="alamat_pemohon" class="form-control-label">Alamat Pemohon</label>
+                <input name="alamat_pemohon" id="alamat_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->desa_ktp}}, RT{{Auth::user()->rt_ktp}}, RW{{Auth::user()->rw_ktp}}, {{Auth::user()->kecamatan_ktp}}, {{Auth::user()->kota_ktp}}, {{Auth::user()->provinsi_ktp}}">
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="hp_pemohon" class="form-control-label">No HP Pemohon</label>
+                <input name="hp_pemohon" id="hp_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->no_telpon}}">
               </div>
             </div>
           </div>
@@ -137,17 +199,6 @@ Surat Keterangan Usaha
                     <span class="ms-1">Belum Upload Berkas</span>
                   </div>
                 @endif
-                {{-- @if ($berkas->isEmpty() )
-                <div class="ms-1">
-                  <i class="ni ni-fat-remove text-danger text-sm"></i>
-                  <span class="ms-1">Belum Upload Berkas</span>
-                </div>
-                @else
-                <div class="ms-1">
-                  <i class="ni ni-check-bold text-success text-sm"></i>
-                  <span class="ms-1">Sudah Upload Berkas</span>
-                </div>
-                @endif --}}
               </div>
             </div>
             <div class="col-md-4">
@@ -175,8 +226,8 @@ Surat Keterangan Usaha
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="pengantar" class="form-control-label">Surat Pengantar RT & RW</label>
-                <input name="pengantar" id="pengantar" class="form-control" type="file" value="">
+                <label for="pengantar_rtrw" class="form-control-label">Surat Pengantar RT & RW</label>
+                <input name="pengantar_rtrw" id="pengantar_rtrw" class="form-control" type="file" value="">
               </div>
             </div>
           </div>

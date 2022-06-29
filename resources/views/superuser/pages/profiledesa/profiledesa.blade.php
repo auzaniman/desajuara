@@ -13,7 +13,7 @@ Profil Desa
         <div class="row mb-3">
           <div class="col-lg-12">
             <h6 class="text-capitalize">Foto Kampung</h6>
-            <img src="{{url('frontend/assets/img/1.jpg')}}" class="img-fluid" alt="foto kampung">
+            <img src="{{url('frontend/assets/img/2.jpg')}}" class="img-fluid" alt="foto kampung">
           </div>
         </div>
       </div>

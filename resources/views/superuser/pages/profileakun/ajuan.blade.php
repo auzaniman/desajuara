@@ -1,7 +1,7 @@
 @extends('superuser.layouts.app')
 
 @section('title')
-Riwayat Pengajuan Permohonan
+Riwayat Permohonan
 @endsection
 
 @section('content')
@@ -16,57 +16,58 @@ Riwayat Pengajuan Permohonan
   <div class="col-md-12">
     <div class="card">
       <div class="card-body">
-        <p class="text-uppercase text-sm">Riwayat</p>
-        <div class="table-responsive">
+        <p class="text-uppercase text-sm">Riwayat Pengajuan Permohonan</p>
+        @include('superuser.components.dropdown_ajuan')
+        {{-- <div class="col-md-6">
+          <div class="form-group">
+            <div class="input-group mb-4">
+              <span class="input-group-text"><i class="ni ni-zoom-split-in"></i></span>
+              <input class="form-control" placeholder="Search" type="text" >
+            </div>
+          </div>
+        </div> --}}
+        {{-- <div class="table-responsive">
           <table class="table align-items-center mb-3">
             <thead>
               <tr>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Pemohon</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Ajuan</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Kategori Ajuan</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Tanggal Pengajuan</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Status</th>
-                <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">File</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Nama Pemohon</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Nama Ajuan</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Kategori Ajuan</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Tanggal Pengajuan</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Status</th>
               </tr>
             </thead>
             <tbody>
-              @if ($surdom != null)
+              @if ($kumpulan != null)
+              @foreach ($kumpulan as $item)
               <tr>
-                <td class="align-middle text-center text-sm">
-                  <h6 class="mb-0 text-xs">{{$surdom->nama_pemohon}}</h6>
+                <td class="align-middle text-sm">
+                  <h6 class="mb-0 text-xs">{{$item->nama_pemohon}}</h6>
                 </td>
-                <td class="align-middle text-center text-sm">
-                  <h6 class="mb-0 text-xs">{{$surdom->nama_ajuan}}</h6>
+                <td class="align-middle text-sm">
+                  <h6 class="mb-0 text-xs">{{$item->nama_ajuan}}</h6>
                 </td>
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2">{{$surdom->kategori}}</h6>
+                <td class="align-middle">
+                  <h6 class="mb-0 text-xs">{{$item->kategori}}</h6>
                 </td>
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2">{{$surdom->created_at}}</h6>
+                <td class="align-middle">
+                  <h6 class="mb-0 text-xs">{{$item->created_at}}</h6>
                 </td>
-                @if ($surdom->verifikasi_id == '1')
-                  <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2"><i class="fas fa-check-circle text-success text-sm" aria-hidden="true"></i> Terverifikasi</h6>
+                @if ($item->verifikasi_id == '1')
+                <td class="align-middle">
+                  <h6 class="mb-0 text-xs"><i class="fas fa-check-circle text-success text-xs" aria-hidden="true"></i> Terverifikasi</h6>
                 </td>
-                @elseif ($surdom->verifikasi_id == '2')
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2"><i class="fas fa-times-circle text-danger text-sm" aria-hidden="true"></i> Ditolak</h6>
+                @elseif ($item->verifikasi_id == '2')
+                <td class="align-middle">
+                  <h6 class="mb-0 text-xs"><i class="fas fa-times-circle text-danger text-xs" aria-hidden="true"></i> Ditolak</h6>
                 </td>
-                @else
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2">Menunggu Proses</h6>
-                </td>
-                @endif
-                @if ($surdom->file_surdom != null)
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2">{{$surdom->file_surdom}}</h6>
-                </td>
-                @else
-                <td class="align-middle text-center">
-                  <h6 class="mb-0 text-xs ps-2"></h6>
+                @elseif ($item->verifikasi_id == '3')
+                <td class="align-middle">
+                  <h6 class="mb-0 text-xs"><i class="fa fa-clock-o text-warning text-xs" aria-hidden="true"></i> Menunggu Proses</h6>
                 </td>
                 @endif
               </tr>
+              @endforeach
               @else
               <tr>
                 <td colspan="6" class="align-middle text-center">
@@ -76,7 +77,7 @@ Riwayat Pengajuan Permohonan
               @endif
             </tbody>
           </table>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>

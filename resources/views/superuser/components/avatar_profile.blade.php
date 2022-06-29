@@ -55,7 +55,7 @@
                   </a>
               </li>
               <li>
-                  <a class="dropdown-item mb-1" href="{{route('kumpulan_ajuan', $user->id)}}">
+                  <a class="dropdown-item mb-1" href="{{route('kumpulan_ajuan')}}">
                     <i class="ni ni-book-bookmark me-1"></i>
                     Riwayat Permohonan
                   </a>

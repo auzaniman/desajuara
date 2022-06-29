@@ -43,14 +43,14 @@ Bidang Administrasi Kependudukan
         <div class="row align-items-lg-center">
           <div class="col-md-12">
             <div class="numbers">
-              <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili ({{$surdom}})</a>
+              <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a> <span class="text-sm mb-0 text-uppercase font-weight-bold">({{$surdom}})</span>
             </div>
             <p class="mb-0">
               <span class="text-success text-sm font-weight-bolder me-1">{{$verifikasi}}</span>
               Terverifikasi
             </p>
             <p class="mb-0">
-              <span class="text-warning text-sm font-weight-bolder me-1">0</span>
+              <span class="text-warning text-sm font-weight-bolder me-1">{{$waiting}}</span>
               Waiting
             </p>
           </div>
@@ -79,7 +79,7 @@ Bidang Administrasi Kependudukan
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-sm-6">
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
@@ -102,7 +102,7 @@ Bidang Administrasi Kependudukan
   </div>
 </div>
 <div class="row mb-4">
-  <div class="col-xl-3 col-sm-6">
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
@@ -123,7 +123,7 @@ Bidang Administrasi Kependudukan
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-sm-6">
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">
@@ -144,7 +144,7 @@ Bidang Administrasi Kependudukan
       </div>
     </div>
   </div>
-  <div class="col-xl-3 col-sm-6">
+  <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
         <div class="row align-items-lg-center">

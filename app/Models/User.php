@@ -28,6 +28,7 @@ class User extends Authenticatable
       'npwp',
       'kelamin',
       'pekerjaan',
+      'jurusan',
       'agama',
       'perkawinan',
       'kewarganegaraan',

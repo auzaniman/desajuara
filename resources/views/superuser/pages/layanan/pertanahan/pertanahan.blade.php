@@ -15,58 +15,25 @@ Layanan
     <li><a class="dropdown-item" href="{{route('non_perizinan')}}">Bidang Non Perizinan</a></li>
   </ul>
 </div>
-<div class="row">
+<div class="row mb-4">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
+    <div class="card h-100">
       <div class="card-body p-3">
-        <div class="row align-items-center">
-          <div class="col-8">
-            <div class="numbers">
-              <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pembuatan Surat Garapan</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-              <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
+        <a href="" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pembuatan Surat Garapan</a>
       </div>
     </div>
   </div>
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
+    <div class="card h-100">
       <div class="card-body p-3">
-        <div class="row align-items-center">
-          <div class="col-8">
-            <div class="numbers">
-              <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pengajuan Sertifikat Tanah</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-danger shadow-danger text-center rounded-circle">
-              <i class="ni ni-world text-lg opacity-10" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
+        <a href="{{route('surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Pengajuan Sertifikat Tanah</a>
       </div>
     </div>
   </div>
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
-    <div class="card">
+    <div class="card h-100">
       <div class="card-body p-3">
-        <div class="row align-items-center">
-          <div class="col-8">
-            <div class="numbers">
-              <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Surat Keterangan Kepemilikan Lahan</a>
-            </div>
-          </div>
-          <div class="col-4 text-end">
-            <div class="icon icon-shape bg-gradient-success shadow-success text-center rounded-circle">
-              <i class="ni ni-paper-diploma text-lg opacity-10" aria-hidden="true"></i>
-            </div>
-          </div>
-        </div>
+        <a class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Permohonan Surat Keterangan Kepemilikan Lahan</a>
       </div>
     </div>
   </div>

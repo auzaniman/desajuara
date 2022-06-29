@@ -5,7 +5,7 @@ Layanan
 @endsection
 
 @section('content')
-<div class="row">
+{{-- <div class="row">
   <div class="col-lg-12 mb-lg-0 mb-4">
     <div class="card z-index-2 h-100">
       <div class="card-header pb-0 pt-3 bg-transparent">
@@ -16,8 +16,8 @@ Layanan
       </div>
     </div>
   </div>
-</div>
-<div class="row mt-4">
+</div> --}}
+<div class="row">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
@@ -29,7 +29,7 @@ Layanan
           </div>
           <div class="col-4 text-end">
             <div class="icon icon-shape bg-gradient-primary shadow-primary text-center rounded-circle">
-              <i class="ni ni-money-coins text-lg opacity-10" aria-hidden="true"></i>
+              <i class="ni ni-folder-17 text-lg opacity-10" aria-hidden="true"></i>
             </div>
           </div>
         </div>
@@ -83,7 +83,7 @@ Layanan
           </div>
           <div class="col-4 text-end">
             <div class="icon icon-shape bg-gradient-warning shadow-warning text-center rounded-circle">
-              <i class="ni ni-cart text-lg opacity-10" aria-hidden="true"></i>
+              <i class="ni ni-compass-04 text-lg opacity-10" aria-hidden="true"></i>
             </div>
           </div>
         </div>

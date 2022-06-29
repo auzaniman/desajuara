@@ -2,134 +2,154 @@
 
 namespace App\Http\Controllers\Officer\Administrasi;
 
-use App\Models\SuratDomisili;
+use App\Models\AdministrasiModel;
 use App\Models\User;
 use App\Models\Berkas;
-use App\Http\Controllers\Controller;
 use App\Models\VerifikasiModel;
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class SuratDomisiliOfficerController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-      $users = User::all();
-      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
-      $surdom = SuratDomisili::all();
+  // Menampilkan Semua Data Permohonan
+  public function index(Request $request)
+  {
+    $pagination = 15;
+    $users = User::all();
+    $berkas = Berkas::where('user_id')->first();
+    $surdom = AdministrasiModel::where('nama_ajuan', 'Surat Domisili')->orderBy('created_at', 'desc')->paginate($pagination);
+    $verifikasi = VerifikasiModel::all();
+
+    return
+    view('officer.pages.layanan.administrasi.surdom.suratdomisili',
+      [
+        'users' => $users,
+        'berkas' => $berkas,
+        'surdom' => $surdom,
+        'verifikasi' => $verifikasi,
+      ]
+    )->with('i', ($request->input('page', 1) - 1) * $pagination);
+  }
+
+  // Menampilkan Detail Permohonan User
+  public function show($id)
+  {
+      $surdom = AdministrasiModel::findOrFail($id);
       $verifikasi = VerifikasiModel::all();
 
-      return
-      view('officer.pages.layanan.administrasi.surdom.suratdomisili',
-        [
-          'users' => $users,
-          'berkas' => $berkas,
-          'surdom' => $surdom,
-          'verifikasi' => $verifikasi,
-        ]
-      );
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        $surdom = SuratDomisili::findOrFail($id);
-        $berkas = Berkas::findOrFail($id);
-        $user = User::findOrFail($id);
-        $verifikasi = VerifikasiModel::all();
-
-        return view('officer.pages.layanan.administrasi.surdom.verify', [
-          'user' => $user,
-          'surdom' => $surdom,
-          'berkas' => $berkas,
-          'verifikasi' => $verifikasi,
-        ]);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-      $surdom = SuratDomisili::findOrFail($id);
-
-      $surdom->verifikasi_id = $request->verifikasi_id;
-
-      $surdom->save();
-
-      return redirect()->back()->with([
-        'message' => 'Permohonan berhasil diverifikasi',
-        'status' => 'Berhasil memverifikasi permohonan'
+      return view('officer.pages.layanan.administrasi.surdom.verify', [
+        'surdom' => $surdom,
+        'verifikasi' => $verifikasi,
       ]);
-    }
+  }
 
-    public function update_alt(Request $request, $id)
-    {
-      $surdom = SuratDomisili::findOrFail($id);
-      $surdom->file_surdom = $request->file_surdom;
+  // Verifikasi Permohonan
+  public function update(Request $request, $id)
+  {
+    $surdom = AdministrasiModel::findOrFail($id);
 
-      $surdom->save();
+    $surdom->verifikasi_id = $request->verifikasi_id;
 
-      return redirect()->back()->with([
-        'message' => 'File Permohonan berhasil dikirim',
-        'status' => 'Berhasil mengirimkan dokumen permohonan'
-      ]);
-    }
+    $surdom->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    return redirect()->back()->with([
+      'message' => 'Permohonan berhasil diverifikasi',
+      'status' => 'Berhasil memverifikasi permohonan'
+    ]);
+  }
+
+  // Mengirimkan File Permohonan Yang Telah Terverifikasi
+  public function update_alt(Request $request, $id)
+  {
+    $surdom = AdministrasiModel::findOrFail($id);
+    $surdom['file_permohonan'] = $request->file('file_permohonan')->store('', 'public');
+
+    $surdom->save();
+
+    return redirect()->back()->with([
+      'message' => 'File Permohonan berhasil dikirim',
+      'status' => 'Berhasil mengirimkan dokumen permohonan'
+    ]);
+  }
+
+  // Mengirimkan File Permohonan Yang Telah Terverifikasi
+  public function update_keterangan(Request $request, $id)
+  {
+    $surdom = AdministrasiModel::findOrFail($id);
+    $surdom->keterangan = $request->keterangan;
+
+    $surdom->save();
+
+    return redirect()->back()->with([
+      'message' => 'File Permohonan berhasil dikirim',
+      'status' => 'Berhasil mengirimkan keterangan permohonan'
+    ]);
+  }
+
+  // Menampilkan Data Permohonan dengan Status Waiting
+  public function waiting(Request $request)
+  {
+    $pagination = 15;
+    $users = User::all();
+    $berkas = Berkas::where('user_id')->first();
+    $surdom = AdministrasiModel::where('verifikasi_id', '3')->get();
+    $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
+    $verifikasi = VerifikasiModel::all();
+
+    return
+    view('officer.pages.layanan.administrasi.surdom.status.waiting',
+      [
+        'users' => $users,
+        'berkas' => $berkas,
+        'surdom' => $surdom,
+        'ordersurdom' => $ordersurdom,
+        'verifikasi' => $verifikasi,
+      ]
+    )->with('i', ($request->input('page', 1) - 1) * $pagination);
+  }
+
+  // Menampilkan Data Permohonan dengan Status Verifikasi
+  public function terverifikasi(Request $request)
+  {
+    $pagination = 15;
+    $users = User::all();
+    $berkas = Berkas::where('user_id')->first();
+    $surdom = AdministrasiModel::where('verifikasi_id', '1')->get();
+    $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
+    $verifikasi = VerifikasiModel::all();
+
+    return
+    view('officer.pages.layanan.administrasi.surdom.status.verifikasi',
+      [
+        'users' => $users,
+        'berkas' => $berkas,
+        'surdom' => $surdom,
+        'ordersurdom' => $ordersurdom,
+        'verifikasi' => $verifikasi,
+      ]
+    )->with('i', ($request->input('page', 1) - 1) * $pagination);
+  }
+
+  // Menampilkan Data Permohonan dengan Status Ditolak
+  public function ditolak(Request $request)
+  {
+    $pagination = 15;
+    $users = User::all();
+    $berkas = Berkas::where('user_id')->first();
+    $surdom = AdministrasiModel::where('verifikasi_id', '2')->get();
+    $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
+    $verifikasi = VerifikasiModel::all();
+
+    return
+    view('officer.pages.layanan.administrasi.surdom.status.ditolak',
+      [
+        'users' => $users,
+        'berkas' => $berkas,
+        'surdom' => $surdom,
+        'ordersurdom' => $ordersurdom,
+        'verifikasi' => $verifikasi,
+      ]
+    )->with('i', ($request->input('page', 1) - 1) * $pagination);
+  }
 }

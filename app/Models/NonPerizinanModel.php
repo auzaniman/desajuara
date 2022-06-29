@@ -5,20 +5,34 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class SuratDomisili extends Model
+class NonPerizinanModel extends Model
 {
     use HasFactory;
 
-    protected $table = 'suratdomisili';
+    protected $table = 'nonperizinan';
 
     protected $fillable = [
       'user_id',
       'berkas_id',
       'verifikasi_id',
+      'nama_ajuan',
       'nama_pemohon',
       'email_pemohon',
-      'bukti_pengantar',
-      'file_surdom',
+      'foto_ktp_pemohon',
+      'foto_kk_pemohon',
+      'alamat_pemohon',
+      'hp_pemohon',
+      'nik_pemohon',
+      'kk_pemohon',
+      'file_permohonan',
+      'keterangan',
+      'foto_rumah_depan',
+      'foto_rumah_samping',
+      'tanda_pbb',
+      'keperluan',
+      'tanggal_keperluan',
+      'tempat_keperluan',
+      'pengantar_rtrw',
     ];
 
     // Relation
@@ -26,14 +40,8 @@ class SuratDomisili extends Model
     {
       return $this->belongsTo(User::class);
     }
-
     public function berkas()
     {
       return $this->belongsTo(Berkas::class);
-    }
-
-    public function verifikasi()
-    {
-      return $this->belongsTo(VerifikasiModel::class);
     }
 }

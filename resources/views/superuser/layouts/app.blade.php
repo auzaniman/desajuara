@@ -16,7 +16,7 @@
       {{-- Alert --}}
       @if ($errors->any())
       <div class="alert alert-danger text-white">
-        <ul>
+        <ul class="mb-0">
           @foreach ($errors->all() as $error)
           <li><strong>{{ $error }}</strong></li>
           @endforeach
@@ -45,6 +45,7 @@
 
   {{-- @include('superuser.components.plugin') --}}
   @include('superuser.components.script')
+  @stack('search')
   @stack('chart')
   @stack('chart_keuangan')
   @stack('calendar')

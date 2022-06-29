@@ -1,28 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\User;
+namespace App\Http\Controllers\User\ProfileAkun;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\FotoProfileRequest;
 use App\Models\Berkas;
 use App\Models\FotoProfileModel;
-use App\Models\KategoriModel;
-use App\Models\NamaAjuanModel;
-use App\Models\SKTMModel;
-use App\Models\SuketUsahaModel;
-use App\Models\SupengDesaModel;
-use App\Models\SuratDomisili;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 
 class ProfileAkunController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
@@ -33,22 +22,11 @@ class ProfileAkunController extends Controller
       ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(FotoProfileRequest $request)
     {
       $foto = new FotoProfileModel();
@@ -63,35 +41,16 @@ class ProfileAkunController extends Controller
       ]);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
@@ -133,12 +92,6 @@ class ProfileAkunController extends Controller
       ]);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
       $foto = FotoProfileModel::where('id', $id)->first();
@@ -161,25 +114,6 @@ class ProfileAkunController extends Controller
         'user' => $user,
         'berkas' =>$berkas,
         'foto' =>$foto,
-      ]);
-    }
-
-    public function kumpulan_ajuan()
-    {
-      $user = User::where('id', '=', Auth::user()->id)->first();
-      $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
-      $surdom = SuratDomisili::where('user_id', '=', Auth::user()->id)->first();
-      // $suket = SuketUsahaModel::where('user_id', '=', Auth::user()->id)->first();
-      // $sktm = SKTMModel::where('user_id', '=', Auth::user()->id)->first();
-      // $supeng = SupengDesaModel::where('user_id', '=', Auth::user()->id)->first();
-
-      return view('superuser.pages.profileakun.ajuan', [
-        'user' => $user,
-        'foto' =>$foto,
-        'surdom' =>$surdom,
-        // 'suket' =>$suket,
-        // 'sktm' =>$sktm,
-        // 'supeng' =>$supeng,
       ]);
     }
 }

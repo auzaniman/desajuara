@@ -48,7 +48,7 @@ Layanan
             <div class="numbers">
               <a href="{{route('officer.perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Perizinan</a>
               <p class="mb-0">
-              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              <span class="text-success text-sm font-weight-bolder me-1">{{$perizinan}}</span>
               Total
               </p>
             </div>
@@ -70,7 +70,7 @@ Layanan
             <div class="numbers">
               <a href="{{route('officer.non_perizinan')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Bidang Non Perizinan</a>
               <p class="mb-0">
-              <span class="text-success text-sm font-weight-bolder me-1">0</span>
+              <span class="text-success text-sm font-weight-bolder me-1">{{$nonperizinan}}</span>
               Total
               </p>
             </div>
