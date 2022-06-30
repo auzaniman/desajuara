@@ -89,13 +89,13 @@ Profil Akun
                   @endif
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="nama_pemohon" class="form-control-label">Nama Pemohon</label>
-                <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="">
+                <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="{{$users->name}}">
               </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <div class="form-group">
                 <label for="email_pemohon" class="form-control-label">Email Pemohon</label>
                 <input name="email_pemohon" id="email_pemohon" class="form-control disabled" type="email" value="{{Auth::user()->email}}">

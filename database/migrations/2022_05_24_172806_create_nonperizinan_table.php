@@ -38,7 +38,8 @@ class CreateNonperizinanTable extends Migration
             $table->string('tanggal_keperluan')->nullable();
             $table->string('tempat_keperluan')->nullable();
             // Officer
-            $table->text('file_permohonan')->nullable();
+            $table->text('file_permohonan_sktm')->nullable();
+            $table->text('file_permohonan_supengdesa')->nullable();
             $table->text('keterangan')->nullable();
             $table->timestamps();
         });

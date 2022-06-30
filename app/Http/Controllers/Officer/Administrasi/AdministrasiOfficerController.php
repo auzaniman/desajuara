@@ -16,14 +16,14 @@ class AdministrasiOfficerController extends Controller
     {
       $administrasi = AdministrasiModel::where('kategori', 'Administrasi Kependudukan')->count();
       $surdom = AdministrasiModel::where('nama_ajuan', 'Surat Domisili')->count();
-      $verifikasi = AdministrasiModel::where('verifikasi_id', '1')->count();
-      $waiting = AdministrasiModel::where('verifikasi_id', '3')->count();
+      $verifikasi_surdom = AdministrasiModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Domisili')->count();
+      $waiting_surdom = AdministrasiModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Domisili')->count();
 
       return view('officer.pages.layanan.administrasi.administrasi', [
         'administrasi' => $administrasi,
         'surdom' => $surdom,
-        'verifikasi' => $verifikasi,
-        'waiting' => $waiting,
+        'verifikasi_surdom' => $verifikasi_surdom,
+        'waiting_surdom' => $waiting_surdom,
       ]);
     }
 }

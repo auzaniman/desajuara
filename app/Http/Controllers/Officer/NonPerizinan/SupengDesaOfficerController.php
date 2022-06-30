@@ -63,7 +63,7 @@ class SupengDesaOfficerController extends Controller
   public function update_alt(Request $request, $id)
   {
     $supengdesa = NonPerizinanModel::findOrFail($id);
-    $supengdesa['file_permohonan'] = $request->file('file_permohonan')->store('', 'public');
+    $supengdesa['file_permohonan_supengdesa'] = $request->file('file_permohonan_supengdesa')->store('', 'public');
 
     $supengdesa->save();
 

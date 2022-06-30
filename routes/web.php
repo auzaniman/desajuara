@@ -14,6 +14,7 @@ use App\Http\Controllers\Officer\PetaDesaOfficerController;
 use App\Http\Controllers\Officer\SettingController;
 use App\Http\Controllers\Officer\Administrasi\AdministrasiOfficerController;
 use App\Http\Controllers\Officer\Administrasi\SuratDomisiliOfficerController;
+use App\Http\Controllers\Officer\Perizinan\PerizinanOfficerController;
 use App\Http\Controllers\Officer\Perizinan\SuketUsahaOfficerController;
 use App\Http\Controllers\Officer\NonPerizinan\NonPerizinanOfficerController;
 use App\Http\Controllers\Officer\NonPerizinan\SKTMOfficerController;
@@ -108,7 +109,7 @@ Route::middleware(["officer"])
   // End Administrasi
 
   // Perizinan
-  Route::get("/perizinan", [LayananOfficerController::class, "perizinan"])->name("perizinan");
+  Route::get("/perizinan", [PerizinanOfficerController::class, "perizinan"])->name("perizinan");
 
   // Perizinan - Surat Keterangan Usaha
   Route::get("/suketusaha", [SuketUsahaOfficerController::class, "index"])->name("suketusaha");
@@ -186,10 +187,10 @@ Route::prefix("user")
   Route::get("/kumpulan_perizinan", [KumpulanAjuanController::class, "kumpulan_perizinan"])->name("kumpulan_perizinan");
   Route::get("/kumpulan_nonperizinan", [KumpulanAjuanController::class, "kumpulan_nonperizinan"])->name("kumpulan_nonperizinan");
   Route::get("/kumpulan_pertanahan", [KumpulanAjuanController::class, "kumpulan_pertanahan"])->name("kumpulan_pertanahan");
-  Route::get('/download_surdom', [KumpulanAjuanController::class, "downloadSurdom"])->name("download_surdom");
-  Route::get('/download_suketusaha', [KumpulanAjuanController::class, "downloadSuketusaha"])->name("download_suketusaha");
-  Route::get('/download_sktm', [KumpulanAjuanController::class, "downloadSktm"])->name("download_sktm");
-  Route::get('/download_supengdesa', [KumpulanAjuanController::class, "downloadSupengdesa"])->name("download_supengdesa");
+  Route::get('/download_surdom/{id}', [KumpulanAjuanController::class, "downloadSurdom"])->name("download_surdom");
+  Route::get('/download_suketusaha/{id}', [KumpulanAjuanController::class, "downloadSuketusaha"])->name("download_suketusaha");
+  Route::get('/download_sktm/{id}', [KumpulanAjuanController::class, "downloadSktm"])->name("download_sktm");
+  Route::get('/download_supengdesa/{id}', [KumpulanAjuanController::class, "downloadSupengdesa"])->name("download_supengdesa");
   Route::get('/search_administrasi', [KumpulanAjuanController::class, "searchAdministrasi"]);
   Route::get('/search_perizinan', [KumpulanAjuanController::class, "searchPerizinan"]);
   Route::get('/search_nonperizinan', [KumpulanAjuanController::class, "searchNonPerizinan"]);
@@ -246,7 +247,8 @@ Route::prefix("user")
   // Berkas
   Route::get("/berkas", [BerkasController::class, "Index"])->name("berkas");
   Route::post("/berkas_post", [BerkasController::class, "store"])->name("berkas_post");
-  Route::post("/berkas_alt_post", [BerkasController::class, "berkas_alt"])->name("berkas_alt");
+  Route::post("/berkas_npwn_post", [BerkasController::class, "berkas_npwp"])->name("berkas_npwp");
+  Route::post("/berkas_bukunikah_post", [BerkasController::class, "berkas_bukunikah"])->name("berkas_bukunikah");
   Route::delete('/berkas_delete/{id}', [BerkasController::class, "destroy"])->name("berkas_delete");
 
 });

@@ -63,7 +63,7 @@ class SuketUsahaOfficerController extends Controller
   public function update_alt(Request $request, $id)
   {
     $suketusaha = PerizinanModel::findOrFail($id);
-    $suketusaha['file_permohonan'] = $request->file('file_permohonan')->store('', 'public');
+    $suketusaha['file_permohonan_suketusaha'] = $request->file('file_permohonan_suketusaha')->store('', 'public');
 
     $suketusaha->save();
 

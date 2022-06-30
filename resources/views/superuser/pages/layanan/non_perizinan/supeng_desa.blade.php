@@ -92,7 +92,7 @@ Surat Pengantar Desa
             <div class="col-md-6">
               <div class="form-group">
                 <label for="nama_pemohon" class="form-control-label">Nama Pemohon</label>
-                <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="">
+                <input name="nama_pemohon" id="nama_pemohon" class="form-control" type="text" value="{{$user->name}}">
               </div>
             </div>
             <div class="col-md-6">

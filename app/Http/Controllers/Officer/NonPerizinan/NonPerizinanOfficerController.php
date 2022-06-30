@@ -9,7 +9,7 @@ class NonPerizinanOfficerController extends Controller
 {
   public function non_perizinan()
     {
-      $nonperizinan = NonPerizinanModel::where('kategori', 'Administrasi Kependudukan')->count();
+      $nonperizinan = NonPerizinanModel::where('kategori', 'Bidang Non Perizinan')->count();
 
       $sktm = NonPerizinanModel::where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->count();
       $verifikasi_sktm = NonPerizinanModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->count();

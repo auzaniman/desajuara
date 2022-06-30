@@ -25,7 +25,7 @@ class PerizinanModel extends Model
       'nik_pemohon',
       'kk_pemohon',
       'pengantar_rtrw',
-      'file_permohonan',
+      'file_permohonan_suketusaha',
       'keterangan',
       'bidang_usaha',
       'nama_usaha',

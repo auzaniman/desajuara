@@ -46,11 +46,11 @@ Bidang Administrasi Kependudukan
               <a href="{{route('officer.surdom')}}" class="text-sm mb-0 text-uppercase font-weight-bold" style="letter-spacing: 0px">Surat Domisili</a> <span class="text-sm mb-0 text-uppercase font-weight-bold">({{$surdom}})</span>
             </div>
             <p class="mb-0">
-              <span class="text-success text-sm font-weight-bolder me-1">{{$verifikasi}}</span>
+              <span class="text-success text-sm font-weight-bolder me-1">{{$verifikasi_surdom}}</span>
               Terverifikasi
             </p>
             <p class="mb-0">
-              <span class="text-warning text-sm font-weight-bolder me-1">{{$waiting}}</span>
+              <span class="text-warning text-sm font-weight-bolder me-1">{{$waiting_surdom}}</span>
               Waiting
             </p>
           </div>

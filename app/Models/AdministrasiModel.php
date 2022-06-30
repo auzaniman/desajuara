@@ -25,7 +25,7 @@ class AdministrasiModel extends Model
       'foto_ktp_pemohon',
       'foto_kk_pemohon',
       'pengantar_rtrw',
-      'file_surdom',
+      'file_permohonan_surdom',
       'keterangan',
     ];
 

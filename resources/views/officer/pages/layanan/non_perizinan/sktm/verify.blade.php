@@ -57,7 +57,7 @@ Detail Pemohon
                 @method('put')
                 @csrf
                 <div class="d-flex">
-                  <input name="file_permohonan" id="file_permohonan" class="form-control me-3" type="file" value="">
+                  <input name="file_permohonan_sktm" id="file_permohonan_sktm" class="form-control me-3" type="file" value="">
                   <button type="submit" class="btn btn-success mb-0">
                     Upload
                   </button>

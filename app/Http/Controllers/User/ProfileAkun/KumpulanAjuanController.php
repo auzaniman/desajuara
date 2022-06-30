@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\AdministrasiModel;
 use App\Models\User;
 use App\Models\FotoProfileModel;
-use App\Models\KategoriModel;
-use App\Models\NamaAjuanModel;
 use App\Models\NonPerizinanModel;
 use App\Models\PerizinanModel;
 use Illuminate\Support\Facades\Auth;
@@ -20,10 +18,16 @@ class KumpulanAjuanController extends Controller
   {
     $user = User::where('id', '=', Auth::user()->id)->first();
     $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
+    $administrasi = AdministrasiModel::where('user_id', '=', Auth::user()->id)->get();
+    $perizinan = PerizinanModel::where('user_id', '=', Auth::user()->id)->get();
+    $nonperizinan = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->get();
 
     return view('superuser.pages.profileakun.ajuan', [
       'user' => $user,
       'foto' =>$foto,
+      'administrasi' =>$administrasi,
+      'perizinan' =>$perizinan,
+      'nonperizinan' =>$nonperizinan,
     ]);
   }
 
@@ -87,8 +91,8 @@ class KumpulanAjuanController extends Controller
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
             $verifikasi_id = 'Menunggu Proses';
           }
-          if ($document->file_permohonan != null)
-            $file_permohonan = '<a href="'.route('download_surdom').'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
+          if ($document->file_permohonan_surdom != null)
+            $file_permohonan = '<a href="'.route('download_surdom', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
           $output.=
           '<tr>'.
             '<td class="align-middle text-sm">'.
@@ -133,13 +137,13 @@ class KumpulanAjuanController extends Controller
 
   // Bidang Admnistrasi - Surat Domisili
 
-  public function downloadSurdom()
+  public function downloadSurdom($id)
   {
-    $file = AdministrasiModel::where('user_id', '=', Auth::user()->id)->first();
+    $file = AdministrasiModel::where('user_id', '=', Auth::user()->id)->where('id', $id)->where('nama_ajuan', 'Surat Domisili')->firstOrFail();
 
-    if ($file->file_permohonan)
+    if ($file->file_permohonan_surdom)
       {
-        $file_path = public_path() . "/storage/" . $file->file_permohonan;
+        $file_path = public_path() . "/storage/" . $file->file_permohonan_surdom;
 
         return response()->download($file_path);
       }
@@ -198,8 +202,8 @@ class KumpulanAjuanController extends Controller
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1 me-1" aria-hidden="true"></i>';
             $verifikasi_id = 'Menunggu Proses';
           }
-          if ($document->file_permohonan != null)
-            $file_permohonan = '<a href="'.route('download_surdom').'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
+          if ($document->file_permohonan_suketusaha != null)
+            $file_permohonan = '<a href="'.route('download_suketusaha', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
           $output.=
           '<tr>'.
             '<td class="align-middle text-sm">'.
@@ -243,13 +247,13 @@ class KumpulanAjuanController extends Controller
   }
 
   // Bidang Perizinan - Surat Keterangan Usaha
-  public function downloadSuketusaha()
+  public function downloadSuketusaha($id)
   {
-    $file = PerizinanModel::where('user_id', '=', Auth::user()->id)->first();
+    $file = PerizinanModel::where('user_id', '=', Auth::user()->id)->where('id', $id)->where('nama_ajuan', 'Surat Keterangan Usaha')->firstOrFail();
 
-    if ($file->file_suketusaha)
+    if ($file->file_permohonan_suketusaha)
       {
-        $file_path = public_path() . "/storage/" . $file->file_suketusaha;
+        $file_path = public_path() . "/storage/" . $file->file_permohonan_suketusaha;
 
         return response()->download($file_path);
       }
@@ -294,7 +298,7 @@ class KumpulanAjuanController extends Controller
         foreach ($documents as $document) {
           $verifikasi_id = 'Menunggu Proses';
           $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
-          $file_permohonan = '-';
+          $download_file = '-';
 
           if ($document->verifikasi_id == '1'){
             $icon_verify = '<i class="fas fa-check-circle text-success text-xs me-1" aria-hidden="true"></i>';
@@ -308,8 +312,13 @@ class KumpulanAjuanController extends Controller
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
             $verifikasi_id = 'Menunggu Proses';
           }
-          if ($document->file_permohonan != null)
-            $file_permohonan = '<a href="'.route('download_surdom').'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
+
+          if ($document->file_permohonan_supengdesa != null) {
+             $download_file = '<a href="'.route('download_supengdesa', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
+          }
+          if ($document->file_permohonan_sktm != null) {
+             $download_file = '<a href="'.route('download_sktm', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
+          }
           $output.=
           '<tr>'.
             '<td class="align-middle text-sm">'.
@@ -338,7 +347,7 @@ class KumpulanAjuanController extends Controller
               '</h6>'.
             '</td>'.
             '<td class="align-middle text-sm">'.
-              $file_permohonan.
+              $download_file.
             '</td>'.
             '<td class="align-middle text-sm">'.
               '<h6 class="mb-0 text-xs">'.
@@ -353,13 +362,13 @@ class KumpulanAjuanController extends Controller
   }
 
   // Bidang NonPerizinan - Surat Keterangan Tidak Mampu
-  public function downloadSktm()
+  public function downloadSktm($id)
   {
-    $file = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->first();
+    $file = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->where('id', $id)->where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->firstOrFail();
 
-    if ($file->file_sktm)
+    if ($file->file_permohonan_sktm)
       {
-        $file_path = public_path() . "/storage/" . $file->file_sktm;
+        $file_path = public_path() . "/storage/" . $file->file_permohonan_sktm;
 
         return response()->download($file_path);
       }
@@ -368,18 +377,18 @@ class KumpulanAjuanController extends Controller
         $headers = array(
           'Content-Type: application/docx',
         );
-        return Response::download($file, "Surat Domisili.docx", $headers);
+        return Response::download($file, "Surat SKTM.docx", $headers);
       }
   }
 
   // Bidang NonPerizinan - Surat Pengantar Desa
-  public function downloadSupengdesa()
+  public function downloadSupengdesa($id)
   {
-    $file = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->first();
+    $file = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->where('id', $id)->where('nama_ajuan', 'Surat Pengantar Desa')->firstOrFail();
 
-    if ($file->file_supeng)
+    if ($file->file_permohonan_supengdesa)
       {
-        $file_path = public_path() . "/storage/" . $file->file_supeng;
+        $file_path = public_path() . "/storage/" . $file->file_permohonan_supengdesa;
 
         return response()->download($file_path);
       }
@@ -388,7 +397,7 @@ class KumpulanAjuanController extends Controller
         $headers = array(
           'Content-Type: application/docx',
         );
-        return Response::download($file, "Surat Domisili.docx", $headers);
+        return Response::download($file, "Surat Pengantar Desa.docx", $headers);
       }
   }
 

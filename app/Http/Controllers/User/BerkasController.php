@@ -62,10 +62,22 @@ class BerkasController extends Controller
       ]);
     }
 
-    public function berkas_alt(Request $request)
+    public function berkas_npwp(Request $request)
     {
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
       $berkas['npwp'] = $request->file('npwp')->store('', 'public');
+
+      $berkas->save();
+
+      return redirect()->route('berkas')->with([
+        'message' => 'Berkas berhasil ditambahkan',
+        'status' => 'Sukses! Berkas Optional berhasil ditambahkan'
+      ]);
+    }
+
+    public function berkas_bukunikah(Request $request)
+    {
+      $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
       $berkas['buku_nikah'] = $request->file('buku_nikah')->store('', 'public');
 
       $berkas->save();

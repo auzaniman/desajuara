@@ -63,7 +63,7 @@ class SuratDomisiliOfficerController extends Controller
   public function update_alt(Request $request, $id)
   {
     $surdom = AdministrasiModel::findOrFail($id);
-    $surdom['file_permohonan'] = $request->file('file_permohonan')->store('', 'public');
+    $surdom['file_permohonan_surdom'] = $request->file('file_permohonan_surdom')->store('', 'public');
 
     $surdom->save();
 

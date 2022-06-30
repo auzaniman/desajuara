@@ -28,7 +28,7 @@ class CreateAdministrasiTable extends Migration
           $table->string('kk_pemohon');
           $table->text('foto_ktp_pemohon')->nullable();
           $table->text('foto_kk_pemohon')->nullable();
-          $table->text('file_permohonan')->nullable();
+          $table->text('file_permohonan_surdom')->nullable();
           $table->text('pengantar_rtrw')->nullable();
           $table->text('keterangan')->nullable();
           $table->timestamps();

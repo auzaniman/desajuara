@@ -63,7 +63,7 @@ class SKTMOfficerController extends Controller
   public function update_alt(Request $request, $id)
   {
     $sktm = NonPerizinanModel::findOrFail($id);
-    $sktm['file_permohonan'] = $request->file('file_permohonan')->store('', 'public');
+    $sktm['file_permohonan_sktm'] = $request->file('file_permohonan_sktm')->store('', 'public');
 
     $sktm->save();
 

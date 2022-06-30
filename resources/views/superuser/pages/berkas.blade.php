@@ -99,29 +99,35 @@ Berkas
       <div class="card-body">
         @if (($berkas) != null)
           @if ($berkas->foto_ktp != null && $berkas->foto_kk != null && $berkas->akta_kelahiran != null && $berkas->paspoto != null && $berkas->foto_diri != null)
-          <form method="post" action="{{route('berkas_alt')}}" enctype="multipart/form-data">
-            @csrf
-            <p class="text-uppercase text-sm mb-0">Tambah Berkas (optional)</p>
-            <h6 class="text-uppercase text-xs text-warning"><i class="fas fa-exclamation-circle text-warning text-xs" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
-            <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-xs" aria-hidden="true"></i> Mohon diperhatikan file yang hendak di upload! Jika ada kesalahan file perlu di hapus keseluruhan untuk mengubahnya</h6>
-            <div class="row">
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="npwp" class="form-control-label">NPWP</label>
-                  <input name="npwp" id="npwp" class="form-control" type="file" value="{{$berkas->npwp}}">
+          <p class="text-uppercase text-sm mb-0">Tambah Berkas (optional)</p>
+          <h6 class="text-uppercase text-xs text-warning"><i class="fas fa-exclamation-circle text-warning text-xs" aria-hidden="true"></i> File Berkas Maksimal 3MB!</h6>
+          <h6 class="text-uppercase text-xs text-danger"><i class="fas fa-exclamation-circle text-danger text-xs" aria-hidden="true"></i> Mohon diperhatikan file yang hendak di upload! Jika ada kesalahan file perlu di hapus keseluruhan untuk mengubahnya</h6>
+          <div class="row">
+            <div class="col-md-6">
+              <form method="post" action="{{route('berkas_npwp')}}" enctype="multipart/form-data">
+                @csrf
+                  <div class="form-group">
+                    <label for="npwp" class="form-control-label">NPWP</label>
+                    <input name="npwp" id="npwp" class="form-control" type="file" value="{{$berkas->npwp}}">
+                  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
                 </div>
-              </div>
-              <div class="col-md-4">
-                <div class="form-group">
-                  <label for="buku_nikah" class="form-control-label">Buku Nikah</label>
-                  <input name="buku_nikah" id="buku_nikah" class="form-control" type="file" value="{{$berkas->buku_nikah}}">
+              </form>
+            </div>
+            <div class="col-md-6">
+              <form method="post" action="{{route('berkas_bukunikah')}}" enctype="multipart/form-data">
+                @csrf
+                  <div class="form-group">
+                    <label for="buku_nikah" class="form-control-label">Buku Nikah</label>
+                    <input name="buku_nikah" id="buku_nikah" class="form-control" type="file" value="{{$berkas->buku_nikah}}">
+                  </div>
+                <div class="d-flex align-items-center mt-3">
+                  <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
                 </div>
-              </div>
+              </form>
             </div>
-            <div class="d-flex align-items-center mt-3">
-              <button type="submit" class="btn btn-primary btn-sm">Tambah</button>
-            </div>
-          </form>
+          </div>
           @else
           @endif
         @else

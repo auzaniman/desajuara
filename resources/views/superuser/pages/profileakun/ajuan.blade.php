@@ -34,12 +34,13 @@ Riwayat Permohonan
                 <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Nama Ajuan</th>
                 <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Kategori Ajuan</th>
                 <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Tanggal Pengajuan</th>
+                <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">File</th>
                 <th class="text-uppercase px-2 text-secondary text-xxs font-weight-bolder">Status</th>
               </tr>
             </thead>
             <tbody>
-              @if ($kumpulan != null)
-              @foreach ($kumpulan as $item)
+              @if ($nonperizinan != null)
+              @foreach ($nonperizinan as $item)
               <tr>
                 <td class="align-middle text-sm">
                   <h6 class="mb-0 text-xs">{{$item->nama_pemohon}}</h6>
@@ -52,6 +53,9 @@ Riwayat Permohonan
                 </td>
                 <td class="align-middle">
                   <h6 class="mb-0 text-xs">{{$item->created_at}}</h6>
+                </td>
+                <td class="align-middle">
+                  <a href="{{route('download_sktm')}}" class="btn btn-primary btn-xs text-white mb-0">Download</a>
                 </td>
                 @if ($item->verifikasi_id == '1')
                 <td class="align-middle">

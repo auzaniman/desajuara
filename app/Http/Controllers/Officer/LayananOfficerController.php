@@ -25,21 +25,6 @@ class LayananOfficerController extends Controller
       ]);
     }
 
-    public function perizinan()
-    {
-      $perizinan = PerizinanModel::where('kategori', 'Administrasi Kependudukan')->count();
-      $suketusaha = PerizinanModel::where('nama_ajuan', 'Surat Keterangan Usaha')->count();
-      $verifikasi = PerizinanModel::where('verifikasi_id', '1')->count();
-      $waiting = PerizinanModel::where('verifikasi_id', '3')->count();
-
-      return view('officer.pages.layanan.perizinan.perizinan', [
-        'perizinan' => $perizinan,
-        'suketusaha' => $suketusaha,
-        'verifikasi' => $verifikasi,
-        'waiting' => $waiting,
-      ]);
-    }
-
     public function pertanahan()
     {
       return view('officer.pages.layanan.pertanahan.pertanahan');
