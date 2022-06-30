@@ -26,7 +26,7 @@
       {{-- Navigasi --}}
       <ul class="navbar-nav navbar-nav-hover align-items-lg-center">
         <li class="nav-item dropdown">
-          <a href="#" class="nav-link" href="#" role="button">
+          <a href="{{route('home')}}" class="nav-link" href="#" role="button">
             <i class="ni ni-ui-04 d-lg-none"></i>
             <span class="nav-link-inner--text font-weight-bold">Home</span>
           </a>
@@ -94,18 +94,50 @@
         </li>
         @endauth
 
-        @guest
-        <li class="nav-item">
-            <button class="btn btn-success btn-icon">
-              <a href="{{route('register')}}" class="text-decoration-none text-reset">
-                <span class="btn-inner--icon">
-                  <i class="fa fa-user-plus"></i>
-                </span>
-                <span class="nav-link-inner--text">Daftar</span>
-              </a>
-            </button>
-        </li>
-        @endguest
+        @if (\Request::is('/'))
+          @guest
+          <li class="nav-item">
+              <button class="btn btn-success btn-icon">
+                <a href="{{route('register')}}" class="text-decoration-none text-reset">
+                  <span class="btn-inner--icon">
+                    <i class="fa fa-user-plus"></i>
+                  </span>
+                  <span class="nav-link-inner--text">Daftar</span>
+                </a>
+              </button>
+          </li>
+          @endguest
+        @endif
+
+        @if (\Request::is('login'))
+          @guest
+          <li class="nav-item">
+              <button class="btn btn-success btn-icon">
+                <a href="{{route('register')}}" class="text-decoration-none text-reset">
+                  <span class="btn-inner--icon">
+                    <i class="fa fa-user-plus"></i>
+                  </span>
+                  <span class="nav-link-inner--text">Daftar</span>
+                </a>
+              </button>
+          </li>
+          @endguest
+        @endif
+
+        @if (\Request::is('register'))
+          @guest
+          <li class="nav-item">
+              <button class="btn btn-warning btn-icon">
+                <a href="{{route('login')}}" class="text-decoration-none text-reset">
+                  <span class="btn-inner--icon">
+                    <i class="fa fa-sign-in"></i>
+                  </span>
+                  <span class="nav-link-inner--text">Masuk</span>
+                </a>
+              </button>
+          </li>
+          @endguest
+        @endif
 
       </ul>
     </div>

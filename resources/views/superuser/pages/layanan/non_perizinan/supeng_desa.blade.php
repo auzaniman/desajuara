@@ -139,7 +139,7 @@ Surat Pengantar Desa
             </div>
             <div class="col-md-4">
               <div class="form-group">
-                <label for="tanggal_keperluan" class="form-control-label">Tanggal Keperluan</label>
+                <label for="tanggal_keperluan" class="form-control-label datepicker">Tanggal Keperluan</label>
                 <input name="tanggal_keperluan" id="tanggal_keperluan" class="form-control" type="text" value="">
               </div>
             </div>

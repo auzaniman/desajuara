@@ -16,11 +16,50 @@ Detail Pemohon
           <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
             <div class="d-flex flex-column mb-3">
               <h5 class="mb-3">{{$surdom->nama_pemohon}}</h5>
-              <span class="mb-2">NIK: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->nik_pemohon}}</span></span>
-              <span class="mb-2">No KK: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->kk_pemohon}}</span></span>
-              <span class="mb-2">Alamat: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->alamat_pemohon}}</span></span>
-              <span class="mb-2">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->email_pemohon}}</span></span>
-              <span class="mb-2">No Telpon: <span class="text-dark ms-sm-2 font-weight-bold">{{$surdom->hp_pemohon}}</span></span>
+              <table class="table align-items-center mb-3 table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="ps-0">
+                      <span>NIK<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$surdom->nik_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>No KK<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$surdom->kk_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Alamat<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$surdom->alamat_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Email<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$surdom->email_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>No Telpon<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$surdom->hp_pemohon}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <h6 class="mb-3">Berkas</h6>
             <div class="mb-3">

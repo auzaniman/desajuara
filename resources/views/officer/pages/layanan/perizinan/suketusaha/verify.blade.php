@@ -16,21 +16,113 @@ Detail Pemohon
           <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
             <div class="d-flex flex-column mb-3">
               <h5 class="mb-3">{{$suketusaha->nama_pemohon}}</h5>
-              <span class="mb-2">NIK: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->nik_pemohon}}</span></span>
-              <span class="mb-2">No KK: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->kk_pemohon}}</span></span>
-              <span class="mb-2">Alamat: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->alamat_pemohon}}</span></span>
-              <span class="mb-2">Email Address: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->email_pemohon}}</span></span>
-              <span class="mb-2">No Telpon: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->hp_pemohon}}</span></span>
+              <table class="table align-items-center mb-3 table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="ps-0">
+                      <span>NIK<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->nik_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>No KK<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->kk_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Alamat<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->alamat_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Email<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->email_pemohon}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>No Telpon<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->hp_pemohon}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <h5 class="mb-3">Profile Usaha</h5>
             <div class="d-flex flex-column mb-3">
-              <span class="mb-2">Bidang Usaha: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->bidang_usaha}}</span></span>
-              <span class="mb-2">Nama Usaha: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->nama_usaha}}</span></span>
-              <span class="mb-2">Alamat Usaha: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->alamat_usaha}}</span></span>
-              <span class="mb-2">Tahun Memulai: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->tahun_memulai}}</span></span>
-              <span class="mb-2">Jumlah Karyawan: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->jumlah_karyawan}}</span></span>
-              <span class="mb-2">Omzet: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->omzet}}</span></span>
-              <span class="mb-2">Aset: <span class="text-dark ms-sm-2 font-weight-bold">{{$suketusaha->aset}}</span></span>
+              <table class="table align-items-center mb-3 table-borderless">
+                <tbody>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Bidang Usaha<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->bidang_usaha}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Nama Usaha<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->nama_usaha}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Alamat Usaha<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->alamat_usaha}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Tahun Memulai<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->tahun_memulai}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Jumlah Karyawan<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->jumlah_karyawan}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Omzet<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->omzet}}</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="ps-0">
+                      <span>Aset<h6>
+                    </td>
+                    <td>
+                      <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->aset}}</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
             <h5 class="mb-3">Berkas</h5>
             <div class="mb-3">

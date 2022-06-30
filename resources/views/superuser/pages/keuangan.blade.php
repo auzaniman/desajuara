@@ -7,7 +7,7 @@ Keuangan
 @section('content')
 <div class="row">
   <div class="col-lg-12 mb-lg-0 mb-4">
-    <div class="card z-index-2 h-100">
+    <div class="card h-100">
       <div class="card-header pb-0 pt-3 bg-transparent">
         <h6 class="text-capitalize">Keuangan</h6>
         <p class="mb-3">
