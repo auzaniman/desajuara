@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVerifikasiTable extends Migration
+class CreateKotaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,10 @@ class CreateVerifikasiTable extends Migration
      */
     public function up()
     {
-        Schema::create('verifikasi', function (Blueprint $table) {
+        Schema::create('kota', function (Blueprint $table) {
             $table->id();
-            $table->string('status_verifikasi')->nullable();
+            $table->foreignId('provinsi_id');
+            $table->string('nama_kota');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ class CreateVerifikasiTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('verifikasi');
+        Schema::dropIfExists('kota');
     }
 }

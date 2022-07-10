@@ -101,6 +101,25 @@
                   @enderror
                 </div>
               </div>
+               <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control @error('jabatan_keluarga') is-invalid @enderror" id="jabatan_keluarga" name="Status Dalam KK" placeholder="jabatan_keluarga">
+                    <option value="Kepala Keluarga">Kepala Keluarga</option>
+                    <option value="Suami">Suami</option>
+                    <option value="Istri">Istri</option>
+                    <option value="Anak Kandung">Anak Kandung</option>
+                    <option value="Anak Tiri">Anak Tiri</option>
+                  </select>
+                  @error('Status Keluarga')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
               <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
@@ -221,7 +240,7 @@
               </div>
               {{-- Alamat KTP --}}
               <h6>Alamat KTP</h6>
-              <div class="form-group">
+              {{-- <div class="form-group">
                 <div class="input-group input-group-alternative mb-3">
                   <div class="input-group-prepend">
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -266,6 +285,14 @@
                     <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                   </div>
                   <input class="form-control @error('provinsi_ktp') is-invalid @enderror" id="provinsi_ktp" name="provinsi_ktp" placeholder="Provinsi" type="text">
+                  <select class="form-control me-3 @error('provinsi_ktp') is-invalid @enderror" id="provinsi_ktp" name="provinsi_ktp" placeholder="Provinsi">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($provinsi as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_provinsi }}
+                    </option>
+                    @endforeach
+                  </select>
                   @error('provinsi_ktp')
                     <span class="invalid-feedback" role="alert">
                       <strong>{{ $message }}</strong>
@@ -298,6 +325,119 @@
                     </span>
                   @enderror
                 </div>
+              </div> --}}
+
+              {{-- UJI COBA --}}
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('desa_ktp') is-invalid @enderror" id="desa_ktp" name="desa_ktp" placeholder="Tulis Nama Desa Anda Tinggal" type="text">
+                  @error('desa_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control @error('rt_ktp') is-invalid @enderror" id="rt_ktp" name="rt_ktp" placeholder="RT">
+                    <option data-display="RT">-</option>
+                    <option value="RT1">RT1</option>
+                    <option value="RT2">RT2</option>
+                    <option value="RT3">RT3</option>
+                    <option value="RT4">RT4</option>
+                  </select>
+                  @error('rt_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control @error('rw_ktp') is-invalid @enderror" id="rw_ktp" name="rw_ktp" placeholder="RW">
+                    <option data-display="RW">-</option>
+                    <option value="RW1">RW1</option>
+                    <option value="RW2">RW2</option>
+                    <option value="RW3">RW3</option>
+                    <option value="RW4">RW4</option>
+                  </select>
+                  @error('rw_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('provinsi_ktp') is-invalid @enderror" id="provinsi_ktp" name="provinsi_ktp" placeholder="Provinsi">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($provinsi as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_provinsi }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('provinsi_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('kota_ktp') is-invalid @enderror" id="kota_ktp" name="kota_ktp" placeholder="Kota">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($kota as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_kota }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('kota_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('kecamatan_ktp') is-invalid @enderror" id="kecamatan_ktp" name="kecamatan_ktp" placeholder="Kecamatan">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($kecamatan as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_kecamatan }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('kecamatan_ktp')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
               </div>
               {{-- Alamat Domisili--}}
               <h6>Alamat Domisili</h6>
@@ -306,7 +446,7 @@
                 <label class="custom-control-label" for="customCheck1">Alamat Domisili sama dengan Alamat KTP</label>
               </div>
               <div id="sembunyikan">
-                <div class="form-group">
+                {{-- <div class="form-group">
                   <div class="input-group input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
@@ -383,7 +523,120 @@
                       </span>
                     @enderror
                   </div>
+                </div> --}}
+
+                {{-- UJI COBA --}}
+                <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <input class="form-control @error('desa_domisili') is-invalid @enderror" id="desa_domisili" name="desa_domisili" placeholder="Tulis Nama Desa Anda Tinggal" type="text">
+                  @error('desa_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
                 </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control @error('rt_domisili') is-invalid @enderror" id="rt_domisili" name="rt_domisili" placeholder="RT">
+                    <option data-display="RT">-</option>
+                    <option value="RT1">RT1</option>
+                    <option value="RT2">RT2</option>
+                    <option value="RT3">RT3</option>
+                    <option value="RT4">RT4</option>
+                  </select>
+                  @error('rt_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control @error('rw_domisili') is-invalid @enderror" id="rw_domisili" name="rw_domisili" placeholder="RW">
+                    <option data-display="RW">-</option>
+                    <option value="RW1">RW1</option>
+                    <option value="RW2">RW2</option>
+                    <option value="RW3">RW3</option>
+                    <option value="RW4">RW4</option>
+                  </select>
+                  @error('rw_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('provinsi_domisili') is-invalid @enderror" id="provinsi_domisili" name="provinsi_domisili" placeholder="Provinsi">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($provinsi as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_provinsi }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('provinsi_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('kota_domisili') is-invalid @enderror" id="kota_domisili" name="kota_domisili" placeholder="Kota">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($kota as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_kota }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('kota_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="input-group input-group-alternative mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                  </div>
+                  <select class="form-control me-3 @error('kecamatan_domisili') is-invalid @enderror" id="kecamatan_domisili" name="kecamatan_domisili" placeholder="Kecamatan">
+                    <option data-display="STATUS">-</option>
+                    @foreach ($kecamatan as $item)
+                    <option value="{{ $item->id }}">
+                    {{ $item->nama_kecamatan }}
+                    </option>
+                    @endforeach
+                  </select>
+                  @error('kecamatan_domisili')
+                    <span class="invalid-feedback" role="alert">
+                      <strong>{{ $message }}</strong>
+                    </span>
+                  @enderror
+                </div>
+              </div>
               </div>
               <h6>Kontak</h6>
               <div class="form-group">
@@ -452,77 +705,4 @@
 </section>
 @endsection
 
-{{-- <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
-
-                <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
-                        @csrf
-
-                        <div class="row mb-3">
-                            <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="row mb-3">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> --}}
 

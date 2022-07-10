@@ -14,7 +14,7 @@ class NonPerizinanModel extends Model
     protected $fillable = [
       'user_id',
       'berkas_id',
-      'verifikasi_id',
+      'verifikasi',
       'nama_ajuan',
       'nama_pemohon',
       'email_pemohon',

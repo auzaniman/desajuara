@@ -17,7 +17,7 @@ class CreatePerizinanTable extends Migration
             $table->id();
             $table->foreignId('user_id');
             $table->foreignId('berkas_id');
-            $table->foreignId('verifikasi_id')->default('3');
+            $table->string('verifikasi')->default('DIPROSES');
             $table->string('kategori')->default('Bidang Perizinan');
             $table->string('nama_ajuan')->nullable();
             $table->string('nama_pemohon');

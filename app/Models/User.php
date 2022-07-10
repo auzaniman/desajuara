@@ -25,6 +25,7 @@ class User extends Authenticatable
       'tanggal_lahir',
       'nik',
       'kk',
+      'jabatan_keluarga',
       'npwp',
       'kelamin',
       'pekerjaan',

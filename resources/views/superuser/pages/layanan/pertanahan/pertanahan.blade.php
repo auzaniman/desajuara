@@ -15,7 +15,7 @@ Layanan
     <li><a class="dropdown-item" href="{{route('non_perizinan')}}">Bidang Non Perizinan</a></li>
   </ul>
 </div>
-<div class="row mb-4">
+<div class="row mb-sm-4">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card h-100">
       <div class="card-body p-3">

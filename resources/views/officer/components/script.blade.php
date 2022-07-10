@@ -1,10 +1,13 @@
 <!--   Core JS Files   -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="{{ url('backend/assets/js/core/popper.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/core/bootstrap.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/perfect-scrollbar.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/smooth-scrollbar.min.js')}}"></script>
 <script src="{{ url('backend/assets/js/plugins/chartjs.min.js')}}"></script>
 <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/locales-all.min.js,npm/fullcalendar@5/main.min.js"></script>
+<!-- Magnific Popup core JS file -->
+<script src="{{url('backend/plugin/Magnific/dist/magnific-popup/jquery.magnific-popup.js')}}"></script>
 
 <script>
   var win = navigator.platform.indexOf('Win') > -1;

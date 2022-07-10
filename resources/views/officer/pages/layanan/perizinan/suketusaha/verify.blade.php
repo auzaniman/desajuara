@@ -14,13 +14,13 @@ Detail Pemohon
       <div class="card-body pt-4 p-3">
         <ul class="list-group">
           <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
-            <div class="d-flex flex-column mb-3">
+            <div class="table-responsive mb-4">
               <h5 class="mb-3">{{$suketusaha->nama_pemohon}}</h5>
               <table class="table align-items-center mb-3 table-borderless">
                 <tbody>
                   <tr>
-                    <td class="ps-0">
-                      <span>NIK<h6>
+                    <td class="ps-0 col-1">
+                      <span>NIK</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->nik_pemohon}}</span>
@@ -28,7 +28,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>No KK<h6>
+                      <span>No KK</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->kk_pemohon}}</span>
@@ -36,7 +36,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Alamat<h6>
+                      <span>Alamat</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->alamat_pemohon}}</span>
@@ -44,7 +44,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Email<h6>
+                      <span>Email</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->email_pemohon}}</span>
@@ -52,7 +52,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>No Telpon<h6>
+                      <span>No Telpon</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->hp_pemohon}}</span>
@@ -62,12 +62,12 @@ Detail Pemohon
               </table>
             </div>
             <h5 class="mb-3">Profile Usaha</h5>
-            <div class="d-flex flex-column mb-3">
+            <div class="table-responsive mb-4">
               <table class="table align-items-center mb-3 table-borderless">
                 <tbody>
                   <tr>
-                    <td class="ps-0">
-                      <span>Bidang Usaha<h6>
+                    <td class="ps-0 col-1">
+                      <span>Bidang Usaha</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->bidang_usaha}}</span>
@@ -75,7 +75,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Nama Usaha<h6>
+                      <span>Nama Usaha</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->nama_usaha}}</span>
@@ -83,7 +83,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Alamat Usaha<h6>
+                      <span>Alamat Usaha</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->alamat_usaha}}</span>
@@ -91,7 +91,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Tahun Memulai<h6>
+                      <span>Tahun Memulai</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->tahun_memulai}}</span>
@@ -99,7 +99,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Jumlah Karyawan<h6>
+                      <span>Jumlah Karyawan</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->jumlah_karyawan}}</span>
@@ -107,7 +107,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Omzet<h6>
+                      <span>Omzet</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->omzet}}</span>
@@ -115,7 +115,7 @@ Detail Pemohon
                   </tr>
                   <tr>
                     <td class="ps-0">
-                      <span>Aset<h6>
+                      <span>Aset</span>
                     </td>
                     <td>
                       <span class="text-dark ms-sm-2 font-weight-bold">:  {{$suketusaha->aset}}</span>
@@ -137,13 +137,11 @@ Detail Pemohon
                 @method('put')
                 @csrf
                 <div class="d-flex">
-                  <select class="form-control me-3 @error('verifikasi_id') is-invalid @enderror" id="verifikasi_id" name="verifikasi_id">
+                  <select class="form-control me-3 @error('verifikasi') is-invalid @enderror" id="verifikasi" name="verifikasi">
                     <option data-display="STATUS">-</option>
-                    @foreach ($verifikasi as $verifi)
-                    <option value="{{ $verifi->id }}">
-                    {{ $verifi->status_verifikasi }}
-                    </option>
-                    @endforeach
+                    <option value="DITERIMA">DITERIMA</option>
+                    <option value="DITOLAK">DITOLAK</option>
+                    <option value="DIPROSES">DIPROSES</option>
                   </select>
                   <button type="submit" class="btn btn-success mb-0">
                     Verifikasi

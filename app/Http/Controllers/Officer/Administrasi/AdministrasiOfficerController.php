@@ -16,8 +16,8 @@ class AdministrasiOfficerController extends Controller
     {
       $administrasi = AdministrasiModel::where('kategori', 'Administrasi Kependudukan')->count();
       $surdom = AdministrasiModel::where('nama_ajuan', 'Surat Domisili')->count();
-      $verifikasi_surdom = AdministrasiModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Domisili')->count();
-      $waiting_surdom = AdministrasiModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Domisili')->count();
+      $verifikasi_surdom = AdministrasiModel::where('verifikasi', 'DITERIMA')->where('nama_ajuan', 'Surat Domisili')->count();
+      $waiting_surdom = AdministrasiModel::where('verifikasi', 'DIPROSES')->where('nama_ajuan', 'Surat Domisili')->count();
 
       return view('officer.pages.layanan.administrasi.administrasi', [
         'administrasi' => $administrasi,

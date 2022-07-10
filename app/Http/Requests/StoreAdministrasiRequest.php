@@ -30,6 +30,7 @@ class StoreAdministrasiRequest extends FormRequest
           'nama_pemohon' => 'required',
           'nik_pemohon' => 'required',
           'kk_pemohon' => 'required',
+          'verifikasi' => 'string|in:DITERIMA,DITOLAK,DIPROSES',
         ];
     }
 }

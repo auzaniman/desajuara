@@ -12,8 +12,8 @@ class PerizinanOfficerController extends Controller
       $perizinan = PerizinanModel::where('kategori', 'Bidang Perizinan')->count();
 
       $sktm = PerizinanModel::where('nama_ajuan', 'Surat Keterangan Usaha')->count();
-      $verifikasi_suketusaha = PerizinanModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
-      $waiting_suketusaha = PerizinanModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
+      $verifikasi_suketusaha = PerizinanModel::where('verifikasi', 'DITERIMA')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
+      $waiting_suketusaha = PerizinanModel::where('verifikasi', 'DIPROSES')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
 
       return view('officer.pages.layanan.perizinan.perizinan', [
         'perizinan' => $perizinan,

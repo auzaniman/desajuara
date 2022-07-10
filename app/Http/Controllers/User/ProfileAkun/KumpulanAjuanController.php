@@ -6,8 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\AdministrasiModel;
 use App\Models\User;
 use App\Models\FotoProfileModel;
+use App\Models\KecamatanModel;
+use App\Models\KotaModel;
 use App\Models\NonPerizinanModel;
 use App\Models\PerizinanModel;
+use App\Models\ProvinsiModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
@@ -22,12 +25,27 @@ class KumpulanAjuanController extends Controller
     $perizinan = PerizinanModel::where('user_id', '=', Auth::user()->id)->get();
     $nonperizinan = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->get();
 
+    $provinsi = ProvinsiModel::select('nama_provinsi')
+      ->where('id', '=', Auth::user()->provinsi_ktp)
+      ->first();
+
+    $kota = KotaModel::select('nama_kota')
+      ->where('id', '=', Auth::user()->kota_ktp)
+      ->first();
+
+    $kecamatan = KecamatanModel::select('nama_kecamatan')
+      ->where('id', '=', Auth::user()->kecamatan_ktp)
+      ->first();
+
     return view('superuser.pages.profileakun.ajuan', [
       'user' => $user,
       'foto' =>$foto,
       'administrasi' =>$administrasi,
       'perizinan' =>$perizinan,
       'nonperizinan' =>$nonperizinan,
+      'provinsi' => $provinsi,
+      'kota' => $kota,
+      'kecamatan' => $kecamatan,
     ]);
   }
 
@@ -57,39 +75,24 @@ class KumpulanAjuanController extends Controller
       ->orderBy('created_at', 'desc')
       ->get();
 
-      // $documents=SuratDomisili::join('sktm', 'suratdomisili.id', '=', 'suratdomisili.id')
-      // ->join('surat_keterangan_usaha', 'suratdomisili.id', '=', 'suratdomisili.id')
-      // ->join('supeng_desa', 'suratdomisili.id', '=', 'suratdomisili.id')
-      // ->where('suratdomisili.user_id', '=', Auth::user()->id)
-      // ->where('surat_keterangan_usaha.user_id', '=', Auth::user()->id)
-      // ->where('supeng_desa.user_id', '=', Auth::user()->id)
-      // ->where('sktm.user_id', '=', Auth::user()->id)
-      // ->where(function ($query) use ($request) {
-      //   $query->where('nama_pemohon','LIKE','%'.$request->search."%")
-      //   ->orWhere('nama_ajuan','LIKE','%'.$request->search."%")
-      //   ->orWhere('kategori','LIKE','%'.$request->search."%");
-      // })
-      // ->orderBy('created_at', 'desc')
-      // ->get();
-
       if($documents)
       {
         foreach ($documents as $document) {
-          $verifikasi_id = 'Menunggu Proses';
+          $verifikasi = 'DIPROSES';
           $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
           $file_permohonan = '-';
 
-          if ($document->verifikasi_id == '1'){
+          if ($document->verifikasi == 'DITERIMA'){
             $icon_verify = '<i class="fas fa-check-circle text-success text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Terverifikasi';
+            $verifikasi = 'DITERIMA';
           }
-          elseif ($document->verifikasi_id == '2'){
+          elseif ($document->verifikasi == 'DITOLAK'){
             $icon_verify = '<i class="fas fa-times-circle text-danger text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Ditolak';
+            $verifikasi = 'DITOLAK';
           }
-          elseif ($document->verifikasi_id == '3'){
+          elseif ($document->verifikasi == 'DIPROSES'){
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Menunggu Proses';
+            $verifikasi = 'DIPROSES';
           }
           if ($document->file_permohonan_surdom != null)
             $file_permohonan = '<a href="'.route('download_surdom', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
@@ -117,7 +120,7 @@ class KumpulanAjuanController extends Controller
             '</td>'.
             '<td class="align-middle text-sm">'.
               '<h6 class="mb-0 text-xs">'.
-                $icon_verify.$verifikasi_id.
+                $icon_verify.$verifikasi.
               '</h6>'.
             '</td>'.
             '<td class="align-middle text-sm">'.
@@ -186,21 +189,21 @@ class KumpulanAjuanController extends Controller
       if($documents)
       {
         foreach ($documents as $document) {
-          $verifikasi_id = 'Menunggu Proses';
+          $verifikasi = 'DIPROSES';
           $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
           $file_permohonan = '-';
 
-          if ($document->verifikasi_id == '1'){
+          if ($document->verifikasi == 'DITERIMA'){
             $icon_verify = '<i class="fas fa-check-circle text-success text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Terverifikasi';
+            $verifikasi = 'Terverifikasi';
           }
-          elseif ($document->verifikasi_id == '2'){
+          elseif ($document->verifikasi == 'DITOLAK'){
             $icon_verify = '<i class="fas fa-times-circle text-danger text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Ditolak';
+            $verifikasi = 'Ditolak';
           }
-          elseif ($document->verifikasi_id == '3'){
+          elseif ($document->verifikasi == 'DIPROSES'){
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1 me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Menunggu Proses';
+            $verifikasi = 'DIPROSES';
           }
           if ($document->file_permohonan_suketusaha != null)
             $file_permohonan = '<a href="'.route('download_suketusaha', $document->id).'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
@@ -228,7 +231,7 @@ class KumpulanAjuanController extends Controller
             '</td>'.
             '<td class="align-middle text-sm">'.
               '<h6 class="mb-0 text-xs">'.
-                $icon_verify.$verifikasi_id.
+                $icon_verify.$verifikasi.
               '</h6>'.
             '</td>'.
             '<td class="align-middle text-sm">'.
@@ -296,21 +299,21 @@ class KumpulanAjuanController extends Controller
       if($documents)
       {
         foreach ($documents as $document) {
-          $verifikasi_id = 'Menunggu Proses';
+          $verifikasi = 'DIPROSES';
           $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
           $download_file = '-';
 
-          if ($document->verifikasi_id == '1'){
+          if ($document->verifikasi == 'DITERIMA'){
             $icon_verify = '<i class="fas fa-check-circle text-success text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Terverifikasi';
+            $verifikasi = 'Terverifikasi';
           }
-          elseif ($document->verifikasi_id == '2'){
+          elseif ($document->verifikasi == 'DITOLAK'){
             $icon_verify = '<i class="fas fa-times-circle text-danger text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Ditolak';
+            $verifikasi = 'Ditolak';
           }
-          elseif ($document->verifikasi_id == '3'){
+          elseif ($document->verifikasi == 'DIPROSES'){
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Menunggu Proses';
+            $verifikasi = 'DIPROSES';
           }
 
           if ($document->file_permohonan_supengdesa != null) {
@@ -343,7 +346,7 @@ class KumpulanAjuanController extends Controller
             '</td>'.
             '<td class="align-middle text-sm">'.
               '<h6 class="mb-0 text-xs">'.
-                $icon_verify.$verifikasi_id.
+                $icon_verify.$verifikasi.
               '</h6>'.
             '</td>'.
             '<td class="align-middle text-sm">'.
@@ -432,21 +435,21 @@ class KumpulanAjuanController extends Controller
       if($documents)
       {
         foreach ($documents as $document) {
-          $verifikasi_id = 'Menunggu Proses';
+          $verifikasi = 'DIPROSES';
           $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
           $file_permohonan = '-';
 
-          if ($document->verifikasi_id == '1'){
+          if ($document->verifikasi == 'DITERIMA'){
             $icon_verify = '<i class="fas fa-check-circle text-success text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Terverifikasi';
+            $verifikasi = 'Terverifikasi';
           }
-          elseif ($document->verifikasi_id == '2'){
+          elseif ($document->verifikasi == 'DITOLAK'){
             $icon_verify = '<i class="fas fa-times-circle text-danger text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Ditolak';
+            $verifikasi = 'Ditolak';
           }
-          elseif ($document->verifikasi_id == '3'){
+          elseif ($document->verifikasi == 'DIPROSES'){
             $icon_verify = '<i class="fa fa-clock-o text-warning text-xs me-1" aria-hidden="true"></i>';
-            $verifikasi_id = 'Menunggu Proses';
+            $verifikasi = 'DIPROSES';
           }
           if ($document->file_permohonan != null)
             $file_permohonan = '<a href="'.route('download_surdom').'" class="btn btn-primary btn-xs text-white mb-0">Download</a>';
@@ -474,7 +477,7 @@ class KumpulanAjuanController extends Controller
             '</td>'.
             '<td class="align-middle text-sm">'.
               '<h6 class="mb-0 text-xs">'.
-                $icon_verify.$verifikasi_id.
+                $icon_verify.$verifikasi.
               '</h6>'.
             '</td>'.
             '<td class="align-middle text-sm">'.

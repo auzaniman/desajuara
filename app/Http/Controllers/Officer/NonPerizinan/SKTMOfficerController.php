@@ -4,7 +4,6 @@ namespace App\Http\Controllers\Officer\NonPerizinan;
 
 use App\Models\User;
 use App\Models\Berkas;
-use App\Models\VerifikasiModel;
 use App\Models\NonPerizinanModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -19,7 +18,6 @@ class SKTMOfficerController extends Controller
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
     $sktm = NonPerizinanModel::where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.sktm.sktm',
@@ -27,7 +25,6 @@ class SKTMOfficerController extends Controller
         'users' => $users,
         'berkas' => $berkas,
         'sktm' => $sktm,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -36,11 +33,10 @@ class SKTMOfficerController extends Controller
   public function show($id)
   {
       $sktm = NonPerizinanModel::findOrFail($id);
-      $verifikasi = VerifikasiModel::all();
+
 
       return view('officer.pages.layanan.non_perizinan.sktm.verify', [
         'sktm' => $sktm,
-        'verifikasi' => $verifikasi,
       ]);
   }
 
@@ -49,7 +45,7 @@ class SKTMOfficerController extends Controller
   {
     $sktm = NonPerizinanModel::findOrFail($id);
 
-    $sktm->verifikasi_id = $request->verifikasi_id;
+    $sktm->verifikasi = $request->verifikasi;
 
     $sktm->save();
 
@@ -93,9 +89,8 @@ class SKTMOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $sktm = NonPerizinanModel::where('verifikasi_id', '3')->get();
+    $sktm = NonPerizinanModel::where('verifikasi', 'DIPROSES')->get();
     $ordersktm = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.sktm.status.waiting',
@@ -104,7 +99,6 @@ class SKTMOfficerController extends Controller
         'berkas' => $berkas,
         'sktm' => $sktm,
         'ordersktm' => $ordersktm,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -115,9 +109,8 @@ class SKTMOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $sktm = NonPerizinanModel::where('verifikasi_id', '1')->get();
+    $sktm = NonPerizinanModel::where('verifikasi', 'DITERIMA')->get();
     $ordersktm = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.sktm.status.verifikasi',
@@ -126,7 +119,6 @@ class SKTMOfficerController extends Controller
         'berkas' => $berkas,
         'sktm' => $sktm,
         'ordersktm' => $ordersktm,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -137,9 +129,8 @@ class SKTMOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $sktm = NonPerizinanModel::where('verifikasi_id', '2')->get();
+    $sktm = NonPerizinanModel::where('verifikasi', 'DITOLAK')->get();
     $ordersktm = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.sktm.status.ditolak',
@@ -148,7 +139,6 @@ class SKTMOfficerController extends Controller
         'berkas' => $berkas,
         'sktm' => $sktm,
         'ordersktm' => $ordersktm,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Officer\NonPerizinan;
 use App\Models\NonPerizinanModel;
 use App\Models\User;
 use App\Models\Berkas;
-use App\Models\VerifikasiModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +18,6 @@ class SupengDesaOfficerController extends Controller
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
     $supengdesa = NonPerizinanModel::where('nama_ajuan', 'Surat Pengantar Desa')->orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.supengdesa.supengdesa',
@@ -27,7 +25,6 @@ class SupengDesaOfficerController extends Controller
         'users' => $users,
         'berkas' => $berkas,
         'supengdesa' => $supengdesa,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -36,11 +33,10 @@ class SupengDesaOfficerController extends Controller
   public function show($id)
   {
       $supengdesa = NonPerizinanModel::findOrFail($id);
-      $verifikasi = VerifikasiModel::all();
+
 
       return view('officer.pages.layanan.non_perizinan.supengdesa.verify', [
         'supengdesa' => $supengdesa,
-        'verifikasi' => $verifikasi,
       ]);
   }
 
@@ -49,7 +45,7 @@ class SupengDesaOfficerController extends Controller
   {
     $supengdesa = NonPerizinanModel::findOrFail($id);
 
-    $supengdesa->verifikasi_id = $request->verifikasi_id;
+    $supengdesa->verifikasi = $request->verifikasi;
 
     $supengdesa->save();
 
@@ -93,9 +89,8 @@ class SupengDesaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $supengdesa = NonPerizinanModel::where('verifikasi_id', '3')->get();
+    $supengdesa = NonPerizinanModel::where('verifikasi', 'DIPROSES')->get();
     $ordersupengdesa = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.supengdesa.status.waiting',
@@ -104,7 +99,6 @@ class SupengDesaOfficerController extends Controller
         'berkas' => $berkas,
         'supengdesa' => $supengdesa,
         'ordersupengdesa' => $ordersupengdesa,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -115,9 +109,8 @@ class SupengDesaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $supengdesa = NonPerizinanModel::where('verifikasi_id', '1')->get();
+    $supengdesa = NonPerizinanModel::where('verifikasi', 'DITERIMA')->get();
     $ordersupengdesa = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.supengdesa.status.verifikasi',
@@ -126,7 +119,6 @@ class SupengDesaOfficerController extends Controller
         'berkas' => $berkas,
         'supengdesa' => $supengdesa,
         'ordersupengdesa' => $ordersupengdesa,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -137,9 +129,8 @@ class SupengDesaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $supengdesa = NonPerizinanModel::where('verifikasi_id', '2')->get();
+    $supengdesa = NonPerizinanModel::where('verifikasi', 'DITOLAK')->get();
     $ordersupengdesa = NonPerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.non_perizinan.supengdesa.status.ditolak',
@@ -148,7 +139,6 @@ class SupengDesaOfficerController extends Controller
         'berkas' => $berkas,
         'supengdesa' => $supengdesa,
         'ordersupengdesa' => $ordersupengdesa,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }

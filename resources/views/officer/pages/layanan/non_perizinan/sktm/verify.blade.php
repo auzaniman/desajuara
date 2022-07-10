@@ -14,12 +14,12 @@ Detail Pemohon
       <div class="card-body pt-4 p-3">
         <ul class="list-group">
           <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
-            <div class="d-flex flex-column mb-3">
+            <div class="table-responsive mb-4">
               <h5 class="mb-3">{{$sktm->nama_pemohon}}</h5>
               <table class="table align-items-center mb-3 table-borderless">
                 <tbody>
                   <tr>
-                    <td class="ps-0">
+                    <td class="ps-0 col-1">
                       <span>NIK<h6>
                     </td>
                     <td>
@@ -74,13 +74,11 @@ Detail Pemohon
                 @method('put')
                 @csrf
                 <div class="d-flex">
-                  <select class="form-control me-3 @error('verifikasi_id') is-invalid @enderror" id="verifikasi_id" name="verifikasi_id">
+                  <select class="form-control me-3 @error('verifikasi') is-invalid @enderror" id="verifikasi" name="verifikasi">
                     <option data-display="STATUS">-</option>
-                    @foreach ($verifikasi as $verifi)
-                    <option value="{{ $verifi->id }}">
-                    {{ $verifi->status_verifikasi }}
-                    </option>
-                    @endforeach
+                    <option value="DITERIMA">DITERIMA</option>
+                    <option value="DITOLAK">DITOLAK</option>
+                    <option value="DIPROSES">DIPROSES</option>
                   </select>
                   <button type="submit" class="btn btn-success mb-0">
                     Verifikasi

@@ -25,7 +25,6 @@ Koleksi Berkas
                 <tr>
                   <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder">Nama Berkas</th>
                   <th class="text-uppercase text-center text-secondary text-xxs font-weight-bolder ps-2">File Berkas</th>
-                  <th class="text-center text-uppercase text-secondary text-xxs font-weight-bolder">Aksi</th>
                 </tr>
               </thead>
               @if (($berkas) != null)
@@ -38,11 +37,6 @@ Koleksi Berkas
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->foto_ktp) }}" alt="" style="width: 150px" class="img-thumbnail">
                     </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
                   </tr>
                   <tr>
                     <td class="align-middle text-center text-sm">
@@ -50,11 +44,6 @@ Koleksi Berkas
                     </td>
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->foto_kk) }}" alt="" style="width: 150px" class="img-thumbnail">
-                    </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -64,11 +53,6 @@ Koleksi Berkas
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->foto_diri) }}" alt="" style="width: 150px" class="img-thumbnail">
                     </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
                   </tr>
                   <tr>
                     <td class="align-middle text-center text-sm">
@@ -76,11 +60,6 @@ Koleksi Berkas
                     </td>
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->npwp) }}" alt="" style="width: 150px" class="img-thumbnail">
-                    </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
                     </td>
                   </tr>
                   <tr>
@@ -90,11 +69,6 @@ Koleksi Berkas
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->buku_nikah) }}" alt="" style="width: 150px" class="img-thumbnail">
                     </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
                   </tr>
                   <tr>
                     <td class="align-middle text-center text-sm">
@@ -103,11 +77,6 @@ Koleksi Berkas
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->akta_kelahiran) }}" alt="" style="width: 150px" class="img-thumbnail">
                     </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
-                    </td>
                   </tr>
                   <tr>
                     <td class="align-middle text-center text-sm">
@@ -115,11 +84,6 @@ Koleksi Berkas
                     </td>
                     <td class="align-middle text-center">
                       <img src="{{ asset('storage/'.$berkas->paspoto) }}" alt="" style="width: 150px" class="img-thumbnail">
-                    </td>
-                    <td class="align-middle text-center">
-                      <a href="{{route('berkas')}}" class="text-secondary font-weight-bold text-xs" data-toggle="tooltip" data-original-title="Edit user">
-                        Edit
-                      </a>
                     </td>
                   </tr>
                 </tbody>

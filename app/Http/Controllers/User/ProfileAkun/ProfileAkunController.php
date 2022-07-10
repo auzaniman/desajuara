@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FotoProfileRequest;
 use App\Models\Berkas;
 use App\Models\FotoProfileModel;
+use App\Models\KecamatanModel;
+use App\Models\KotaModel;
+use App\Models\ProvinsiModel;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -15,10 +18,27 @@ class ProfileAkunController extends Controller
     public function index()
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
+
+      $provinsi = ProvinsiModel::select('nama_provinsi')
+        ->where('id', '=', Auth::user()->provinsi_ktp)
+        ->first();
+
+      $kota = KotaModel::select('nama_kota')
+        ->where('id', '=', Auth::user()->kota_ktp)
+        ->first();
+
+      $kecamatan = KecamatanModel::select('nama_kecamatan')
+        ->where('id', '=', Auth::user()->kecamatan_ktp)
+        ->first();
+
       $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
+
       return view('superuser.pages.profileakun.profileakun', [
         'user' => $user,
         'foto' => $foto,
+        'provinsi' => $provinsi,
+        'kota' => $kota,
+        'kecamatan' => $kecamatan,
       ]);
     }
 
@@ -35,9 +55,11 @@ class ProfileAkunController extends Controller
 
       $foto->save();
 
-      return redirect()->back()->with([
-        'message' => 'Permohonan berhasil ditambahkan',
-        'status' => 'Sukses! Foto Profile berhasil ditambahkan'
+      return redirect()
+        ->back()
+        ->with([
+          'message' => 'Permohonan berhasil ditambahkan',
+          'status' => 'Sukses! Foto Profile berhasil ditambahkan'
       ]);
     }
 
@@ -85,8 +107,9 @@ class ProfileAkunController extends Controller
 
       $user->save();
 
-      return redirect()->back()
-      ->with([
+      return redirect()
+        ->back()
+        ->with([
           'message' => 'berhasil diubah',
           'status' => 'success'
       ]);
@@ -97,8 +120,9 @@ class ProfileAkunController extends Controller
       $foto = FotoProfileModel::where('id', $id)->first();
       $foto->delete();
 
-      return redirect()->back()
-      ->with([
+      return redirect()
+        ->back()
+        ->with([
           'message' => 'berhasil dihapus',
           'status' => 'Sukses! Foto Profile Berhasil dihapus'
       ]);
@@ -110,10 +134,25 @@ class ProfileAkunController extends Controller
       $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
+      $provinsi = ProvinsiModel::select('nama_provinsi')
+        ->where('id', '=', Auth::user()->provinsi_ktp)
+        ->first();
+
+      $kota = KotaModel::select('nama_kota')
+        ->where('id', '=', Auth::user()->kota_ktp)
+        ->first();
+
+      $kecamatan = KecamatanModel::select('nama_kecamatan')
+        ->where('id', '=', Auth::user()->kecamatan_ktp)
+        ->first();
+
       return view('superuser.pages.profileakun.berkas2', [
         'user' => $user,
         'berkas' =>$berkas,
         'foto' =>$foto,
+        'provinsi' => $provinsi,
+        'kota' => $kota,
+        'kecamatan' => $kecamatan,
       ]);
     }
 }

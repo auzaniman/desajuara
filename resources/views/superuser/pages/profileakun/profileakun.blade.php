@@ -6,6 +6,17 @@ Profil Akun
 
 @section('content')
 <div class="row">
+  <div class="col-lg-12 mb-lg-0 mb-4">
+    <div class="card card-background">
+      <div class="full-background" style="background-image: url('/frontend/assets/img/2.jpg')"></div>
+      <div class="card-body text-left">
+        <h4 class="text-white">Selamat Datang di Desa Warungboto</h4>
+        <p class=" text-white bold">Awali harimu dengan senyum. Selamat melakukan aktifitas warga desa warungboto. Kami melayani sepenuh hati.</p>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row mt-4">
   <div class="col-lg-12">
     {{-- Avatar --}}
     @include('superuser.components.avatar_profile')
@@ -136,20 +147,20 @@ Profil Akun
           <div class="row">
             <div class="col-md-4">
               <div class="form-group">
-                <label for="kecamatan_ktp" class="form-control-label">Kecamatan_ktp</label>
-                <input id="kecamatan_ktp" name="kecamatan_ktp" class="form-control" type="text" value="{{$user->kecamatan_ktp}}">
+                <label for="kecamatan_ktp" class="form-control-label">Kecamatan</label>
+                <input id="kecamatan_ktp" name="kecamatan_ktp" class="form-control" type="text" value="{{$kecamatan->nama_kecamatan}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="kota_ktp" class="form-control-label">Kota Kabupaten</label>
-                <input id="kota_ktp" name="kota_ktp" class="form-control" type="text" value="{{$user->kota_ktp}}">
+                <input id="kota_ktp" name="kota_ktp" class="form-control" type="text" value="{{$kota->nama_kota}}">
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <label for="provinsi_ktp" class="form-control-label">Provinsi</label>
-                <input id="provinsi_ktp" name="provinsi_ktp" class="form-control" type="text" value="{{$user->provinsi_ktp}}">
+                <input id="provinsi_ktp" name="provinsi_ktp" class="form-control" type="text" value="{{$provinsi->nama_provinsi}}">
               </div>
             </div>
           </div>

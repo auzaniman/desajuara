@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Officer\Administrasi;
 use App\Models\AdministrasiModel;
 use App\Models\User;
 use App\Models\Berkas;
-use App\Models\VerifikasiModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +18,6 @@ class SuratDomisiliOfficerController extends Controller
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
     $surdom = AdministrasiModel::where('nama_ajuan', 'Surat Domisili')->orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.administrasi.surdom.suratdomisili',
@@ -27,7 +25,6 @@ class SuratDomisiliOfficerController extends Controller
         'users' => $users,
         'berkas' => $berkas,
         'surdom' => $surdom,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -36,11 +33,9 @@ class SuratDomisiliOfficerController extends Controller
   public function show($id)
   {
       $surdom = AdministrasiModel::findOrFail($id);
-      $verifikasi = VerifikasiModel::all();
 
       return view('officer.pages.layanan.administrasi.surdom.verify', [
         'surdom' => $surdom,
-        'verifikasi' => $verifikasi,
       ]);
   }
 
@@ -49,7 +44,7 @@ class SuratDomisiliOfficerController extends Controller
   {
     $surdom = AdministrasiModel::findOrFail($id);
 
-    $surdom->verifikasi_id = $request->verifikasi_id;
+    $surdom->verifikasi = $request->verifikasi;
 
     $surdom->save();
 
@@ -93,9 +88,8 @@ class SuratDomisiliOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $surdom = AdministrasiModel::where('verifikasi_id', '3')->get();
+    $surdom = AdministrasiModel::where('verifikasi', 'DIPROSES')->get();
     $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.administrasi.surdom.status.waiting',
@@ -104,7 +98,6 @@ class SuratDomisiliOfficerController extends Controller
         'berkas' => $berkas,
         'surdom' => $surdom,
         'ordersurdom' => $ordersurdom,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -115,9 +108,8 @@ class SuratDomisiliOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $surdom = AdministrasiModel::where('verifikasi_id', '1')->get();
+    $surdom = AdministrasiModel::where('verifikasi', 'DITERIMA')->get();
     $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.administrasi.surdom.status.verifikasi',
@@ -126,7 +118,6 @@ class SuratDomisiliOfficerController extends Controller
         'berkas' => $berkas,
         'surdom' => $surdom,
         'ordersurdom' => $ordersurdom,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -137,9 +128,8 @@ class SuratDomisiliOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $surdom = AdministrasiModel::where('verifikasi_id', '2')->get();
+    $surdom = AdministrasiModel::where('verifikasi', 'DITOLAK')->get();
     $ordersurdom = AdministrasiModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.administrasi.surdom.status.ditolak',
@@ -148,7 +138,6 @@ class SuratDomisiliOfficerController extends Controller
         'berkas' => $berkas,
         'surdom' => $surdom,
         'ordersurdom' => $ordersurdom,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }

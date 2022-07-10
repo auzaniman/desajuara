@@ -198,11 +198,7 @@ Route::prefix("user")
 
   // Profile Desa
   // Route::get("/desa", [ProfileDesaController::class, "Index"])->name("profile_desa");
-  Route::post('/chart_add', [ChartBarController::class, "store"])->name("chart_add");
-  Route::get('/chart', [ChartBarController::class, "index"])->name("chart");
-  Route::get('/chart_edit_page', [ChartBarController::class, "index_edit"])->name("chart_edit_page");
-  Route::put('/chart_edit/{id}', [ChartBarController::class, "update"])->name("chart_edit");
-  Route::delete('/chart_delete/{id}', [ChartBarController::class, "destroy"])->name("chart_delete");
+  Route::get('/profile_desa', [ProfileDesaController::class, "index"])->name("profile_desa");
 
   // TDP
   Route::get("/tdp", [TantanganDanPotensiController::class, "Index"])->name("tantangan");

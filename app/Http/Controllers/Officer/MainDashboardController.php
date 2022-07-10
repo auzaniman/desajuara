@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AdministrasiModel;
 use App\Models\NonPerizinanModel;
 use App\Models\PerizinanModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -13,41 +14,62 @@ class MainDashboardController extends Controller
 {
     public function index()
     {
+      // Menghitung Layanan Total Berdasarkan Kategori dan Verifikasi
       $administrasi = AdministrasiModel::where('kategori', 'Administrasi Kependudukan')->count();
-      $surdom = AdministrasiModel::where('nama_ajuan', 'Surat Domisili')->count();
-      $verifikasi_surdom = AdministrasiModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Domisili')->count();
-      $waiting_surdom = AdministrasiModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Domisili')->count();
+
+      $verifikasi_administrasi = AdministrasiModel::where('verifikasi', 'DITERIMA')
+        ->where('kategori', 'Administrasi Kependudukan')
+        ->count();
+
+      $waiting_administrasi = AdministrasiModel::where('verifikasi', 'DIPROSES')
+        ->where('kategori', 'Administrasi Kependudukan')
+        ->count();
 
       $perizinan = PerizinanModel::where('kategori', 'Bidang Perizinan')->count();
-      $suketusaha = PerizinanModel::where('nama_ajuan', 'Surat Keterangan Usaha')->count();
-      $verifikasi_suketusaha = PerizinanModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
-      $waiting_suketusaha = PerizinanModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Keterangan Usaha')->count();
+
+      $verifikasi_perizinan = PerizinanModel::where('verifikasi', 'DITERIMA')
+        ->where('kategori', 'Bidang Perizinan')
+        ->count();
+
+      $waiting_perizinan = PerizinanModel::where('verifikasi', 'DIPROSES')
+        ->where('kategori', 'Bidang Perizinan')
+        ->count();
 
       $nonperizinan = NonPerizinanModel::where('kategori', 'Bidang Non Perizinan')->count();
-      $sktm = NonPerizinanModel::where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->count();
-      $verifikasi_sktm = NonPerizinanModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->count();
-      $waiting_sktm = NonPerizinanModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Keterangan Tidak Mampu')->count();
 
-      $supengdesa = NonPerizinanModel::where('nama_ajuan', 'Surat Pengantar Desa')->count();
-      $verifikasi_supengdesa = NonPerizinanModel::where('verifikasi_id', '1')->where('nama_ajuan', 'Surat Pengantar Desa')->count();
-      $waiting_supengdesa = NonPerizinanModel::where('verifikasi_id', '3')->where('nama_ajuan', 'Surat Pengantar Desa')->count();
+      $verifikasi_nonperizinan = NonPerizinanModel::where('verifikasi', 'DITERIMA')
+        ->where('kategori', 'Bidang Non Perizinan')
+        ->count();
+      $waiting_nonperizinan = NonPerizinanModel::where('verifikasi', 'DIPROSES')
+        ->where('kategori', 'Bidang Non Perizinan')
+        ->count();
+
+      // Menghitung Layanan Harian
+      $administrasitoday = AdministrasiModel::whereDate('created_at', Carbon::today())->count();
+      $perizinantoday = PerizinanModel::whereDate('created_at', Carbon::today())->count();
+      $nonperizinantoday = NonPerizinanModel::whereDate('created_at', Carbon::today())->count();
+
+      // Menghitung Total Layanan Desa
+      $administrasi_total[] = $administrasi;
+      $perizinan_total[] = $perizinan;
+      $nonperizinan_total[] = $nonperizinan;
 
       return view('officer.pages.dashboard.maindashboard', [
         'administrasi' => $administrasi,
         'perizinan' => $perizinan,
         'nonperizinan' => $nonperizinan,
-        'surdom' => $surdom,
-        'verifikasi_surdom' => $verifikasi_surdom,
-        'waiting_surdom' => $waiting_surdom,
-        'suketusaha' => $suketusaha,
-        'verifikasi_suketusaha' => $verifikasi_suketusaha,
-        'waiting_suketusaha' => $waiting_suketusaha,
-        'sktm' => $sktm,
-        'verifikasi_sktm' => $verifikasi_sktm,
-        'waiting_sktm' => $waiting_sktm,
-        'supengdesa' => $supengdesa,
-        'verifikasi_supengdesa' => $verifikasi_supengdesa,
-        'waiting_supengdesa' => $waiting_supengdesa,
+        'administrasi_total' => $administrasi_total,
+        'perizinan_total' => $perizinan_total,
+        'nonperizinan_total' => $nonperizinan_total,
+        'administrasitoday' => $administrasitoday,
+        'perizinantoday' => $perizinantoday,
+        'nonperizinantoday' => $nonperizinantoday,
+        'verifikasi_administrasi' => $verifikasi_administrasi,
+        'waiting_administrasi' => $waiting_administrasi,
+        'verifikasi_perizinan' => $verifikasi_perizinan,
+        'waiting_perizinan' => $waiting_perizinan,
+        'verifikasi_nonperizinan' => $verifikasi_nonperizinan,
+        'waiting_nonperizinan' => $waiting_nonperizinan,
       ]);
     }
 }

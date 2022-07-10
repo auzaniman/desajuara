@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Officer\Perizinan;
 use App\Models\PerizinanModel;
 use App\Models\User;
 use App\Models\Berkas;
-use App\Models\VerifikasiModel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -19,7 +18,6 @@ class SuketUsahaOfficerController extends Controller
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
     $suketusaha = PerizinanModel::where('nama_ajuan', 'Surat Keterangan Usaha')->orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.perizinan.suketusaha.suketusaha',
@@ -27,7 +25,6 @@ class SuketUsahaOfficerController extends Controller
         'users' => $users,
         'berkas' => $berkas,
         'suketusaha' => $suketusaha,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -36,11 +33,10 @@ class SuketUsahaOfficerController extends Controller
   public function show($id)
   {
       $suketusaha = PerizinanModel::findOrFail($id);
-      $verifikasi = VerifikasiModel::all();
+
 
       return view('officer.pages.layanan.perizinan.suketusaha.verify', [
         'suketusaha' => $suketusaha,
-        'verifikasi' => $verifikasi,
       ]);
   }
 
@@ -49,7 +45,7 @@ class SuketUsahaOfficerController extends Controller
   {
     $suketusaha = PerizinanModel::findOrFail($id);
 
-    $suketusaha->verifikasi_id = $request->verifikasi_id;
+    $suketusaha->verifikasi = $request->verifikasi;
 
     $suketusaha->save();
 
@@ -93,9 +89,8 @@ class SuketUsahaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $suketusaha = PerizinanModel::where('verifikasi_id', '3')->get();
+    $suketusaha = PerizinanModel::where('verifikasi', 'DIPROSES')->get();
     $ordersuketusaha = PerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.perizinan.suketusaha.status.waiting',
@@ -104,7 +99,6 @@ class SuketUsahaOfficerController extends Controller
         'berkas' => $berkas,
         'suketusaha' => $suketusaha,
         'ordersuketusaha' => $ordersuketusaha,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -115,9 +109,8 @@ class SuketUsahaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $suketusaha = PerizinanModel::where('verifikasi_id', '1')->get();
+    $suketusaha = PerizinanModel::where('verifikasi', 'DITERIMA')->get();
     $ordersuketusaha = PerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.perizinan.suketusaha.status.verifikasi',
@@ -126,7 +119,6 @@ class SuketUsahaOfficerController extends Controller
         'berkas' => $berkas,
         'suketusaha' => $suketusaha,
         'ordersuketusaha' => $ordersuketusaha,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }
@@ -137,9 +129,8 @@ class SuketUsahaOfficerController extends Controller
     $pagination = 15;
     $users = User::all();
     $berkas = Berkas::where('user_id')->first();
-    $suketusaha = PerizinanModel::where('verifikasi_id', '2')->get();
+    $suketusaha = PerizinanModel::where('verifikasi', 'DITOLAK')->get();
     $ordersuketusaha = PerizinanModel::orderBy('created_at', 'desc')->paginate($pagination);
-    $verifikasi = VerifikasiModel::all();
 
     return
     view('officer.pages.layanan.perizinan.suketusaha.status.ditolak',
@@ -148,7 +139,6 @@ class SuketUsahaOfficerController extends Controller
         'berkas' => $berkas,
         'suketusaha' => $suketusaha,
         'ordersuketusaha' => $ordersuketusaha,
-        'verifikasi' => $verifikasi,
       ]
     )->with('i', ($request->input('page', 1) - 1) * $pagination);
   }

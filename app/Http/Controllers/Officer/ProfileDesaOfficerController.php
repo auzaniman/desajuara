@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ChartBar;
 use App\Models\SettingSejKampModel;
+use App\Models\User;
 
 class ProfileDesaOfficerController extends Controller
 {

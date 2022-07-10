@@ -23,7 +23,12 @@
             {{$user->name}}
           </h5>
           <p class="mb-0 font-weight-bold text-sm">
-            {{$user->desa_ktp}} RT{{$user->rt_ktp}} RW{{$user->rw_ktp}}, {{$user->kecamatan_ktp}}, {{$user->kota_ktp}}, {{$user->provinsi_ktp}}
+            {{$user->desa_ktp}}
+            {{$user->rt_ktp}}
+            {{$user->rw_ktp}},
+            {{$kecamatan->nama_kecamatan}},
+            {{$kota->nama_kota}},
+            {{$provinsi->nama_provinsi}}
           </p>
         </div>
       </div>
@@ -62,34 +67,6 @@
               </li>
           </ul>
         </div>
-        {{-- <div class="nav-wrapper position-relative end-0">
-          <ul class="nav nav-pills nav-fill p-1" role="tablist">
-            <li class="nav-item">
-              <ul class="nav-link mb-0 px-0 py-1 active d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="true">
-                <i class="ni ni-circle-08"></i>
-                <a href="{{route('dashboard')}}">
-                  <span class="ms-2">Akun</span>
-                </a>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <ul class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="{{route('berkas')}}" role="tab" aria-selected="false">
-                <i class="ni ni-collection"></i>
-                <a href="{{route('kumpulan_berkas')}}">
-                  <span class="ms-2">Berkas</span>
-                </a>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <ul class="nav-link mb-0 px-0 py-1 d-flex align-items-center justify-content-center " data-bs-toggle="tab" href="javascript:;" role="tab" aria-selected="false">
-                <i class="ni ni-book-bookmark"></i>
-                <a href="{{route('kumpulan_ajuan', $user->id)}}">
-                  <span class="ms-2">Ajuan</span>
-                </a>
-              </ul>
-            </li>
-          </ul>
-        </div> --}}
       </div>
     </div>
   </div>

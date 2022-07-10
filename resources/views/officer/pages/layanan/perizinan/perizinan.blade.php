@@ -15,7 +15,7 @@ Bidang Perizinan
     <li><a class="dropdown-item" href="{{route('officer.pertanahan')}}">Bidang Pertanahan</a></li>
   </ul>
 </div>
-<div class="row mb-4">
+<div class="row mb-sm-4">
   <div class="col-xl-3 col-sm-6 mb-xl-0 mb-4">
     <div class="card">
       <div class="card-body p-3">
