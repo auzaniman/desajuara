@@ -120,7 +120,7 @@ Surat Pengantar Desa
             <div class="col-md-6">
               <div class="form-group">
                 <label for="alamat_pemohon" class="form-control-label">Alamat Pemohon</label>
-                <input name="alamat_pemohon" id="alamat_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->desa_ktp}}, RT{{Auth::user()->rt_ktp}}, RW{{Auth::user()->rw_ktp}}, {{Auth::user()->kecamatan_ktp}}, {{Auth::user()->kota_ktp}}, {{Auth::user()->provinsi_ktp}}">
+                <input name="alamat_pemohon" id="alamat_pemohon" class="form-control disabled" type="text" value="{{Auth::user()->rt_ktp}}, {{Auth::user()->rw_ktp}}, {{$desa->name}}, {{$kecamatan->name}}, {{$kota->name}}, {{$provinsi->name}}">
               </div>
             </div>
             <div class="col-md-6">

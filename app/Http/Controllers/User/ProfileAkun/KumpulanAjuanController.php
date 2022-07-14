@@ -6,11 +6,12 @@ use App\Http\Controllers\Controller;
 use App\Models\AdministrasiModel;
 use App\Models\User;
 use App\Models\FotoProfileModel;
-use App\Models\KecamatanModel;
-use App\Models\KotaModel;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use App\Models\NonPerizinanModel;
 use App\Models\PerizinanModel;
-use App\Models\ProvinsiModel;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Http\Request;
@@ -25,28 +26,33 @@ class KumpulanAjuanController extends Controller
     $perizinan = PerizinanModel::where('user_id', '=', Auth::user()->id)->get();
     $nonperizinan = NonPerizinanModel::where('user_id', '=', Auth::user()->id)->get();
 
-    $provinsi = ProvinsiModel::select('nama_provinsi')
-      ->where('id', '=', Auth::user()->provinsi_ktp)
-      ->first();
+    $provinsi = Province::select('name')
+        ->where('id', '=', Auth::user()->provinsi_ktp)
+        ->first();
 
-    $kota = KotaModel::select('nama_kota')
+    $kota = Regency::select('name')
       ->where('id', '=', Auth::user()->kota_ktp)
       ->first();
 
-    $kecamatan = KecamatanModel::select('nama_kecamatan')
+    $kecamatan = District::select('name')
       ->where('id', '=', Auth::user()->kecamatan_ktp)
       ->first();
 
-    return view('superuser.pages.profileakun.ajuan', [
-      'user' => $user,
-      'foto' =>$foto,
-      'administrasi' =>$administrasi,
-      'perizinan' =>$perizinan,
-      'nonperizinan' =>$nonperizinan,
-      'provinsi' => $provinsi,
-      'kota' => $kota,
-      'kecamatan' => $kecamatan,
-    ]);
+    $desa = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_ktp)
+        ->first();
+
+    return view('superuser.pages.profileakun.ajuan', compact(
+      'user',
+      'foto',
+      'administrasi',
+      'perizinan',
+      'nonperizinan',
+      'provinsi',
+      'kota',
+      'kecamatan',
+      'desa',
+    ));
   }
 
   // Bidang Admnistrasi

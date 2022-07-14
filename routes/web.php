@@ -37,6 +37,7 @@ use App\Http\Controllers\User\NonPerizinan\SupengDesaController;
 use Illuminate\Routing\Route as RoutingRoute;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\DependantDropdownController;
 
 /*
@@ -49,6 +50,11 @@ use App\Http\Controllers\DependantDropdownController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
+// Regist Region
+Route::post('/getkabupaten', [RegisterController::class, "getkabupaten"])->name("getkabupaten");
+Route::post('/getkecamatan', [RegisterController::class, "getkecamatan"])->name("getkecamatan");
+Route::post('/getdesa', [RegisterController::class, "getdesa"])->name("getdesa");
 
 // Landing
 Route::get("/", function () {
@@ -176,8 +182,14 @@ Route::prefix("user")
 ->group(function() {
 
   // Profile Akun
+  Route::post('/getkabupatenprofile', [ProfileAkunController::class, "getkabupatenprofile"])->name("getkabupatenprofile");
+  Route::post('/getkecamatanprofile', [ProfileAkunController::class, "getkecamatanprofile"])->name("getkecamatanprofile");
+  Route::post('/getdesaprofile', [ProfileAkunController::class, "getdesaprofile"])->name("getdesaprofile");
+
   Route::get("/", [ProfileAkunController::class, "index"])->name("dashboard");
   Route::put("/profile_edit/{id}", [ProfileAkunController::class, "update"])->name("profile_edit");
+  Route::put("/profile_edit_alamatktp/{id}", [ProfileAkunController::class, "updatealamatktp"])->name("profile_edit_alamatktp");
+  Route::put("/profile_edit_alamatdomisili/{id}", [ProfileAkunController::class, "updatealamatdomisili"])->name("profile_edit_alamatdomisili");
   Route::post("/tambah_foto", [ProfileAkunController::class, "store"])->name("tambah_foto");
   Route::get("/kumpulan_berkas", [ProfileAkunController::class, "kumpulan_berkas"])->name("kumpulan_berkas");
   Route::delete('/foto_profile_delete/{id}', [ProfileAkunController::class, "destroy"])->name("foto_profile_delete");

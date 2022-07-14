@@ -17,18 +17,18 @@
           @endif
         </div>
       </div>
-      <div class="col-auto my-auto">
+      <div class="col-6 my-auto">
         <div class="h-100">
           <h5 class="mb-1">
             {{$user->name}}
           </h5>
           <p class="mb-0 font-weight-bold text-sm">
-            {{$user->desa_ktp}}
             {{$user->rt_ktp}}
             {{$user->rw_ktp}},
-            {{$kecamatan->nama_kecamatan}},
-            {{$kota->nama_kota}},
-            {{$provinsi->nama_provinsi}}
+            {{$desa->name}}
+            {{$kecamatan->name}},
+            {{$kota->name}},
+            {{$provinsi->name}}
           </p>
         </div>
       </div>

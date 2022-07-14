@@ -70,6 +70,29 @@ Profil Akun
           </div>
 
           <hr class="horizontal dark">
+          <p class="text-uppercase text-sm">Kontak</p>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="email" class="form-control-label">Email address</label>
+                <input id="email" name="email" class="form-control" type="email" value="{{$user->email}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="no_telpon" class="form-control-label">No Telpon</label>
+                <input id="no_telpon" name="no_telpon" class="form-control" type="text" value="{{$user->no_telpon}}">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="no_wa" class="form-control-label">No Whatsapp</label>
+                <input id="no_wa" name="no_wa" class="form-control" type="text" value="{{$user->no_wa}}">
+              </div>
+            </div>
+          </div>
+
+          <hr class="horizontal dark">
           <p class="text-uppercase text-sm">Biodata</p>
           <div class="row">
             <div class="col-md-4">
@@ -122,116 +145,350 @@ Profil Akun
             </div>
           </div>
 
-          <hr class="horizontal dark">
-          <p class="text-uppercase text-sm">Alamat KTP</p>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="desa_ktp" class="form-control-label">Desa</label>
-                <input id="desa_ktp" name="desa_ktp" class="form-control" type="text" value="{{$user->desa_ktp}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="rt_ktp" class="form-control-label">RT</label>
-                <input id="rt_ktp" name="rt_ktp" class="form-control" type="text" value="{{$user->rt_ktp}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="rw_ktp" class="form-control-label">RW</label>
-                <input id="rw_ktp" name="rw_ktp" class="form-control" type="text" value="{{$user->rw_ktp}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="kecamatan_ktp" class="form-control-label">Kecamatan</label>
-                <input id="kecamatan_ktp" name="kecamatan_ktp" class="form-control" type="text" value="{{$kecamatan->nama_kecamatan}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="kota_ktp" class="form-control-label">Kota Kabupaten</label>
-                <input id="kota_ktp" name="kota_ktp" class="form-control" type="text" value="{{$kota->nama_kota}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="provinsi_ktp" class="form-control-label">Provinsi</label>
-                <input id="provinsi_ktp" name="provinsi_ktp" class="form-control" type="text" value="{{$provinsi->nama_provinsi}}">
-              </div>
-            </div>
-          </div>
-          <p class="text-uppercase text-sm">Alamat Domisili</p>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="desa_domisili" class="form-control-label">Desa</label>
-                <input id="desa_domisili" name="desa_domisili" class="form-control" type="text" value="{{$user->desa_domisili}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="rt_domisili" class="form-control-label">RT</label>
-                <input id="rt_domisili" name="rt_domisili" class="form-control" type="text" value="{{$user->rt_domisili}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="rw_domisili" class="form-control-label">RW</label>
-                <input id="rw_domisili" name="rw_domisili" class="form-control" type="text" value="{{$user->rw_domisili}}">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="kecamatan_domisili" class="form-control-label">Kecamatan</label>
-                <input id="kecamatan_domisili" name="kecamatan_domisili" class="form-control" type="text" value="{{$user->kecamatan_domisili}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="kota_domisili" class="form-control-label">Kota/Kabupaten</label>
-                <input id="kota_domisili" name="kota_domisili" class="form-control" type="text" value="{{$user->kota_domisili}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="provinsi_domisili" class="form-control-label">Provinsi</label>
-                <input id="provinsi_domisili" name="provinsi_domisili" class="form-control" type="text" value="{{$user->provinsi_domisili}}">
-              </div>
-            </div>
-          </div>
-
-          <hr class="horizontal dark">
-          <p class="text-uppercase text-sm">Kontak</p>
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="email" class="form-control-label">Email address</label>
-                <input id="email" name="email" class="form-control" type="email" value="{{$user->email}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="no_telpon" class="form-control-label">No Telpon</label>
-                <input id="no_telpon" name="no_telpon" class="form-control" type="text" value="{{$user->no_telpon}}">
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <label for="no_wa" class="form-control-label">No Whatsapp</label>
-                <input id="no_wa" name="no_wa" class="form-control" type="text" value="{{$user->no_wa}}">
-              </div>
-            </div>
-          </div>
           <div class="d-flex align-items-center mt-3">
             <button type="submit" class="btn btn-primary btn-sm">Update</button>
           </div>
         </form>
+
+        <hr class="horizontal dark">
+        <div class="d-flex flex-row align-items-center">
+          <p class="text-uppercase text-sm me-3">Alamat KTP</p>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#modal-ubah-alamat" class="btn btn-primary btn-xs">Ubah Alamat</button>
+        </div>
+        {{-- Modal Ubah --}}
+        <div class="modal fade" id="modal-ubah-alamat" tabindex="-1" role="dialog" aria-labelledby="modal-ubah-alamat" aria-hidden="true">
+          <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h6 class="ms-3">Ubah Data Alamat KTP</h6>
+                <div class="py-3 pb-0">
+                  <form action="{{route('profile_edit_alamatktp', $user->id)}}" method="POST">
+                    @method('put')
+                    @csrf
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('provinsi_ktp') is-invalid @enderror" id="provinsi" name="provinsi_ktp" placeholder="Provinsi">
+                          <option value="">== Pilih Provinsi ==</option>
+                          @foreach ($provinces as $id => $name)
+                            <option value="{{ $id }}">{{ $name }}</option>
+                          @endforeach
+                        </select>
+                        @error('provinsi_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('kota_ktp') is-invalid @enderror" id="kabupaten" name="kota_ktp" placeholder="Kota">
+
+                        </select>
+                        @error('kota_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('kecamatan_ktp') is-invalid @enderror" id="kecamatan" name="kecamatan_ktp" placeholder="Kecamatan">
+
+                        </select>
+                        @error('kecamatan_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('desa_ktp') is-invalid @enderror" id="desa" name="desa_ktp" placeholder="Desa">
+
+                        </select>
+                        @error('desa_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('rt_ktp') is-invalid @enderror" id="rt_ktp" name="rt_ktp" placeholder="RT">
+                          <option value="">== Pilih RT ==</option>
+                          <option value="RT1">RT1</option>
+                          <option value="RT2">RT2</option>
+                          <option value="RT3">RT3</option>
+                          <option value="RT4">RT4</option>
+                        </select>
+                        @error('rt_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('rw_ktp') is-invalid @enderror" id="rw_ktp" name="rw_ktp" placeholder="RW">
+                          <option value="">== Pilih RW ==</option>
+                          <option value="RW1">RW1</option>
+                          <option value="RW2">RW2</option>
+                          <option value="RW3">RW3</option>
+                          <option value="RW4">RW4</option>
+                        </select>
+                        @error('rw_ktp')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-danger">Ubah</button>
+                      <button type="button" class="btn btn-link text-primary ml-auto" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {{-- Table Alamat KTP --}}
+        <table class="table align-items-center table-responsive mb-3 table-borderless">
+          <tbody>
+            <tr>
+              <td class="ps-0 col-1">
+                <span><strong>Provinsi</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$provinsi->name}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Kota</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$kota->name}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Kecamatan</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$kecamatan->name}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Desa</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$desa->name}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>RT</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$user->rt_ktp}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>RW</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$user->rw_ktp}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="d-flex flex-row align-items-center">
+          <p class="text-uppercase text-sm me-3">Alamat Domisili</p>
+          <button type="button" data-bs-toggle="modal" data-bs-target="#modal-ubah-alamat1" class="btn btn-primary btn-xs">Ubah Alamat</button>
+        </div>
+         {{-- Modal Ubah --}}
+        <div class="modal fade" id="modal-ubah-alamat1" tabindex="-1" role="dialog" aria-labelledby="modal-ubah-alamat1" aria-hidden="true">
+          <div class="modal-dialog modal-danger modal-dialog-centered modal-" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <h6 class="ms-3">Ubah Data Alamat Domisili</h6>
+                <div class="py-3 pb-0">
+                  <form action="{{route('profile_edit_alamatdomisili', $user->id)}}" method="POST">
+                    @method('put')
+                    @csrf
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('provinsi_domisili') is-invalid @enderror" id="1provinsi" name="provinsi_domisili" placeholder="Provinsi">
+                          <option value="">== Pilih Provinsi ==</option>
+                          @foreach ($provinces as $id => $name)
+                            <option value="{{ $id }}">{{ $name }}</option>
+                          @endforeach
+                        </select>
+                        @error('provinsi_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('kota_domisili') is-invalid @enderror" id="1kabupaten" name="kota_domisili" placeholder="Kota">
+
+                        </select>
+                        @error('kota_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('kecamatan_domisili') is-invalid @enderror" id="1kecamatan" name="kecamatan_domisili" placeholder="Kecamatan">
+
+                        </select>
+                        @error('kecamatan_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('desa_domisili') is-invalid @enderror" id="1desa" name="desa_domisili" placeholder="Desa">
+
+                        </select>
+                        @error('desa_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('rt_domisili') is-invalid @enderror" id="rt_domisili" name="rt_domisili" placeholder="RT">
+                          <option value="">== Pilih RT ==</option>
+                          <option value="RT1">RT1</option>
+                          <option value="RT2">RT2</option>
+                          <option value="RT3">RT3</option>
+                          <option value="RT4">RT4</option>
+                        </select>
+                        @error('rt_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <div class="input-group input-group-alternative mb-3">
+                        <select class="form-control mx-3 @error('rw_domisili') is-invalid @enderror" id="rw_domisili" name="rw_domisili" placeholder="RW">
+                          <option value="">== Pilih RW ==</option>
+                          <option value="RW1">RW1</option>
+                          <option value="RW2">RW2</option>
+                          <option value="RW3">RW3</option>
+                          <option value="RW4">RW4</option>
+                        </select>
+                        @error('rw_domisili')
+                          <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                          </span>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="submit" class="btn btn-danger">Ubah</button>
+                      <button type="button" class="btn btn-link text-primary ml-auto" data-bs-dismiss="modal">Close</button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <table class="table align-items-center table-responsive mb-3 table-borderless">
+          <tbody>
+            <tr>
+              <td class="ps-0 col-1">
+                <span><strong>Provinsi</strong><span>
+              </td>
+              <td>
+                @if ($provinsi_dom != null)
+                <span class="text-dark ms-sm-2">:  {{$provinsi_dom->name}}</span>
+                @else
+                <span class="text-dark ms-sm-2">:  </span>
+                @endif
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Kota</strong><span>
+              </td>
+              <td>
+                @if ($kota_dom != null)
+                <span class="text-dark ms-sm-2">:  {{$kota_dom->name}}</span>
+                @else
+                <span class="text-dark ms-sm-2">:  </span>
+                @endif
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Kecamatan</strong><span>
+              </td>
+              <td>
+                @if ($kecamatan_dom != null)
+                <span class="text-dark ms-sm-2">:  {{$kecamatan_dom->name}}</span>
+                @else
+                <span class="text-dark ms-sm-2">:  </span>
+                @endif
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>Desa</strong><span>
+              </td>
+              <td>
+                @if ($desa_dom != null)
+                <span class="text-dark ms-sm-2">:  {{$desa_dom->name}}</span>
+                @else
+                <span class="text-dark ms-sm-2">:  </span>
+                @endif
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>RT</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$user->rt_domisili}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="ps-0">
+                <span><strong>RW</strong><span>
+              </td>
+              <td>
+                <span class="text-dark ms-sm-2">:  {{$user->rw_domisili}}</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
         <hr class="horizontal dark">
         @if (($foto) != null)

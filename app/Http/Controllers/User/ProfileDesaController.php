@@ -55,27 +55,25 @@ class ProfileDesaController extends Controller
     }
 
     return
-    view('superuser.pages.profiledesa.profiledesa',
-      [
-        'rt' => $rt,
-        'total_warga' => $total_warga,
-        'total_kk' => $total_kk,
-        'umbulharjo' => $umbulharjo,
-        'warga_laki' => $warga_laki,
-        'warga_perempuan' => $warga_perempuan,
-        'sd' => $sd,
-        'smp' => $smp,
-        'sma' => $sma,
-        'd1' => $d1,
-        'd2' => $d2,
-        'd3' => $d3,
-        'd4' => $d4,
-        's1' => $s1,
-        's2' => $s2,
-        's3' => $s3,
-        'jmlwarga' => $jmlwarga,
-        'jmlkepala' => $jmlkepala,
-      ]
-    );
+    view('superuser.pages.profiledesa.profiledesa', compact(
+        'rt',
+        'total_warga',
+        'total_kk',
+        'umbulharjo',
+        'warga_laki',
+        'warga_perempuan',
+        'sd',
+        'smp',
+        'sma',
+        'd1',
+        'd2',
+        'd3',
+        'd4',
+        's1',
+        's2',
+        's3',
+        'jmlwarga',
+        'jmlkepala',
+      ));
   }
 }

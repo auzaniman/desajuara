@@ -5,8 +5,13 @@ namespace App\Http\Controllers\User\Administrasi;
 use App\Models\User;
 use App\Models\Berkas;
 use App\Http\Requests\StoreAdministrasiRequest;
-use App\Http\Controllers\Controller;
 use App\Models\AdministrasiModel;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,13 +23,31 @@ class SuratDomisiliController extends Controller
       $users = User::where('id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
+      $provinsi = Province::select('name')
+        ->where('id', '=', Auth::user()->provinsi_ktp)
+        ->first();
+
+      $kota = Regency::select('name')
+        ->where('id', '=', Auth::user()->kota_ktp)
+        ->first();
+
+      $kecamatan = District::select('name')
+        ->where('id', '=', Auth::user()->kecamatan_ktp)
+        ->first();
+
+      $desa = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_ktp)
+        ->first();
+
       return
-      view('superuser.pages.layanan.administrasi.suratdomisili',
-        [
-          'users' => $users,
-          'berkas' => $berkas,
-        ]
-      );
+      view('superuser.pages.layanan.administrasi.suratdomisili', compact(
+        'users',
+        'berkas',
+        'provinsi',
+        'kota',
+        'kecamatan',
+        'desa',
+      ));
     }
 
     public function create()

@@ -16,7 +16,7 @@ Detail Pemohon
           <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
             <div class="table-responsive mb-4">
               <h5 class="mb-3">{{$surdom->nama_pemohon}}</h5>
-              <table class="table align-items-center mb-3 table-borderless">
+              <table class="table align-items-center table-responsive mb-3 table-borderless">
                 <tbody>
                   <tr>
                     <td class="ps-0 col-1">

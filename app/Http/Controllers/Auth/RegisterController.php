@@ -5,9 +5,14 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 
 class RegisterController extends Controller
 {
@@ -64,12 +69,13 @@ class RegisterController extends Controller
             'agama' => ['required', 'string', 'in:Islam,Katolik,Kristen,Hindu,Budha'],
             'perkawinan' => ['required', 'string', 'in:BelumMenikah,Menikah,PernahMenikah'],
             'kewarganegaraan' => ['required', 'string', 'in:WNI,WNA'],
-            'desa_ktp' => ['required', 'string', 'max:255'],
-            'rt_ktp' => ['required', 'string'],
-            'rw_ktp' => ['required', 'string'],
             'provinsi_ktp' => ['required', 'string'],
             'kota_ktp' => ['required', 'string'],
             'kecamatan_ktp' => ['required', 'string'],
+            'desa_ktp' => ['required', 'string'],
+            'rt_ktp' => ['required', 'string'],
+            'rw_ktp' => ['required', 'string'],
+            'status' => ['required', 'string', 'in:Warga,Bukan Warga'],
             'no_telpon' => ['required', 'string', 'max:13', 'unique:users'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8'],
@@ -100,21 +106,55 @@ class RegisterController extends Controller
             'agama' => $data['agama'],
             'perkawinan' => $data['perkawinan'],
             'kewarganegaraan' => $data['kewarganegaraan'],
-            'desa_ktp' => $data['desa_ktp'],
-            'rt_ktp' => $data['rt_ktp'],
-            'rw_ktp' => $data['rw_ktp'],
+            'status' => $data['status'],
             'provinsi_ktp' => $data['provinsi_ktp'],
             'kota_ktp' => $data['kota_ktp'],
             'kecamatan_ktp' => $data['kecamatan_ktp'],
-            'desa_domisili' => $data['desa_domisili'],
-            'rt_domisili' => $data['rt_domisili'],
-            'rw_domisili' => $data['rw_domisili'],
-            'provinsi_domisili' => $data['provinsi_domisili'],
-            'kota_domisili' => $data['kota_domisili'],
-            'kecamatan_domisili' => $data['kecamatan_domisili'],
+            'desa_ktp' => $data['desa_ktp'],
+            'rt_ktp' => $data['rt_ktp'],
+            'rw_ktp' => $data['rw_ktp'],
             'no_telpon' => $data['no_telpon'],
             'no_wa' => $data['no_wa'],
             'password' => Hash::make($data['password']),
         ]);
+    }
+
+    public function getkabupaten(Request $request) {
+      $id_provinsi = $request->id_provinsi;
+
+      $kabupatens = Regency::where('province_id',$id_provinsi)->get();
+
+      $option = "<option>== Pilih Kota/Kabupaten ==</option>";
+
+      foreach($kabupatens as $kabupaten) {
+        $option.= "<option value='$kabupaten->id'>$kabupaten->name</option>";
+      }
+      echo $option;
+    }
+
+    public function getkecamatan(Request $request) {
+      $id_kabupaten = $request->id_kabupaten;
+
+      $kecamatans = District::where('regency_id',$id_kabupaten)->get();
+
+      $option = "<option>== Pilih Kecamatan ==</option>";
+
+      foreach($kecamatans as $kecamatan) {
+        $option.= "<option value='$kecamatan->id'>$kecamatan->name</option>";
+      }
+      echo $option;
+    }
+
+    public function getdesa(Request $request) {
+      $id_kecamatan = $request->id_kecamatan;
+
+      $desas = Village::where('district_id',$id_kecamatan)->get();
+
+      $option = "<option>== Pilih Desa ==</option>";
+
+      foreach($desas as $desa) {
+        $option.= "<option value='$desa->id'>$desa->name</option>";
+      }
+      echo $option;
     }
 }

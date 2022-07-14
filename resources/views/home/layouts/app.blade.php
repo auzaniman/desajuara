@@ -13,5 +13,7 @@
   @yield('content')
   @include('home.components.footer')
   @include('home.components.script')
+
+  @stack('script_regist')
 </body>
 </html>

@@ -54,22 +54,22 @@ class MainDashboardController extends Controller
       $perizinan_total[] = $perizinan;
       $nonperizinan_total[] = $nonperizinan;
 
-      return view('officer.pages.dashboard.maindashboard', [
-        'administrasi' => $administrasi,
-        'perizinan' => $perizinan,
-        'nonperizinan' => $nonperizinan,
-        'administrasi_total' => $administrasi_total,
-        'perizinan_total' => $perizinan_total,
-        'nonperizinan_total' => $nonperizinan_total,
-        'administrasitoday' => $administrasitoday,
-        'perizinantoday' => $perizinantoday,
-        'nonperizinantoday' => $nonperizinantoday,
-        'verifikasi_administrasi' => $verifikasi_administrasi,
-        'waiting_administrasi' => $waiting_administrasi,
-        'verifikasi_perizinan' => $verifikasi_perizinan,
-        'waiting_perizinan' => $waiting_perizinan,
-        'verifikasi_nonperizinan' => $verifikasi_nonperizinan,
-        'waiting_nonperizinan' => $waiting_nonperizinan,
-      ]);
+      return view('officer.pages.dashboard.maindashboard', compact(
+        'administrasi',
+        'perizinan',
+        'nonperizinan',
+        'administrasi_total',
+        'perizinan_total',
+        'nonperizinan_total',
+        'administrasitoday',
+        'perizinantoday',
+        'nonperizinantoday',
+        'verifikasi_administrasi',
+        'waiting_administrasi',
+        'verifikasi_perizinan',
+        'waiting_perizinan',
+        'verifikasi_nonperizinan',
+        'waiting_nonperizinan',
+      ));
     }
 }

@@ -6,9 +6,10 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\FotoProfileRequest;
 use App\Models\Berkas;
 use App\Models\FotoProfileModel;
-use App\Models\KecamatanModel;
-use App\Models\KotaModel;
-use App\Models\ProvinsiModel;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
@@ -19,27 +20,94 @@ class ProfileAkunController extends Controller
     {
       $user = User::where('id', '=', Auth::user()->id)->first();
 
-      $provinsi = ProvinsiModel::select('nama_provinsi')
+      $provinsi = Province::select('name')
         ->where('id', '=', Auth::user()->provinsi_ktp)
         ->first();
 
-      $kota = KotaModel::select('nama_kota')
+      $kota = Regency::select('name')
         ->where('id', '=', Auth::user()->kota_ktp)
         ->first();
 
-      $kecamatan = KecamatanModel::select('nama_kecamatan')
+      $kecamatan = District::select('name')
         ->where('id', '=', Auth::user()->kecamatan_ktp)
         ->first();
 
+      $desa = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_ktp)
+        ->first();
+
+      $provinsi_dom = Province::select('name')
+        ->where('id', '=', Auth::user()->provinsi_domisili)
+        ->first();
+
+      $kota_dom = Regency::select('name')
+        ->where('id', '=', Auth::user()->kota_domisili)
+        ->first();
+
+      $kecamatan_dom = District::select('name')
+        ->where('id', '=', Auth::user()->kecamatan_domisili)
+        ->first();
+
+      $desa_dom = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_domisili)
+        ->first();
+
+      $provinces = Province::pluck('name', 'id');
+
       $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
 
-      return view('superuser.pages.profileakun.profileakun', [
-        'user' => $user,
-        'foto' => $foto,
-        'provinsi' => $provinsi,
-        'kota' => $kota,
-        'kecamatan' => $kecamatan,
-      ]);
+      return view('superuser.pages.profileakun.profileakun', compact(
+        'user',
+        'foto',
+        'provinces',
+        'provinsi',
+        'kota',
+        'kecamatan',
+        'desa',
+        'provinsi_dom',
+        'kota_dom',
+        'kecamatan_dom',
+        'desa_dom',
+      ));
+    }
+
+    public function getkabupatenprofile(Request $request) {
+      $id_provinsi = $request->id_provinsi;
+
+      $kabupatens = Regency::where('province_id',$id_provinsi)->get();
+
+      $option = "<option>== Pilih Kota/Kabupaten ==</option>";
+
+      foreach($kabupatens as $kabupaten) {
+        $option.= "<option value='$kabupaten->id'>$kabupaten->name</option>";
+      }
+      echo $option;
+    }
+
+    public function getkecamatanprofile(Request $request) {
+      $id_kabupaten = $request->id_kabupaten;
+
+      $kecamatans = District::where('regency_id',$id_kabupaten)->get();
+
+      $option = "<option>== Pilih Kecamatan ==</option>";
+
+      foreach($kecamatans as $kecamatan) {
+        $option.= "<option value='$kecamatan->id'>$kecamatan->name</option>";
+      }
+      echo $option;
+    }
+
+    public function getdesaprofile(Request $request) {
+      $id_kecamatan = $request->id_kecamatan;
+
+      $desas = Village::where('district_id',$id_kecamatan)->get();
+
+      $option = "<option>== Pilih Desa ==</option>";
+
+      foreach($desas as $desa) {
+        $option.= "<option value='$desa->id'>$desa->name</option>";
+      }
+      echo $option;
     }
 
     public function create()
@@ -89,21 +157,49 @@ class ProfileAkunController extends Controller
       $user->agama = $request->agama;
       $user->perkawinan = $request->perkawinan;
       $user->kewarganegaraan = $request->kewarganegaraan;
-      $user->desa_ktp = $request-> desa_ktp;
-      $user->rt_ktp = $request-> rt_ktp;
-      $user->rw_ktp = $request-> rw_ktp;
-      $user->provinsi_ktp = $request-> provinsi_ktp;
-      $user->kota_ktp = $request-> kota_ktp;
-      $user->kecamatan_ktp = $request-> kecamatan_ktp;
-      $user->desa_domisili = $request-> desa_domisili;
-      $user->rt_domisili = $request-> rt_domisili;
-      $user->rw_domisili = $request-> rw_domisili;
-      $user->provinsi_domisili = $request-> provinsi_domisili;
-      $user->kota_domisili = $request-> kota_domisili;
-      $user->kecamatan_domisili = $request-> kecamatan_domisili;
       $user->no_telpon = $request->no_telpon;
       $user->no_wa = $request->no_wa;
       $user->pendidikan = $request->pendidikan;
+
+      $user->save();
+
+      return redirect()
+        ->back()
+        ->with([
+          'message' => 'berhasil diubah',
+          'status' => 'success'
+      ]);
+    }
+
+    public function updatealamatktp(Request $request, $id)
+    {
+      $user = User::where('id', '=', Auth::user()->id)->first();
+      $user->provinsi_ktp = $request-> provinsi_ktp;
+      $user->kota_ktp = $request-> kota_ktp;
+      $user->kecamatan_ktp = $request-> kecamatan_ktp;
+      $user->desa_ktp = $request-> desa_ktp;
+      $user->rt_ktp = $request-> rt_ktp;
+      $user->rw_ktp = $request-> rw_ktp;
+
+      $user->save();
+
+      return redirect()
+        ->back()
+        ->with([
+          'message' => 'berhasil diubah',
+          'status' => 'success'
+      ]);
+    }
+
+    public function updatealamatdomisili(Request $request, $id)
+    {
+      $user = User::where('id', '=', Auth::user()->id)->first();
+      $user->provinsi_domisili = $request-> provinsi_domisili;
+      $user->kota_domisili = $request-> kota_domisili;
+      $user->kecamatan_domisili = $request-> kecamatan_domisili;
+      $user->desa_domisili = $request-> desa_domisili;
+      $user->rt_domisili = $request-> rt_domisili;
+      $user->rw_domisili = $request-> rw_domisili;
 
       $user->save();
 
@@ -134,25 +230,30 @@ class ProfileAkunController extends Controller
       $foto = FotoProfileModel::where('user_id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
-      $provinsi = ProvinsiModel::select('nama_provinsi')
+      $provinsi = Province::select('name')
         ->where('id', '=', Auth::user()->provinsi_ktp)
         ->first();
 
-      $kota = KotaModel::select('nama_kota')
+      $kota = Regency::select('name')
         ->where('id', '=', Auth::user()->kota_ktp)
         ->first();
 
-      $kecamatan = KecamatanModel::select('nama_kecamatan')
+      $kecamatan = District::select('name')
         ->where('id', '=', Auth::user()->kecamatan_ktp)
         ->first();
 
-      return view('superuser.pages.profileakun.berkas2', [
-        'user' => $user,
-        'berkas' =>$berkas,
-        'foto' =>$foto,
-        'provinsi' => $provinsi,
-        'kota' => $kota,
-        'kecamatan' => $kecamatan,
-      ]);
+      $desa = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_ktp)
+        ->first();
+
+      return view('superuser.pages.profileakun.berkas2', compact(
+        'user',
+        'berkas',
+        'foto',
+        'provinsi',
+        'kota',
+        'kecamatan',
+        'desa',
+      ));
     }
 }

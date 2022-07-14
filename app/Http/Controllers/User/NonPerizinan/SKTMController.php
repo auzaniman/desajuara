@@ -4,9 +4,14 @@ namespace App\Http\Controllers\User\NonPerizinan;
 
 use App\Models\User;
 use App\Models\Berkas;
-use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreNonPerizinanRequest;
 use App\Models\NonPerizinanModel;
+use App\Models\Province;
+use App\Models\Regency;
+use App\Models\District;
+use App\Models\Village;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -17,10 +22,30 @@ class SKTMController extends Controller
       $user = User::where('id', '=', Auth::user()->id)->first();
       $berkas = Berkas::where('user_id', '=', Auth::user()->id)->first();
 
-      return view('superuser.pages.layanan.non_perizinan.sktm', [
-        'user' =>$user,
-        'berkas' => $berkas
-      ]);
+      $provinsi = Province::select('name')
+        ->where('id', '=', Auth::user()->provinsi_ktp)
+        ->first();
+
+      $kota = Regency::select('name')
+        ->where('id', '=', Auth::user()->kota_ktp)
+        ->first();
+
+      $kecamatan = District::select('name')
+        ->where('id', '=', Auth::user()->kecamatan_ktp)
+        ->first();
+
+      $desa = Village::select('name')
+        ->where('id', '=', Auth::user()->desa_ktp)
+        ->first();
+
+      return view('superuser.pages.layanan.non_perizinan.sktm', compact(
+        'user' ,
+        'berkas',
+        'provinsi',
+        'kota',
+        'kecamatan',
+        'desa',
+      ));
     }
 
     public function create()

@@ -14,6 +14,126 @@
 <script src="{{url('backend/plugin/Magnific/dist/magnific-popup/jquery.magnific-popup.js')}}"></script>
 
 <script>
+  $(function () {
+    $.ajaxSetup({
+      headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}
+    });
+  })
+
+  $(function () {
+    $('#provinsi').on('change', function(){
+      let id_provinsi = $('#provinsi').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getkabupatenprofile')}}",
+        data: {id_provinsi:id_provinsi},
+        cache: false,
+        success: function(msg){
+          $('#kabupaten').html(msg);
+          $('#kecamatan').html('');
+          $('#desa').html('');
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+
+    $('#kabupaten').on('change', function(){
+      let id_kabupaten = $('#kabupaten').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getkecamatanprofile')}}",
+        data: {id_kabupaten:id_kabupaten},
+        cache: false,
+        success: function(msg){
+          $('#kecamatan').html(msg);
+          $('#desa').html('');
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+
+    $('#kecamatan').on('change', function(){
+      let id_kecamatan = $('#kecamatan').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getdesaprofile')}}",
+        data: {id_kecamatan:id_kecamatan},
+        cache: false,
+        success: function(msg){
+          $('#desa').html(msg);
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+  })
+
+  $(function () {
+    $('#1provinsi').on('change', function(){
+      let id_provinsi = $('#1provinsi').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getkabupatenprofile')}}",
+        data: {id_provinsi:id_provinsi},
+        cache: false,
+        success: function(msg){
+          $('#1kabupaten').html(msg);
+          $('#1kecamatan').html('');
+          $('#1desa').html('');
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+
+    $('#1kabupaten').on('change', function(){
+      let id_kabupaten = $('#1kabupaten').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getkecamatanprofile')}}",
+        data: {id_kabupaten:id_kabupaten},
+        cache: false,
+        success: function(msg){
+          $('#1kecamatan').html(msg);
+          $('#1desa').html('');
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+
+    $('#1kecamatan').on('change', function(){
+      let id_kecamatan = $('#1kecamatan').val();
+
+      $.ajax({
+        type: "POST",
+        url: "{{route('getdesaprofile')}}",
+        data: {id_kecamatan:id_kecamatan},
+        cache: false,
+        success: function(msg){
+          $('#1desa').html(msg);
+        },
+        error: function(data){
+          console.log('error', data)
+        }
+      })
+    })
+  })
+</script>
+
+<script>
   var win = navigator.platform.indexOf('Win') > -1;
   if (win && document.querySelector('#sidenav-scrollbar')) {
     var options = {
