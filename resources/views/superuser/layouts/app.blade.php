@@ -45,6 +45,7 @@
 
   {{-- @include('superuser.components.plugin') --}}
   @include('superuser.components.script')
+  @stack('script_gis')
   @stack('search')
   @stack('chart')
   @stack('chart_keuangan')

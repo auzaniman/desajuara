@@ -1,3 +1,10 @@
+{{-- Leaflet GIS --}}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.8.0/dist/leaflet.css" integrity="sha512-hoalWLoI8r4UszCkZ5kL8vayOGVae1oxXe/2A4AO6J9+580uKHDO3JdHb7NzwwzK5xr/Fs0W40kiNHxM9vyTtQ==" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.8.0/dist/leaflet.js" integrity="sha512-BB3hKbKWOc9Ez/TAwyWxNXeoV9c1v6FIeYiBieIWkpLjauysF18NzgR1MBNBXf8/KABdlkX68nAhlwcDFLGPCQ==" crossorigin=""></script>
+<script src="{{url('backend/geoserver/leaflet/leaflet.js')}}"></script>
+<script src="{{url('backend/geoserver/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{url('backend/geoserver/leaflet/leaflet-providers.js')}}"></script>
+
 <!--     Fonts and icons     -->
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
 <!-- Nucleo Icons -->
@@ -14,6 +21,7 @@
 <link rel="stylesheet" href="{{url('backend/plugin/Magnific/dist/magnific-popup/magnific-popup.css')}}">
 <!-- CSS Files -->
 <link id="pagestyle" href="{{url('backend/assets/css/argon-dashboard.css?v=2.0.2')}}" rel="stylesheet" />
+
 
 <style>
   /* @font-face{

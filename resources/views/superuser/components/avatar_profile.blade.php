@@ -25,10 +25,14 @@
           <p class="mb-0 font-weight-bold text-sm">
             {{$user->rt_ktp}}
             {{$user->rw_ktp}},
-            {{$desa->name}}
-            {{$kecamatan->name}},
-            {{$kota->name}},
-            {{$provinsi->name}}
+            @if ($desa->name = null && $kecamatan->name = null && $kota->name = null && $provinsi->name = null)
+
+            @else
+              {{$desa->name}}
+              {{$kecamatan->name}},
+              {{$kota->name}},
+              {{$provinsi->name}}
+            @endif
           </p>
         </div>
       </div>
